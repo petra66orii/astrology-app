@@ -5,6 +5,7 @@ from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
 from kerykeion import AstrologicalSubject, Report, KerykeionChartSVG
+import questionary
 
 # This section of code is borrowed from the "Love Sandwiches" project
 SCOPE = [
