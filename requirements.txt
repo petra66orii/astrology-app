@@ -1,1 +1,23 @@
-# Your requirements go here
+annotated-types==0.7.0
+cachetools==5.5.0
+cattrs==23.2.3
+DateTime==5.5
+google-auth==2.34.0
+google-auth-oauthlib==1.2.1
+gspread==6.1.2
+kerykeion==4.18.1
+oauthlib==3.2.2
+pyasn1==0.6.0
+pyasn1_modules==0.4.0
+pydantic==2.8.2
+pydantic_core==2.20.1
+pyswisseph==2.10.3.2
+pytz==2022.7.1
+requests-cache==1.2.1
+requests-oauthlib==2.0.0
+rsa==4.9
+scour==0.38.2
+terminaltables==3.1.10
+url-normalize==1.4.3
+zope.interface==7.0.2
+beautifulsoup4==4.12.3
