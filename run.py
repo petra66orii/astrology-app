@@ -23,4 +23,20 @@ SHEET = GSPREAD_CLIENT.open('astrology_app')
 horoscope_sheet = SHEET.worksheet('horoscope')
 birth_chart_sheet = SHEET.worksheet('birth_chart')
 
+def start_app():
+    """
+    Starts the app by asking the user to pick an option: 
+    Horoscope or Birth Chart
+    """
+    print("Welcome to AstrologyApp!")
+    options = ['Horoscope', 'Birth Chart']
 
+    select_option = (questionary.select('Select an option:', choices=options).ask())
+
+    if select_option == 'Horoscope':
+        return 'Horoscope'
+    elif select_option == 'Birth Chart':
+        return 'Birth Chart'
+
+
+start_app()
