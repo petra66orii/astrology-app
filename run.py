@@ -14,6 +14,7 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive"
     ]
 
+# Define constant variables 
 CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
@@ -49,7 +50,7 @@ def validate_name(name):
 
 def validate_date(date):
     """
-    Validates date of birth so it is in DD/MM/YYYY format
+    Validates date of birth so it is only in DD/MM/YYYY format
     """
     try:
         valid_date = dt.strptime(date, '%d/%m/%Y')
@@ -61,28 +62,40 @@ def get_zodiac_sign(day, month):
     """
     Gets the zodiac sign of the user based on the day and month inputs.
     """
+    # Between 20 Jan and 18 Feb: Aquarius
     if (month == 1 and day >= 20) or (month == 2 and day <= 18):
         return 'Aquarius'
+    # Between 19 Feb and 20 Mar: Pisces
     elif (month == 2 and day >= 19) or (month == 3 and day <= 20):
         return 'Pisces'
+    # Between 21 Mar and 19 Apr: Aries
     elif (month == 3 and day >= 21) or (month == 4 and day <= 19):
         return 'Aries'
+    # Between 20 Apr and 20 May: Taurus
     elif (month == 4 and day >= 20) or (month == 5 and day <= 20):
         return 'Taurus'
+    # Between 21 May and 20 Jun: Gemini
     elif (month == 5 and day >= 21) or (month == 6 and day <= 20):
         return 'Gemini'
+    # Between 21 Jun and 22 Jul: Cancer
     elif (month == 6 and day >= 21) or (month == 7 and day <= 22):
         return 'Cancer'
+    # Between 23 Jul and 22 Aug: Leo
     elif (month == 7 and day >= 23) or (month == 8 and day <= 22):
         return 'Leo'
+    # Between 23 Aug and 22 Sep: Virgo
     elif (month == 8 and day >= 23) or (month == 9 and day <= 22):
         return 'Virgo'
+    # Between 23 Sep and 22 Oct: Libra
     elif (month == 9 and day >= 23) or (month == 10 and day <= 22):
         return 'Libra'
+    # Between 23 Oct and 21 Nov: Scorpio
     elif (month == 10 and day >= 23) or (month == 11 and day <= 21):
         return 'Scorpio'
+    # Between 22 Nov and 21 Dec: Sagittarius
     elif (month == 11 and day >= 22) or (month == 12 and day <= 21):
         return 'Sagittarius'
+    # Between 22 Dec and 19 Jan: Capricorn
     elif (month == 12 and day >= 22) or (month == 1 and day <= 19):
         return 'Capricorn'
     else:
@@ -96,6 +109,7 @@ def horoscope():
     print('Please enter your first name and date of birth.\n')
     print('Example:\n Name: Gerry \n Date of Birth: 20/06/1990\n')
 
+    # Validate the name 
     while True:
         name = input('Name:\n')
         try:
@@ -104,6 +118,7 @@ def horoscope():
         except TypeError as e:
             print(e)
 
+    # Validate the birthdate
     while True:
         birth_date = input('Date of Birth (DD/MM/YYYY):\n')
         try:
@@ -111,7 +126,8 @@ def horoscope():
             break
         except ValueError as e:
             print(e)
-
+    
+    # Outputs the user's zodiac sign
     zodiac_day = valid_date.day
     zodiac_month = valid_date.month
     zodiac_sign = get_zodiac_sign(zodiac_day, zodiac_month)
