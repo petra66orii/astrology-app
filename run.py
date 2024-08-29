@@ -111,5 +111,10 @@ def horoscope():
             break
         except ValueError as e:
             print(e)
+
+    zodiac_day = valid_date.day
+    zodiac_month = valid_date.month
+    zodiac_sign = get_zodiac_sign(zodiac_day, zodiac_month)
+    print(f'Hello, {name}. Your zodiac sign is {zodiac_sign}.\n')
             
 start_app()
