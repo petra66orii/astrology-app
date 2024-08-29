@@ -1,7 +1,7 @@
 # Import neccesary packages for our app
 import gspread
 from google.oauth2.service_account import Credentials
-from datetime import datetime
+from datetime import datetime as dt
 import requests
 from bs4 import BeautifulSoup
 from kerykeion import AstrologicalSubject, Report, KerykeionChartSVG
