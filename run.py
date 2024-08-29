@@ -151,7 +151,11 @@ def horoscope():
         weekly_soup = BeautifulSoup(requests.get(url_weekly).content, 'html.parser')
         print(weekly_soup.find('div', class_='main-horoscope').p.text)
     elif select_option == 'Monthly':
-        print(f'Monthly horoscope for {name}, a {zodiac_sign[0]}:')
+        print(f'Monthly horoscope for {name}, a {zodiac_sign[0]}:\n')
+        # Using BeautifulSoup, we request the monthly horoscope from horoscope.com and display it in the terminal
+        url_monthly = f'https://www.horoscope.com/us/horoscopes/general/horoscope-general-monthly.aspx?sign={zodiac_sign[1]}'
+        monthly_soup = BeautifulSoup(requests.get(url_monthly).content, 'html.parser')
+        print(monthly_soup.find('div', class_='main-horoscope').p.text)
     elif select_option == 'Yearly':
         print(f'Yearly horoscope for {name}, a {zodiac_sign[0]}:')
 
