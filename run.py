@@ -55,7 +55,7 @@ def validate_date(date):
         valid_date = dt.strptime(date, '%d/%m/%Y')
     except ValueError:
         raise ValueError('Invalid date. Please enter the date in DD/MM/YYYY format.')
-    return
+    return valid_date
 
 def horoscope():
     """
