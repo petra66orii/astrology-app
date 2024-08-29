@@ -62,8 +62,8 @@ def horoscope():
     Takes input from the user, validates it and returns the user's 
     zodiac sign and horoscope for the desired timeframe.
     """
-    print('Please enter your first name and date of birth.')
-    print('Example:\n Name: Gerry \n Date of Birth: 20/06/1990')
+    print('Please enter your first name and date of birth.\n')
+    print('Example:\n Name: Gerry \n Date of Birth: 20/06/1990\n')
 
     while True:
         name = input('Name:\n')
