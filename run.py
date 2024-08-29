@@ -140,7 +140,7 @@ def horoscope():
 
     if select_option == 'Daily':
         print(f'Daily horoscope for {name}, a {zodiac_sign[0]}:\n')
-        # Using BeautifulSoup, we request the daily horoscope from the horoscope.com and display it in the terminal
+        # Using BeautifulSoup, we request the daily horoscope from horoscope.com and display it in the terminal
         url_daily = f'https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-today.aspx?sign={zodiac_sign[1]}'
         daily_soup = BeautifulSoup(requests.get(url_daily).content, 'html.parser')
         print(daily_soup.find('div', class_='main-horoscope').p.text)
