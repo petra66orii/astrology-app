@@ -39,7 +39,7 @@ def start_app():
     if select_option == 'Horoscope':
         horoscope()
     elif select_option == 'Birth Chart':
-        return 'Birth Chart'
+        birth_chart()
 
 def validate_name(name):
     """
@@ -173,6 +173,9 @@ def horoscope():
         horoscope_text = yearly_soup.find('section', id='personal').p.text
         formatted_text = textwrap.fill(horoscope_text, width=shutil.get_terminal_size().columns)
         print(formatted_text)
+
+def birth_chart():
+    print('Birth chart coming soon!')
 
 
 start_app()
