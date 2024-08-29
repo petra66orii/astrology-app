@@ -62,12 +62,6 @@ def get_zodiac_sign(day, month):
     """
     Gets the zodiac sign of the user based on the day and month inputs.
     """
-    # Between 20 Jan and 18 Feb: Aquarius
-    if (month == 1 and day >= 20) or (month == 2 and day <= 18):
-        return 'Aquarius'
-    # Between 19 Feb and 20 Mar: Pisces
-    elif (month == 2 and day >= 19) or (month == 3 and day <= 20):
-        return 'Pisces'
     # Between 21 Mar and 19 Apr: Aries
     elif (month == 3 and day >= 21) or (month == 4 and day <= 19):
         return 'Aries'
@@ -97,7 +91,13 @@ def get_zodiac_sign(day, month):
         return 'Sagittarius'
     # Between 22 Dec and 19 Jan: Capricorn
     elif (month == 12 and day >= 22) or (month == 1 and day <= 19):
-        return 'Capricorn'
+        return 'Capricorn', 10
+    # Between 20 Jan and 18 Feb: Aquarius
+    elif (month == 1 and day >= 20) or (month == 2 and day <= 18):
+        return 'Aquarius', 11
+    # Between 19 Feb and 20 Mar: Pisces
+    elif (month == 2 and day >= 19) or (month == 3 and day <= 20):
+        return 'Pisces', 12
     else:
         return 'Invalid date'
 
