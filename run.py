@@ -73,4 +73,12 @@ def horoscope():
         except TypeError as e:
             print(e)
 
+    while True:
+        birth_date = input('Date of Birth (DD/MM/YYYY):\n')
+        try:
+            validate_date(birth_date)
+            break
+        except ValueError as e:
+            print(e)
+            
 start_app()
