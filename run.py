@@ -34,7 +34,7 @@ def start_app():
     select_option = (questionary.select('Select an option:', choices=options).ask())
 
     if select_option == 'Horoscope':
-        return 'Horoscope'
+        horoscope()
     elif select_option == 'Birth Chart':
         return 'Birth Chart'
 
@@ -47,5 +47,21 @@ def validate_name(name):
         raise TypeError('Invalid name. Name can only contain alphabetic characters and have max 50 or less characters.')
     return
 
+
+def horoscope():
+    """
+    Takes input from the user, validates it and returns the user's 
+    zodiac sign and horoscope for the desired timeframe.
+    """
+    print('Please enter your first name and date of birth.')
+    print('Example:\n Name: Gerry \n Date of Birth: 20/06/1990')
+
+    while True:
+        name = input('Name:\n')
+        try:
+            validate_name(name)
+            break
+        except TypeError as e:
+            print(e)
 
 start_app()
