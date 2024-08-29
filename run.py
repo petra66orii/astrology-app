@@ -107,7 +107,7 @@ def horoscope():
     while True:
         birth_date = input('Date of Birth (DD/MM/YYYY):\n')
         try:
-            validate_date(birth_date)
+            valid_date = validate_date(birth_date)
             break
         except ValueError as e:
             print(e)
