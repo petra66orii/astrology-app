@@ -15,6 +15,6 @@ Whether you're a believer in astrology or not, it's still a fun way to find out 
 
 When I first implemented the `get_zodiac_sign()` function in the `horoscope()` function, I'd get the following error message: 
 
-![First bug screenshot](documentation/bug_number_1.png)
+![First bug screenshot](assets/images/bug-number1.png/)
 
 The fix as easy though: Instead of a simple `return` to exit the function, I put in `return valid_date` which fixed the bug
