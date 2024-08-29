@@ -139,12 +139,17 @@ def horoscope():
     select_option = (questionary.select('Please choose the timeframe of your desired horoscope:', choices=options, ).ask())
 
     if select_option == 'Daily':
-        print(f'Daily horoscope for {name}, a {zodiac_sign}:')
+        print(f'Daily horoscope for {name}, a {zodiac_sign[0]}:\n')
+        # Using BeautifulSoup, we request the daily horoscope from the horoscope.com and display it in the terminal
+        url_daily = f'https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-today.aspx?sign={zodiac_sign[1]}'
+        daily_soup = BeautifulSoup(requests.get(url_daily).content, 'html.parser')
+        print(daily_soup.find('div', class_='main-horoscope').p.text)
     elif select_option == 'Weekly':
-        print(f'Weekly horoscope for {name}, a {zodiac_sign}:')
+        print(f'Weekly horoscope for {name}, a {zodiac_sign[0]}:')
     elif select_option == 'Monthly':
-        print(f'Monthly horoscope for {name}, a {zodiac_sign}:')
+        print(f'Monthly horoscope for {name}, a {zodiac_sign[0]}:')
     elif select_option == 'Yearly':
-        print(f'Yearly horoscope for {name}, a {zodiac_sign}:')
-            
+        print(f'Yearly horoscope for {name}, a {zodiac_sign[0]}:')
+
+
 start_app()
