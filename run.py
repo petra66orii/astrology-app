@@ -6,6 +6,8 @@ import requests
 from bs4 import BeautifulSoup
 from kerykeion import AstrologicalSubject, Report, KerykeionChartSVG
 import questionary
+import textwrap
+import shutil
 
 # This section of code is borrowed from the "Love Sandwiches" project
 SCOPE = [
@@ -143,25 +145,34 @@ def horoscope():
         # Using BeautifulSoup, we request the daily horoscope from horoscope.com and display it in the terminal
         url_daily = f'https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-today.aspx?sign={zodiac_sign[1]}'
         daily_soup = BeautifulSoup(requests.get(url_daily).content, 'html.parser')
-        print(daily_soup.find('div', class_='main-horoscope').p.text)
+        horoscope_text = daily_soup.find('div', class_='main-horoscope').p.text
+        # This line of code was taken and adapted from a StackOverflow forum page - link in README.md
+        formatted_text = textwrap.fill(horoscope_text, width=shutil.get_terminal_size().columns)
+        print(formatted_text)
     elif select_option == 'Weekly':
         print(f'Weekly horoscope for {name}, a {zodiac_sign[0]}:\n')
         # Using BeautifulSoup, we request the weekly horoscope from horoscope.com and display it in the terminal
         url_weekly = f'https://www.horoscope.com/us/horoscopes/general/horoscope-general-weekly.aspx?sign={zodiac_sign[1]}'
         weekly_soup = BeautifulSoup(requests.get(url_weekly).content, 'html.parser')
-        print(weekly_soup.find('div', class_='main-horoscope').p.text)
+        horoscope_text = weekly_soup.find('div', class_='main-horoscope').p.text
+        formatted_text = textwrap.fill(horoscope_text, width=shutil.get_terminal_size().columns)
+        print(formatted_text)
     elif select_option == 'Monthly':
         print(f'Monthly horoscope for {name}, a {zodiac_sign[0]}:\n')
         # Using BeautifulSoup, we request the monthly horoscope from horoscope.com and display it in the terminal
         url_monthly = f'https://www.horoscope.com/us/horoscopes/general/horoscope-general-monthly.aspx?sign={zodiac_sign[1]}'
         monthly_soup = BeautifulSoup(requests.get(url_monthly).content, 'html.parser')
-        print(monthly_soup.find('div', class_='main-horoscope').p.text)
+        horoscope_text = monthly_soup.find('div', class_='main-horoscope').p.text
+        formatted_text = textwrap.fill(horoscope_text, width=shutil.get_terminal_size().columns)
+        print(formatted_text)
     elif select_option == 'Yearly':
         print(f'Yearly horoscope for {name}, a {zodiac_sign[0]}:\n')
         # Using BeautifulSoup, we request the yearly horoscope from horoscope.com and display it in the terminal
         url_yearly = f'https://www.horoscope.com/us/horoscopes/yearly/2024-horoscope-{zodiac_sign[0]}.aspx'
         yearly_soup = BeautifulSoup(requests.get(url_yearly).content, 'html.parser')
-        print(yearly_soup.find('section', id='personal').p.text)
+        horoscope_text = yearly_soup.find('section', id='personal').p.text
+        formatted_text = textwrap.fill(horoscope_text, width=shutil.get_terminal_size().columns)
+        print(formatted_text)
 
 
 start_app()
