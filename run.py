@@ -132,8 +132,9 @@ def horoscope():
     zodiac_day = valid_date.day
     zodiac_month = valid_date.month
     zodiac_sign = get_zodiac_sign(zodiac_day, zodiac_month)
-    print(f'Hello, {name}. Your zodiac sign is {zodiac_sign}.\n')
+    print(f'Hello, {name}. Your zodiac sign is {zodiac_sign[0]}.\n')
 
+    # Display timeframe options to choose from
     options = ['Daily', 'Weekly', 'Monthly', 'Yearly']
     select_option = (questionary.select('Please choose the timeframe of your desired horoscope:', choices=options, ).ask())
 
