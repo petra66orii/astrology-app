@@ -47,6 +47,15 @@ def validate_name(name):
         raise TypeError('Invalid name. Name can only contain alphabetic characters and have max 50 or less characters.')
     return
 
+def validate_date(date):
+    """
+    Validates date of birth so it is in DD/MM/YYYY format
+    """
+    try:
+        valid_date = dt.strptime(date, '%d/%m/%Y')
+    except ValueError:
+        raise ValueError('Invalid date. Please enter the date in DD/MM/YYYY format.')
+    return
 
 def horoscope():
     """
