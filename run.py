@@ -38,5 +38,14 @@ def start_app():
     elif select_option == 'Birth Chart':
         return 'Birth Chart'
 
+def validate_name(name):
+    """
+    Validates name so it can only contain alphabetic characters 
+    and can't be longer than 50 characters.
+    """
+    if not name.isalpha() or len(name) >= 50:
+        raise TypeError('Invalid name. Name can only contain alphabetic characters and have max 50 or less characters.')
+    return
+
 
 start_app()
