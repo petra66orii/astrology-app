@@ -60,35 +60,36 @@ def validate_date(date):
 
 def get_zodiac_sign(day, month):
     """
-    Gets the zodiac sign of the user based on the day and month inputs.
+    Returns a tuple containing the user's zodiac sign 
+    and its order in the zodiac list based on the day and month inputs.
     """
     # Between 21 Mar and 19 Apr: Aries
-    elif (month == 3 and day >= 21) or (month == 4 and day <= 19):
-        return 'Aries'
+    if (month == 3 and day >= 21) or (month == 4 and day <= 19):
+        return 'Aries', 1
     # Between 20 Apr and 20 May: Taurus
     elif (month == 4 and day >= 20) or (month == 5 and day <= 20):
-        return 'Taurus'
+        return 'Taurus', 2
     # Between 21 May and 20 Jun: Gemini
     elif (month == 5 and day >= 21) or (month == 6 and day <= 20):
-        return 'Gemini'
+        return 'Gemini', 3
     # Between 21 Jun and 22 Jul: Cancer
     elif (month == 6 and day >= 21) or (month == 7 and day <= 22):
-        return 'Cancer'
+        return 'Cancer', 4
     # Between 23 Jul and 22 Aug: Leo
     elif (month == 7 and day >= 23) or (month == 8 and day <= 22):
-        return 'Leo'
+        return 'Leo', 5
     # Between 23 Aug and 22 Sep: Virgo
     elif (month == 8 and day >= 23) or (month == 9 and day <= 22):
-        return 'Virgo'
+        return 'Virgo', 6
     # Between 23 Sep and 22 Oct: Libra
     elif (month == 9 and day >= 23) or (month == 10 and day <= 22):
-        return 'Libra'
+        return 'Libra', 7
     # Between 23 Oct and 21 Nov: Scorpio
     elif (month == 10 and day >= 23) or (month == 11 and day <= 21):
-        return 'Scorpio'
+        return 'Scorpio', 8
     # Between 22 Nov and 21 Dec: Sagittarius
     elif (month == 11 and day >= 22) or (month == 12 and day <= 21):
-        return 'Sagittarius'
+        return 'Sagittarius', 9
     # Between 22 Dec and 19 Jan: Capricorn
     elif (month == 12 and day >= 22) or (month == 1 and day <= 19):
         return 'Capricorn', 10
