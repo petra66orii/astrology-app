@@ -1,14 +1,21 @@
 # Astrology App
 
-This is a simple astrology within a Python terminal. This app is capable of generating and interpretating your birth chart (all is required is your date of birth, time of birth and location of your birth), or give your  daily, weekly, monthly, or even yearly horoscope - for which you only need to put in your date of birth. 
+This is a simple astrology app that works within a terminal. The app offers a comprehensive set of features that deliver personalized astrological insights. Users can input their birth details (date, time and location) to generate detailed birth charts, including information like the sun sign (the main zodiac sign), the moon sign or the ascendant sign. The app can also provide a user's daily, weekly, monthly and even yearly horoscopes depending in the user's zodiac sign, helping them to gain insights into their daily lives or to see any long-term trends. The app offers accurate and insightful astrological guidance, whilst maintaining a user-friendly design and has a robust validation process in place.
 
-Whether you're a believer in astrology or not, it's still a fun way to find out more about yourself.
+# Project Goals
+
+The main goal of this app is to generate meaningful insights into the user's lives, by leveraging APIs and external libraries like Kerykeion and BeautifulSoup. User expectations are met, such as:
+
+* Providing accurate astrological data into visually-appealing birth chart reports that can be saved for future reference
+* Providing detailed daily, weekly, monthly and yearly horoscopes 
+* Providing compatibility horoscopes to gain insights into possible compatibility issues and/or advantages.
 
 # User Stories
 
-* As a first time user, I would like to find out new information about myself.
-* As a first time user, I would like to find a clear guided app that doesn't confuse me.
-* As a first time user, I would like to be able to save this information.
+* As a user, I want to input my birth details so that I can receive a personalized birth chart. 
+* As a user, I want to see my daily horoscope so that I can plan my day accordingly.
+* As a user, I want to make sure that my input is validated so that I can get accurate information.
+* As a user, I want to learn more about the significance of planetary positions so that I can understand my astrological profile better. 
 
 # Deployment and Local Development
 
