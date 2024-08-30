@@ -32,7 +32,7 @@ def start_app():
     Horoscope or Birth Chart
     """
     print("Welcome to AstrologyApp!")
-    options = ['Horoscope', 'Birth Chart']
+    options = ['Horoscope', 'Birth Chart', 'Compatibility']
 
     select_option = (questionary.select('Select an option:', choices=options).ask())
 
@@ -40,6 +40,8 @@ def start_app():
         horoscope()
     elif select_option == 'Birth Chart':
         birth_chart()
+    elif select_option == 'Compatibility':
+        get_compatibility()
 
 def validate_name(name):
     """
@@ -183,5 +185,12 @@ def horoscope():
 def birth_chart():
     print('Birth chart coming soon!')
 
+def get_compatibility():
+    print("Find out if you're compatible!\n")
+    print('Please fill out the necessary information:\n')
+    print('Example:\n Name: Gerry \n Date of Birth: 20/06/1990\n')
+
+
+    print('It works!')
 
 start_app()
