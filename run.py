@@ -47,6 +47,9 @@ def validate_name(name):
     """
     Validates name so it can only contain alphabetic characters 
     and can't be longer than 50 characters.
+
+    Args: 
+        name (str): A string containing a name. 
     """
     if not name.isalpha() or len(name) >= 50:
         raise TypeError('Invalid name. Name can only contain alphabetic characters and have max 50 or less characters.')
@@ -54,7 +57,10 @@ def validate_name(name):
 
 def validate_date(date):
     """
-    Validates date of birth so it is only in DD/MM/YYYY format
+    Validates date of birth so it is only in DD/MM/YYYY format.
+
+    Args:
+        date (obj): The date of birth (DD/MM/YYYY)
     """
     try:
         valid_date = dt.strptime(date, '%d/%m/%Y')
@@ -66,6 +72,14 @@ def get_zodiac_sign(day, month):
     """
     Returns a tuple containing the user's zodiac sign 
     and its order in the zodiac list based on the day and month inputs.
+
+    Args:
+        day (int): Day of the month.
+        month (int): Months of the year.
+
+    Returns:
+        zodiac_sign (tuple): Returns a tuple containing the zodiac name
+        and order on the standard list.
     """
     # Between 21 Mar and 19 Apr: Aries
     if (month == 3 and day >= 21) or (month == 4 and day <= 19):
