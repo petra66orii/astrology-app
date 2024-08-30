@@ -236,6 +236,14 @@ def get_compatibility():
         except ValueError as e:
             print(e)
 
-    print('It works!')
+    zodiac_day1 = valid_date1.day
+    zodiac_month1 = valid_date1.month
+    zodiac_day2 = valid_date2.day
+    zodiac_month2 = valid_date2.month
+    zodiac_sign1 = get_zodiac_sign(zodiac_day1, zodiac_month1)
+    zodiac_sign2 = get_zodiac_sign(zodiac_day2, zodiac_month2)
+    print(f"Hello, {name1}. Your zodiac sign is {zodiac_sign1[0]},\nand {name2}'s zodiac sign is {zodiac_sign2[0]}.\n")
+    print("Let's see your compatibility!")
+
 
 start_app()
