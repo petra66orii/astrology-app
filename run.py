@@ -104,6 +104,25 @@ def get_zodiac_sign(day, month):
     else:
         return 'Invalid date'
 
+
+def get_horoscope(url, timeframe):
+    """
+    Gets the desired horoscope and formats it from the given URL based on the timeframe.
+    This function was created using the BeautifulSoup4 library.
+
+    Args:
+        url (str): The URL BeautifulSoup needs to request information from.
+        timeframe (str): The timeframe the user chooses for their horoscope.  
+    """
+    soup = BeautifulSoup(requests.get(url).content, 'html.parser')
+    if timeframe == 'Yearly':
+        horoscope_text = soup.find('section', id='personal').p.text
+    else:
+        horoscope_text = soup.find('div', class_='main-horoscope').p.text
+        # This line of code was taken and adapted from a StackOverflow forum page - link in README.md
+    formatted_text = textwrap.fill(horoscope_text, width=shutil.get_terminal_size().columns)
+    return formatted_text
+
 def horoscope():
     """
     Takes input from the user, validates it and returns the user's 
