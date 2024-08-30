@@ -190,6 +190,31 @@ def get_compatibility():
     print('Please fill out the necessary information:\n')
     print('Example:\n Name: Gerry \n Date of Birth: 20/06/1990\n')
 
+      # Valdate the name
+    while True:
+        print('Please enter your first name:\n')
+        name1 = input('Name:\n')
+        print('Please enter their first name:\n')
+        name2 = input('Name:\n')
+        try:
+            validate_name(name1)
+            validate_name(name2)
+            break
+        except TypeError as e:
+            print(e)
+
+        # Validate the birthdate
+    while True:
+        print('Please enter your date of birth:\n')
+        birth_date1 = input('Date of Birth (DD/MM/YYYY):\n')
+        print('Please enter their birth date:\n')
+        birth_date2 = input('Date of Birth (DD/MM/YYYY):\n')
+        try:
+            valid_date1 = validate_date(birth_date1)
+            valid_date2 = validate_date(birth_date2)
+            break
+        except ValueError as e:
+            print(e)
 
     print('It works!')
 
