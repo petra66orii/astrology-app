@@ -135,7 +135,7 @@ def get_horoscope(url, timeframe):
         horoscope_text = soup.find('section', id='personal').p.text
     else:
         horoscope_text = soup.find('div', class_='main-horoscope').p.text
-        # This line of code was taken and adapted from a StackOverflow forum page - link in README.md
+    # This line of code was taken and adapted from a StackOverflow forum page - link in README.md
     formatted_text = textwrap.fill(horoscope_text, width=shutil.get_terminal_size().columns)
     return formatted_text
 
@@ -197,14 +197,20 @@ def horoscope():
         print(horoscope_text)
 
 def birth_chart():
+    """
+    Gets the birth chart and displays it in the terminal
+    """
     print('Birth chart coming soon!')
 
 def get_compatibility():
+    """
+    Gets the compatibility between two zodiac signs and displays it
+    """
     print("Find out if you're compatible!\n")
     print('Please fill out the necessary information:\n')
     print('Example:\n Name: Gerry \n Date of Birth: 20/06/1990\n')
 
-      # Valdate the name
+    # Valdate the name
     while True:
         print('Please enter your first name:\n')
         name1 = input('Name:\n')
@@ -217,7 +223,7 @@ def get_compatibility():
         except TypeError as e:
             print(e)
 
-        # Validate the birthdate
+    # Validate the birthdate
     while True:
         print('Please enter your date of birth:\n')
         birth_date1 = input('Date of Birth (DD/MM/YYYY):\n')
