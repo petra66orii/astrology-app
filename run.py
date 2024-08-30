@@ -245,5 +245,11 @@ def get_compatibility():
     print(f"Hello, {name1}. Your zodiac sign is {zodiac_sign1[0]},\nand {name2}'s zodiac sign is {zodiac_sign2[0]}.\n")
     print("Let's see your compatibility!")
 
+    url = f'https://www.horoscope.com/love/compatibility/{zodiac_sign1[0]}-{zodiac_sign2[0]}'
+    soup = BeautifulSoup(requests.get(url).content, 'html.parser')
+    horoscope_text = soup.find('div', class_='module-skin').p.text
+    formatted_text = textwrap.fill(horoscope_text, width=shutil.get_terminal_size().columns)
+    print(formatted_text)
+
 
 start_app()
