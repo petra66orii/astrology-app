@@ -72,6 +72,8 @@ def get_zodiac_sign(day, month):
     """
     Returns a tuple containing the user's zodiac sign 
     and its order in the zodiac list based on the day and month inputs.
+    Inner tuple contains the corresponding start months and days, end months and end days
+    respectively for each zodiac sign, followed by sign name and order in its list.
 
     Args:
         day (int): Day of the month.
@@ -81,44 +83,31 @@ def get_zodiac_sign(day, month):
         zodiac_sign (tuple): Returns a tuple containing the zodiac name
         and order on the standard list.
     """
-    # Between 21 Mar and 19 Apr: Aries
-    if (month == 3 and day >= 21) or (month == 4 and day <= 19):
-        return 'Aries', 1
-    # Between 20 Apr and 20 May: Taurus
-    elif (month == 4 and day >= 20) or (month == 5 and day <= 20):
-        return 'Taurus', 2
-    # Between 21 May and 20 Jun: Gemini
-    elif (month == 5 and day >= 21) or (month == 6 and day <= 20):
-        return 'Gemini', 3
-    # Between 21 Jun and 22 Jul: Cancer
-    elif (month == 6 and day >= 21) or (month == 7 and day <= 22):
-        return 'Cancer', 4
-    # Between 23 Jul and 22 Aug: Leo
-    elif (month == 7 and day >= 23) or (month == 8 and day <= 22):
-        return 'Leo', 5
-    # Between 23 Aug and 22 Sep: Virgo
-    elif (month == 8 and day >= 23) or (month == 9 and day <= 22):
-        return 'Virgo', 6
-    # Between 23 Sep and 22 Oct: Libra
-    elif (month == 9 and day >= 23) or (month == 10 and day <= 22):
-        return 'Libra', 7
-    # Between 23 Oct and 21 Nov: Scorpio
-    elif (month == 10 and day >= 23) or (month == 11 and day <= 21):
-        return 'Scorpio', 8
-    # Between 22 Nov and 21 Dec: Sagittarius
-    elif (month == 11 and day >= 22) or (month == 12 and day <= 21):
-        return 'Sagittarius', 9
-    # Between 22 Dec and 19 Jan: Capricorn
-    elif (month == 12 and day >= 22) or (month == 1 and day <= 19):
-        return 'Capricorn', 10
-    # Between 20 Jan and 18 Feb: Aquarius
-    elif (month == 1 and day >= 20) or (month == 2 and day <= 18):
-        return 'Aquarius', 11
-    # Between 19 Feb and 20 Mar: Pisces
-    elif (month == 2 and day >= 19) or (month == 3 and day <= 20):
-        return 'Pisces', 12
-    else:
+
+    # Validate the date within the function
+    if not (1 <= month <= 12 and 1 <= day <= 31):
         return 'Invalid date'
+
+    zodiac_signs = [
+    ((3, 21, 4, 19), 'Aries', 1),
+    ((4, 20, 5, 20), 'Taurus', 2),
+    ((5, 21, 6, 20), 'Gemini', 3),
+    ((6, 21, 7, 22), 'Cancer', 4),
+    ((7, 23, 8, 22), 'Leo', 5),
+    ((8, 23, 9, 22), 'Virgo', 6),
+    ((9, 23, 10, 22), 'Libra', 7),
+    ((10, 23, 11, 21), 'Scorpio', 8),
+    ((11, 22, 12, 21), 'Sagittarius', 9),
+    ((12, 22, 1, 19), 'Capricorn', 10),
+    ((1, 20, 2, 18), 'Aquarius', 11),
+    ((2, 19, 3, 20), 'Pisces', 12)
+    ]
+
+    for (start_month, start_day, end_month, end_day), sign, order in zodiac_signs:
+        if (month == start_month and day >= start_day) or (month == end_month and day <= end_day):
+            return sign, order
+
+    return 'Invalid date'
 
 
 def get_horoscope(url, timeframe):
