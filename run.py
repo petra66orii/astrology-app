@@ -68,6 +68,19 @@ def validate_date(date):
         raise ValueError('Invalid date. Please enter the date in DD/MM/YYYY format.')
     return valid_date
 
+def validate_time(time):
+    """
+    Validates the time of birth so it is 24-hour format (HH:MM)
+
+    Args:
+        time (obj): The time of birth (HH:MM)
+    """
+    try:
+        valid_time = dt.strptime(time, '%H:%M')
+    except ValueError:
+        raise ValueError('Invalid time. Please enter the time in 24-hour HH:MM format.')
+    return valid_time
+
 def get_zodiac_sign(day, month):
     """
     Returns a tuple containing the user's zodiac sign 
