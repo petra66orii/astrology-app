@@ -262,7 +262,7 @@ def birth_chart():
         print(e)
     
 
-    print('Birth chart coming soon!')
+        print('Birth chart coming soon!')
 
 def get_compatibility():
     """
