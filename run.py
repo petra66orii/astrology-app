@@ -89,6 +89,20 @@ def validate_time(time):
         raise ValueError('Invalid time. Please enter the time in 24-hour HH:MM format.')
     return valid_time
 
+def prompt_user_for_name():
+    """
+    Prompts user to input their name.
+    """
+    while True:
+        name = input('Name:\n')
+        try:
+            validate_name(name)
+            break
+        except TypeError as e:
+            print(e)
+    return name
+
+
 def get_zodiac_sign(day, month):
     """
     Returns a tuple containing the user's zodiac sign 
@@ -157,14 +171,7 @@ def horoscope():
     print('Please enter your first name and date of birth.\n')
     print('Example:\n Name: Gerry \n Date of Birth: 20/06/1990\n')
 
-    # Validate the name 
-    while True:
-        name = input('Name:\n')
-        try:
-            validate_name(name)
-            break
-        except TypeError as e:
-            print(e)
+    name = prompt_user_for_name()
 
     # Validate the birthdate
     while True:
@@ -210,13 +217,7 @@ def birth_chart():
     """
     Gets the birth chart and displays it in the terminal
     """
-    while True:
-        name = input('Name:\n')
-        try:
-            validate_name(name)
-            break
-        except TypeError as e:
-            print(e)
+    name = prompt_user_for_name()
 
     # Validate the birthdate
     while True:
@@ -245,18 +246,10 @@ def get_compatibility():
     print('Please fill out the necessary information:\n')
     print('Example:\n Name: Gerry \n Date of Birth: 20/06/1990\n')
 
-    # Valdate the name
-    while True:
-        print('Please enter your first name:\n')
-        name1 = input('Name:\n')
-        print('Please enter their first name:\n')
-        name2 = input('Name:\n')
-        try:
-            validate_name(name1)
-            validate_name(name2)
-            break
-        except TypeError as e:
-            print(e)
+    print('Please enter your first name:\n')
+    name1 = prompt_user_for_name()
+    print('Please enter their first name:\n')
+    name2 = prompt_user_for_name()
 
     # Validate the birthdate
     while True:
