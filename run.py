@@ -115,6 +115,18 @@ def prompt_user_for_date():
             print(e)
     return valid_date
 
+def prompt_user_for_time():
+    """
+    Prompts user to input their time of birth and validates it.
+    """
+    while True:
+        birth_time = input('Time of Birth (24-hour format - HH:MM):\n')
+        try:
+            valid_time = validate_time(birth_time)
+            break
+        except ValueError as e:
+            print(e)
+    return valid_time
 
 def get_zodiac_sign(day, month):
     """
@@ -224,15 +236,9 @@ def birth_chart():
     """
     name = prompt_user_for_name()
     valid_date = prompt_user_for_date()
+    print('Please enter your time of birth:\n')
+    valid_time = prompt_user_for_time()
 
-    # Validate the birthtime
-    while True:
-        birth_time = input('Time of Birth (24-hour format - HH:MM):\n')
-        try:
-            valid_time = validate_time(birth_time)
-            break
-        except ValueError as e:
-            print(e)
     print('Birth chart coming soon!')
 
 def get_compatibility():
