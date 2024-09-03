@@ -6,7 +6,9 @@ google-auth==2.34.0
 google-auth-oauthlib==1.2.1
 gspread==6.1.2
 kerykeion==4.18.1
+numpy==2.1.1
 oauthlib==3.2.2
+pandas==2.2.2
 prompt-toolkit==3.0.36
 pyasn1==0.6.0
 pyasn1_modules==0.4.0
@@ -20,6 +22,7 @@ requests-oauthlib==2.0.0
 rsa==4.9
 scour==0.38.2
 terminaltables==3.1.10
+tzdata==2024.1
 url-normalize==1.4.3
 zope.interface==7.0.2
 beautifulsoup4==4.12.3
