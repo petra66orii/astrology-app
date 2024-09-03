@@ -242,6 +242,25 @@ def birth_chart():
     valid_date = prompt_user_for_date()
     print('Please enter your time of birth:\n')
     valid_time = prompt_user_for_time()
+    print('Please enter your location of birth:\n')
+    location_city = input('City:\n')
+    location_country = input('Country:\n')
+
+    try:
+        chart = AstrologicalSubject(
+            name=name, 
+            year=valid_date.year, 
+            month=valid_date.month, 
+            day=valid_date.day, 
+            hour=valid_time.hour, 
+            minute=valid_time.minute, 
+            city=location_city
+        )
+        report = Report(chart)
+        print(f'Hello, {name}. Your Sun Sign is {chart.sun}.\nYour Moon Sign is {chart.moon}.\nYour Rising Sign is {chart.first_house}.\nHere is a more comprehensive report:\n{report}')
+    except KerykeionException as e:
+        print(e)
+    
 
     print('Birth chart coming soon!')
 
