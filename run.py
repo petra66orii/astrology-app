@@ -266,6 +266,9 @@ def birth_chart():
     location_country = input('Country:\n')
 
     try:
+
+        lat, long = fetch_coordinates_from_dataset(location_city, cities_df)
+
         chart = AstrologicalSubject(
             name=name, 
             year=valid_date.year, 
@@ -273,7 +276,8 @@ def birth_chart():
             day=valid_date.day, 
             hour=valid_time.hour, 
             minute=valid_time.minute, 
-            city=location_city
+            lat=lat,
+            lng=long
         )
         report = Report(chart)
         print(f'Hello, {name}. Your Sun Sign is {chart.sun}.\nYour Moon Sign is {chart.moon}.\nYour Rising Sign is {chart.first_house}.\nHere is a more comprehensive report:\n{report}')
