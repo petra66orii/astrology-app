@@ -130,6 +130,23 @@ def prompt_user_for_time():
             print(e)
     return valid_time
 
+    def fetch_coordinates_from_dataset(city, df):
+        """
+        Gets the longitude and latitude from the cities-df dataset.
+
+        Args:
+            city (str): The city/town where the user is born.
+            df (obj): The dataset from which the data is extracted from.
+        """
+        cities_df = pd.read_csv('assets/datasets/cities-df.csv')
+        try:
+            city_data = df[df['City'].str.lower() == city.lower()]
+            lat = city_data.iloc[0]['Latitude']
+            long = city_data.iloc[0]['Longitude']
+        except ValueError:
+            raise ValueError('City not found.')
+
+
 def get_zodiac_sign(day, month):
     """
     Returns a tuple containing the user's zodiac sign 
