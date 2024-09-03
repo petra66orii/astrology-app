@@ -5,6 +5,8 @@ from datetime import datetime as dt
 import requests
 from bs4 import BeautifulSoup
 from kerykeion import AstrologicalSubject, Report, KerykeionChartSVG
+from kerykeion import KerykeionException
+import pandas as pd 
 import questionary
 import textwrap
 import shutil
