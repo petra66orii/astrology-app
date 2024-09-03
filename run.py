@@ -202,6 +202,31 @@ def birth_chart():
     """
     Gets the birth chart and displays it in the terminal
     """
+    while True:
+        name = input('Name:\n')
+        try:
+            validate_name(name)
+            break
+        except TypeError as e:
+            print(e)
+
+    # Validate the birthdate
+    while True:
+        birth_date = input('Date of Birth (DD/MM/YYYY):\n')
+        try:
+            valid_date = validate_date(birth_date)
+            break
+        except ValueError as e:
+            print(e)
+
+    # Validate the birthtime
+    while True:
+        birth_time = input('Time of Birth (24-hour format - HH:MM):\n')
+        try:
+            valid_time = validate_time(birth_time)
+            break
+        except ValueError as e:
+            print(e)
     print('Birth chart coming soon!')
 
 def get_compatibility():
