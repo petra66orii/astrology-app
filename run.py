@@ -102,6 +102,19 @@ def prompt_user_for_name():
             print(e)
     return name
 
+def prompt_user_for_date():
+    """
+    Prompts user to input their date of birth and validates it.
+    """
+    while True:
+        birth_date = input('Date of Birth (DD/MM/YYYY):\n')
+        try:
+            valid_date = validate_date(birth_date)
+            break
+        except ValueError as e:
+            print(e)
+    return valid_date
+
 
 def get_zodiac_sign(day, month):
     """
@@ -172,15 +185,7 @@ def horoscope():
     print('Example:\n Name: Gerry \n Date of Birth: 20/06/1990\n')
 
     name = prompt_user_for_name()
-
-    # Validate the birthdate
-    while True:
-        birth_date = input('Date of Birth (DD/MM/YYYY):\n')
-        try:
-            valid_date = validate_date(birth_date)
-            break
-        except ValueError as e:
-            print(e)
+    valid_date = prompt_user_for_date()
     
     # Outputs the user's zodiac sign
     zodiac_day = valid_date.day
@@ -218,15 +223,7 @@ def birth_chart():
     Gets the birth chart and displays it in the terminal
     """
     name = prompt_user_for_name()
-
-    # Validate the birthdate
-    while True:
-        birth_date = input('Date of Birth (DD/MM/YYYY):\n')
-        try:
-            valid_date = validate_date(birth_date)
-            break
-        except ValueError as e:
-            print(e)
+    valid_date = prompt_user_for_date()
 
     # Validate the birthtime
     while True:
@@ -251,18 +248,10 @@ def get_compatibility():
     print('Please enter their first name:\n')
     name2 = prompt_user_for_name()
 
-    # Validate the birthdate
-    while True:
-        print('Please enter your date of birth:\n')
-        birth_date1 = input('Date of Birth (DD/MM/YYYY):\n')
-        print('Please enter their birth date:\n')
-        birth_date2 = input('Date of Birth (DD/MM/YYYY):\n')
-        try:
-            valid_date1 = validate_date(birth_date1)
-            valid_date2 = validate_date(birth_date2)
-            break
-        except ValueError as e:
-            print(e)
+    print('Please enter your date of birth:\n')
+    valid_date1 = prompt_user_for_date()
+    print('Please enter their birth date:\n')
+    valid_date2 = prompt_user_for_date()
 
     zodiac_day1 = valid_date1.day
     zodiac_month1 = valid_date1.month
