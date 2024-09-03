@@ -144,6 +144,7 @@ def fetch_coordinates_from_dataset(city, df):
         city_data = df[df['City'].str.lower() == city.lower()]
         lat = city_data.iloc[0]['Latitude']
         long = city_data.iloc[0]['Longitude']
+        return lat, long
     except ValueError:
         raise ValueError('City not found.')
 
