@@ -28,6 +28,8 @@ SHEET = GSPREAD_CLIENT.open('astrology_app')
 horoscope_sheet = SHEET.worksheet('horoscope')
 birth_chart_sheet = SHEET.worksheet('birth_chart')
 
+cities_df = pd.read_csv('assets/datasets/cities-df.csv')
+
 def start_app():
     """
     Starts the app by asking the user to pick an option: 
@@ -138,7 +140,6 @@ def fetch_coordinates_from_dataset(city, df):
         city (str): The city/town where the user is born.
         df (obj): The dataset from which the data is extracted from.
     """
-    cities_df = pd.read_csv('assets/datasets/cities-df.csv')
     try:
         city_data = df[df['City'].str.lower() == city.lower()]
         lat = city_data.iloc[0]['Latitude']
