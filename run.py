@@ -283,6 +283,8 @@ def birth_chart():
         print(f'Hello, {name}. Your Sun Sign is {chart.sun}.\nYour Moon Sign is {chart.moon}.\nYour Rising Sign is {chart.first_house}.\nHere is a more comprehensive report:\n{report}')
     except KerykeionException as e:
         print(e)
+    except ValueError as e:
+        print('City not found.')
     
 
         print('Birth chart coming soon!')
