@@ -234,7 +234,9 @@ def birth_chart():
     """
     Gets the birth chart and displays it in the terminal
     """
+    print('Please enter your first name:\n')
     name = prompt_user_for_name()
+    print('Please enter your date of birth:\n')
     valid_date = prompt_user_for_date()
     print('Please enter your time of birth:\n')
     valid_time = prompt_user_for_time()
