@@ -51,9 +51,17 @@ def validate_name(name):
     Args: 
         name (str): A string containing a name. 
     """
-    if not name.isalpha() or len(name) >= 50:
-        raise TypeError('Invalid name. Name can only contain alphabetic characters and have max 50 or less characters.')
-    return
+    try:
+        if not name:
+            raise TypeError('Name cannot be empty.')
+        elif not name.isalpha():
+            raise TypeError('Invalid name. Name can only contain alphabetic characters.')
+        elif len(name) >= 50:
+            raise TypeError('Invalid name. Name must have 50 characters or less.')
+        elif not name[0].isupper():
+            raise TypeError('Name must start with a capital letter.')
+    except ValueError:
+        raise ValueError('Invalid Name.')
 
 def validate_date(date):
     """
