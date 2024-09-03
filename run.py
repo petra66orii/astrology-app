@@ -91,7 +91,7 @@ def validate_time(time):
 
 def prompt_user_for_name():
     """
-    Prompts user to input their name.
+    Prompts user to input their name and then validates it.
     """
     while True:
         name = input('Name:\n')
