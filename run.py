@@ -32,7 +32,14 @@ SHEET = GSPREAD_CLIENT.open('astrology_app')
 horoscope_sheet = SHEET.worksheet('horoscope')
 birth_chart_sheet = SHEET.worksheet('birth_chart')
 
-cities_df = pd.read_csv('assets/datasets/cities-df.csv')
+# This section of code has been adapted from the gzip documentation
+#with open('assets/datasets/cities-df.csv', 'rb') as f_in:
+   # with gzip.open('assets/datasets/compressed-cities-df.csv.gz', 'wb') as f_out:
+    #    shutil.copyfileobj(f_in, f_out)
+
+with gzip.open('assets/datasets/compressed-cities-df.csv.gz', 'rb') as file:
+    cities_df = pd.read_csv(file)
+
 
 def start_app():
     """
