@@ -313,14 +313,12 @@ def birth_chart():
             geonames_username='petra66orii'
         )
         report = Report(chart)
-        print(f'Hello, {name}. Your Sun Sign is {chart.sun}.\nYour Moon Sign is {chart.moon}.\nYour Rising Sign is {chart.first_house}.\nHere is a more comprehensive report:\n{report}')
+        report.print_report()
+        
     except KerykeionException as e:
-        print(e)
-    except ValueError as e:
-        print('City not found.')
-    
-
-        print('Birth chart coming soon!')
+        print(f"An error occurred: {e}\n Please try again.")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
 
 def get_compatibility():
     """
