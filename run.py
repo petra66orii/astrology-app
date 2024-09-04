@@ -10,6 +10,7 @@ import pandas as pd
 import pickle
 import gzip
 from timezonefinder import TimezoneFinder
+import pytz
 import questionary
 import textwrap
 import shutil
@@ -150,6 +151,23 @@ def fetch_coordinates_from_dataset(city, df):
         return lat, long
     except ValueError:
         raise ValueError('City not found.')
+
+def fetch_timezone(lat, long):
+    """
+    Gets the corresponding timezone based on the coordinates given.
+
+    Args:
+        lat (float): Latitude of the location.
+        long (float): Longitude of the location.
+
+    Returns:
+        str: Timezone name.
+    """
+    tz = TimezoneFinder()
+    tz_str = tz.timezone_at(lat=lat, lng=long)
+    if tz_str is None:
+        raise ValueError('Timezone not found.')
+    return tz_str
 
 
 def get_zodiac_sign(day, month):
