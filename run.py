@@ -109,7 +109,7 @@ def prompt_user_for_name():
     Prompts user to input their name and then validates it.
     """
     while True:
-        name = input('Name:\n')
+        name = input('\nName:\n')
         try:
             validate_name(name)
             break
@@ -122,7 +122,7 @@ def prompt_user_for_date():
     Prompts user to input their date of birth and validates it.
     """
     while True:
-        birth_date = input('Date of Birth (DD/MM/YYYY):\n')
+        birth_date = input('\nDate of Birth (DD/MM/YYYY):\n')
         try:
             valid_date = validate_date(birth_date)
             break
@@ -135,7 +135,7 @@ def prompt_user_for_time():
     Prompts user to input their time of birth and validates it.
     """
     while True:
-        birth_time = input('Time of Birth (24-hour format - HH:MM):\n')
+        birth_time = input('\nTime of Birth (24-hour format - HH:MM):\n')
         try:
             valid_time = validate_time(birth_time)
             break
@@ -252,29 +252,29 @@ def horoscope():
     zodiac_day = valid_date.day
     zodiac_month = valid_date.month
     zodiac_sign = get_zodiac_sign(zodiac_day, zodiac_month)
-    print(f'Hello, {name}. Your zodiac sign is {zodiac_sign[0]}.\n')
+    print(f'\nHello, {name}. Your zodiac sign is {zodiac_sign[0]}.\n')
 
     # Display timeframe options to choose from
     options = ['Daily', 'Weekly', 'Monthly', 'Yearly']
     select_option = (questionary.select('Please choose the timeframe of your desired horoscope:', choices=options, ).ask())
 
     if select_option == 'Daily':
-        print(f'Daily horoscope for {name}, a {zodiac_sign[0]}:\n')
+        print(f'\nDaily horoscope for {name}, a {zodiac_sign[0]}:\n')
         url_daily = f'https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-today.aspx?sign={zodiac_sign[1]}'
         horoscope_text = get_horoscope(url_daily, 'Daily')
         print(horoscope_text)
     elif select_option == 'Weekly':
-        print(f'Weekly horoscope for {name}, a {zodiac_sign[0]}:\n')
+        print(f'\nWeekly horoscope for {name}, a {zodiac_sign[0]}:\n')
         url_weekly = f'https://www.horoscope.com/us/horoscopes/general/horoscope-general-weekly.aspx?sign={zodiac_sign[1]}'
         horoscope_text = get_horoscope(url_weekly, 'Weekly')
         print(horoscope_text)
     elif select_option == 'Monthly':
-        print(f'Monthly horoscope for {name}, a {zodiac_sign[0]}:\n')
+        print(f'\nMonthly horoscope for {name}, a {zodiac_sign[0]}:\n')
         url_monthly = f'https://www.horoscope.com/us/horoscopes/general/horoscope-general-monthly.aspx?sign={zodiac_sign[1]}'
         horoscope_text = get_horoscope(url_monthly, 'Monthly')
         print(horoscope_text)
     elif select_option == 'Yearly':
-        print(f'Yearly horoscope for {name}, a {zodiac_sign[0]}:\n')
+        print(f'\nYearly horoscope for {name}, a {zodiac_sign[0]}:\n')
         url_yearly = f'https://www.horoscope.com/us/horoscopes/yearly/2024-horoscope-{zodiac_sign[0]}.aspx'
         horoscope_text = get_horoscope(url_yearly, 'Yearly')
         print(horoscope_text)
@@ -283,15 +283,15 @@ def birth_chart():
     """
     Gets the birth chart and displays it in the terminal
     """
-    print('Please enter your first name:\n')
+    print('\nPlease enter your first name:\n')
     name = prompt_user_for_name()
-    print('Please enter your date of birth:\n')
+    print('\nPlease enter your date of birth:\n')
     valid_date = prompt_user_for_date()
-    print('Please enter your time of birth:\n')
+    print('\nPlease enter your time of birth:\n')
     valid_time = prompt_user_for_time()
-    print('Please enter your location of birth:\n')
-    location_city = input('City:\n')
-    location_country = input('Country:\n')
+    print('\nPlease enter your location of birth:\n')
+    location_city = input('\nCity:\n')
+    location_country = input('\nCountry:\n')
 
     try:
 
@@ -334,14 +334,14 @@ def get_compatibility():
     print('Please fill out the necessary information:\n')
     print('Example:\n Name: Gerry \n Date of Birth: 20/06/1990\n')
 
-    print('Please enter your first name:\n')
+    print('\nPlease enter your first name:\n')
     name1 = prompt_user_for_name()
-    print('Please enter their first name:\n')
+    print('\nPlease enter their first name:\n')
     name2 = prompt_user_for_name()
 
-    print('Please enter your date of birth:\n')
+    print('\nPlease enter your date of birth:\n')
     valid_date1 = prompt_user_for_date()
-    print('Please enter their birth date:\n')
+    print('\nPlease enter their birth date:\n')
     valid_date2 = prompt_user_for_date()
 
     zodiac_day1 = valid_date1.day
@@ -350,7 +350,7 @@ def get_compatibility():
     zodiac_month2 = valid_date2.month
     zodiac_sign1 = get_zodiac_sign(zodiac_day1, zodiac_month1)
     zodiac_sign2 = get_zodiac_sign(zodiac_day2, zodiac_month2)
-    print(f"Hello, {name1}. Your zodiac sign is {zodiac_sign1[0]},\nand {name2}'s zodiac sign is {zodiac_sign2[0]}.\n")
+    print(f"\nHello, {name1}. Your zodiac sign is {zodiac_sign1[0]},\nand {name2}'s zodiac sign is {zodiac_sign2[0]}.\n")
     print("Let's see your compatibility!")
 
     url = f'https://www.horoscope.com/love/compatibility/{zodiac_sign1[0]}-{zodiac_sign2[0]}'
