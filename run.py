@@ -6,7 +6,10 @@ import requests
 from bs4 import BeautifulSoup
 from kerykeion import AstrologicalSubject, Report, KerykeionChartSVG
 from kerykeion import KerykeionException
-import pandas as pd 
+import pandas as pd
+import pickle
+import gzip
+from timezonefinder import TimezoneFinder
 import questionary
 import textwrap
 import shutil
