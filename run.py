@@ -312,6 +312,12 @@ def birth_chart():
             tz_str=tz_str,
             geonames_username='petra66orii'
         )
+
+        sun_sign = chart.sun
+        moon_sign = chart.moon
+        rising_sign = chart.first_house
+
+        print(f'\nHello, {name}. Your Sun sign is {sun_sign.sign}{sun_sign.emoji}.\nYour Moon sign is {moon_sign.sign}{moon_sign.emoji}.\nYour Rising sign is {rising_sign.sign}{rising_sign.emoji}.\n')
         report = Report(chart)
         report.print_report()
         
