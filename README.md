@@ -2,6 +2,28 @@
 
 This is a simple astrology app that works within a terminal. The app offers a comprehensive set of features that deliver personalized astrological insights. Users can input their birth details (date, time and location) to generate detailed birth charts, including information like the sun sign (the main zodiac sign), the moon sign or the ascendant sign. The app can also provide a user's daily, weekly, monthly and even yearly horoscopes depending in the user's zodiac sign, helping them to gain insights into their daily lives or to see any long-term trends. The app offers accurate and insightful astrological guidance, whilst maintaining a user-friendly design and has a robust validation process in place.
 
+# Table of Contents 
+1. **[Project Goals](#project-goals)**
+2. **[Target Audience](#target-audience)**
+    * [User Stories](#user-stories)
+3. **[Technologies](#technologies)**
+    * [Libraries](#libraries)
+4. **[Deployment and Local Development](#deployment-and-local-development)**
+    * [Deployment](#deployment)
+    * [Local Development](#local-development)
+        + [How to Clone](#how-to-clone)
+        + [How to Fork](#how-to-fork)
+5. **[Testing](#testing)**
+    * [Bugs](#bugs)
+        + [Bug #1 - Zodiac sign doesn't show up](#bug-1---zodiac-sign-doesnt-show-up-attributeerror)
+        + [Bug #2 - Words getting broken up in the terminal](#bug2---words-getting-broken-up-in-the-terminal)
+        + [Bug #3 - Yearly horoscope displays `None`](#bug3---yearly-horoscope-displays-none)
+        + [Bug #4 - Content wouldn't display](#bug4---content-wouldnt-display)
+        + [Bug #5 - Input validation rule for capital letter didn't work](#bug5---input-validation-rule-for-capital-letter-didnt-work)
+        + [Bug #6 - `AstrologicalSubject()` didn't work](#bug6---astrologicalsubject-didnt-work)
+        + [Bug #7 - Fetch coordinates function not defined](#bug7---fetch-coordinates-function-not-defined)
+
+
 # Project Goals
 
 The main goal of this app is to generate meaningful insights into the user's lives, by leveraging APIs and external libraries like Kerykeion and BeautifulSoup. User expectations are met, such as:
