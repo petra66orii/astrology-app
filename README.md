@@ -107,12 +107,68 @@ To fork the repository:
 2. Go to the repository for this project, petra66orii/astrology-app
 3. Click the Fork button in the top right corner
 
-# Bugs
+# Testing
 
-## Zodiac sign doesn't show up (AttributeError)
+## Bugs
+
+### Bug #1 - Zodiac sign doesn't show up (AttributeError)
 
 When I first implemented the `get_zodiac_sign()` function in the `horoscope()` function, I'd get the following error message: 
 
 ![First bug screenshot](assets/images/bug-number1.png)
 
-The fix as easy though: Instead of a simple `return` to exit the function, I put in `return valid_date` which fixed the bug
+**Solution**: Instead of a simple `return` to exit the function, I put in `return valid_date` which fixed the bug.
+
+### Bug#2 - Words getting broken up in the terminal 
+
+When the content was displayed in the terminal, the words would get broken up, like this: 
+
+![Second bug screenshot](assets/images/bug-number2.png)
+
+**Solution**: Import `shutil` and `textwrap`, and use its methods to wrap words so they're not broken up anymore. *(Note: More formatting still needed though for aesthetic purposes.)*
+
+![Second bug fix](assets/images/bug-number2-fix.png)
+
+### Bug#3 - Yearly horoscope displays `None`
+
+After refactoring code for the `horoscope()` function and defining the `get_horoscope()` function, whenever I'd select "Yearly" as my option, the terminal would display `None` as shown in the screenshot. 
+
+![Third bug](assets/images/bug-number3.png)
+
+**Solution**: As seen in the left side where the code is, there was an indentation error in `get_horoscope()`. Once the indentation was fixed, the code worked just fine. 
+
+### Bug#4 - Content wouldn't display 
+
+When defining the `get_compatibility()` function, the content wouldn't display.
+
+![Fourth bug](assets/images/bug-number4.png)
+
+**Solution**: `print` has to come before the `return` keyword. I had them the other way around.
+
+### Bug#5 - Input validation rule for capital letter didn't work
+
+![Fifth bug](assets/images/bug-number5.png)
+
+**Solution**: Instead of using `capitalize()`, which returns a new string instead of modifying the original string, using string indexing and the `isupper()` method fixed the issue.
+
+### Bug#6 - `AstrologicalSubject()` didn't work
+
+For the `AstrologicalSubject()` class, the documentation suggests using latitude and longitude coordinates, and also timezones. Since this kind of input would drive the user straight out of the app, I decided to instead create a GeoNames account to be able to input the city name; unfortunately, this didn't work either. 
+
+After a couple of hours of research and trying to find a Python geocoding library (what I found were APIs that were charging money), I've decided to import a dataset from **[Kaggle](https://www.kaggle.com/)**, clean it using `pandas`, and build a function (`fetch_coordinates_from_dataset()`) that matches the coordinates with the city the user inputs. Those coordinates are then used as parameters for the `AstrologicalSubject()` instance. 
+
+That still didn't work. 
+
+![Sixth bug](assets/images/bug-number6.png)
+
+Whilst the location issue was fixed, the error in the terminal indicated that the timezone couldn't be calculated and hence the birth chart couldn't be calculated.
+
+**Solution**: Install and import `timezonefinder`, along with `pytz` from Python to define a `fetch_timezone()` function; after inputting the timezone in the parameters as well, `AstrologicalSubject()` worked.
+
+### Bug#7 - Fetch coordinates function not defined 
+
+When I first ran the function, I got this message: 
+
+![Seventh bug](assets/images/bug-number7.png)
+
+**Solution**: It was an indentation error; the whole function was indented, making it nested within the `prompt_user_for_time()` function. 
