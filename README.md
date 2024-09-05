@@ -21,6 +21,38 @@ This app is targeted at people who genuinely believe that the planets' position 
 * As a user, I want to make sure that my input is validated so that I can get accurate information.
 * As a user, I want to learn more about the significance of planetary positions so that I can understand my astrological profile better. 
 
+# Technologies
+
+The main technologies used for building this app:
+
+* **Python** - As seen, this project was created by solely using Python.
+* **Gitpod** - The IDE where all the coding and commits have been done
+* **GitHub** - Where the website is stored and pushed.
+* **Heroku** - The website was deployed on Heroku due to it being a terminal-based app.
+* **Google Cloud** - The APIs required for this project were used through Google Cloud.
+* **draw.io** - The flowchart was created using draw.io
+
+## Libraries
+
+This project turned out to be more complex than I initially imagined, so I made use of Python's very extensive selection of libraries:
+
+* **`gspread`** - This library is used to link the app to Google Sheets where data is stored
+* **`google.oauth2.service_account`** - Used to import the credentials containing personal information 
+* **`datetime`** - Used to format and validate dates and times for the app 
+* **`requests`** - Used to enable requests for web scraping
+* **`bs4 (BeautifulSoup)`** - This library was used for the **Horoscope** and **Compatibility** sections.
+* **`Kerykeion`** - This library was used for the generation if birth chart based on user input.
+* **`pandas`** - This library was used to clean the dataset and import it in the app.
+* **`pickle`** - Used with **`gzip`** to compress the dataset given its large size.
+* **`gzip`** - Used to compress the dataset to reduce its size (original size was 95MB).
+* **`timezonefinder`** - Used to calculate the time zone given coordinates.
+* **`pytz`** - Added for extra functionality and timezones together with **`timezonefinder`**.
+* **`questionary`** - This library was used to make the app more user-friendly.
+* **`textwrap`** - Used with **`shutil`** to wrap the text in the terminal without getting words broken up.
+* **`shutil`** - Used with **`textwrap`** 
+* **`OpenAI`** - Used to interpret the birth chart in a more user-friendly way.
+
+
 # Deployment and Local Development
 
 The app was developed using the Gitpod IDE and the repository can be found on GitHub. The app was deployed on Heroku; see [live website here](https://astrology-app-8b0fad7f55e1.herokuapp.com/).
