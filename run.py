@@ -4,8 +4,7 @@ from google.oauth2.service_account import Credentials
 from datetime import datetime as dt
 import requests
 from bs4 import BeautifulSoup
-from kerykeion import AstrologicalSubject, Report, KerykeionChartSVG
-from kerykeion import KerykeionException
+from kerykeion import AstrologicalSubject, Report, KerykeionChartSVG, KerykeionException
 import pandas as pd
 import pickle
 import gzip
@@ -31,11 +30,6 @@ SHEET = GSPREAD_CLIENT.open('astrology_app')
 # Define the sheet variables
 horoscope_sheet = SHEET.worksheet('horoscope')
 birth_chart_sheet = SHEET.worksheet('birth_chart')
-
-# This section of code has been adapted from the gzip documentation
-#with open('assets/datasets/cities-df.csv', 'rb') as f_in:
-   # with gzip.open('assets/datasets/compressed-cities-df.csv.gz', 'wb') as f_out:
-    #    shutil.copyfileobj(f_in, f_out)
 
 with gzip.open('assets/datasets/compressed-cities-df.csv.gz', 'rb') as file:
     cities_df = pd.read_csv(file)
