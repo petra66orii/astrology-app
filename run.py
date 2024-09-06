@@ -98,44 +98,22 @@ def validate_time(time):
         raise ValueError('Invalid time. Please enter the time in 24-hour HH:MM format.')
     return valid_time
 
-def prompt_user_for_name():
+def prompt_user_for_input(prompt, validation_func):
     """
-    Prompts user to input their name and then validates it.
-    """
-    while True:
-        name = input('\nName:\n')
-        try:
-            validate_name(name)
-            break
-        except TypeError as e:
-            print(e)
-    return name
+    Prompts user to input their details and then validates it.
 
-def prompt_user_for_date():
-    """
-    Prompts user to input their date of birth and validates it.
+    Args: 
+        prompt (str): Prompt for the input.
+        validation_func (func): Validation function.
     """
     while True:
-        birth_date = input('\nDate of Birth (DD/MM/YYYY):\n')
+        user_input = input(prompt)
         try:
-            valid_date = validate_date(birth_date)
-            break
-        except ValueError as e:
+            validation_func(user_input)
+            return user_input
+        except (TypeError, ValueError) as e:
             print(e)
-    return valid_date
 
-def prompt_user_for_time():
-    """
-    Prompts user to input their time of birth and validates it.
-    """
-    while True:
-        birth_time = input('\nTime of Birth (24-hour format - HH:MM):\n')
-        try:
-            valid_time = validate_time(birth_time)
-            break
-        except ValueError as e:
-            print(e)
-    return valid_time
 
 def fetch_coordinates_from_dataset(city, df):
     """
