@@ -303,7 +303,9 @@ def birth_chart():
         moon_sign_full = zodiac_dict.get(moon_sign.sign)
         rising_sign_full = zodiac_dict.get(rising_sign.sign)
 
-        print(f'\nHello, {name}. Your Sun sign is {sun_sign_full} {sun_sign.emoji}.\nYour Moon sign is {moon_sign_full} {moon_sign.emoji}.\nYour Rising sign is {rising_sign_full} {rising_sign.emoji}.\n')
+        print(f'\nHello, {name}. Your Sun sign is {sun_sign_full} {sun_sign.emoji}.\n')
+        print(f'Your Moon sign is {moon_sign_full} {moon_sign.emoji}.\n')
+        print(f'Your Rising sign is {rising_sign_full} {rising_sign.emoji}.\n')
         report = Report(chart)
         report.print_report()
         
