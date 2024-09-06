@@ -321,9 +321,9 @@ def get_compatibility():
     print('Example:\n Name: Gerry \n Date of Birth: 20/06/1990\n')
 
     print('\nPlease enter your first name:\n')
-    name1 = prompt_user_for_name()
+    name1 = prompt_user_for_input('\nName:\n', validate_name)
     print('\nPlease enter their first name:\n')
-    name2 = prompt_user_for_name()
+    name2 = prompt_user_for_input('\nName:\n', validate_name)
 
     print('\nPlease enter your date of birth:\n')
     valid_date1 = prompt_user_for_date()
