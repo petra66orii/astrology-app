@@ -258,26 +258,15 @@ def horoscope():
     options = ['Daily', 'Weekly', 'Monthly', 'Yearly']
     select_option = (questionary.select('Please choose the timeframe of your desired horoscope:', choices=options, ).ask())
 
-    if select_option == 'Daily':
-        print(f'\nDaily horoscope for {name}, a {zodiac_sign[0]}:\n')
-        url_daily = f'https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-today.aspx?sign={zodiac_sign[1]}'
-        horoscope_text = get_horoscope(url_daily, 'Daily')
-        print(horoscope_text)
-    elif select_option == 'Weekly':
-        print(f'\nWeekly horoscope for {name}, a {zodiac_sign[0]}:\n')
-        url_weekly = f'https://www.horoscope.com/us/horoscopes/general/horoscope-general-weekly.aspx?sign={zodiac_sign[1]}'
-        horoscope_text = get_horoscope(url_weekly, 'Weekly')
-        print(horoscope_text)
-    elif select_option == 'Monthly':
-        print(f'\nMonthly horoscope for {name}, a {zodiac_sign[0]}:\n')
-        url_monthly = f'https://www.horoscope.com/us/horoscopes/general/horoscope-general-monthly.aspx?sign={zodiac_sign[1]}'
-        horoscope_text = get_horoscope(url_monthly, 'Monthly')
-        print(horoscope_text)
-    elif select_option == 'Yearly':
-        print(f'\nYearly horoscope for {name}, a {zodiac_sign[0]}:\n')
-        url_yearly = f'https://www.horoscope.com/us/horoscopes/yearly/2024-horoscope-{zodiac_sign[0]}.aspx'
-        horoscope_text = get_horoscope(url_yearly, 'Yearly')
-        print(horoscope_text)
+    timeframes = {'Daily': f'https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-today.aspx?sign={zodiac_sign[1]}',
+                  'Weekly': f'https://www.horoscope.com/us/horoscopes/general/horoscope-general-weekly.aspx?sign={zodiac_sign[1]}',
+                  'Monthly': f'https://www.horoscope.com/us/horoscopes/general/horoscope-general-monthly.aspx?sign={zodiac_sign[1]}',
+                  'Yearly': f'https://www.horoscope.com/us/horoscopes/yearly/2024-horoscope-{zodiac_sign[0]}.aspx'
+                  }
+
+    print(f'\n{select_option} horoscope for {name}, a {zodiac_sign[0]}:\n')
+    horoscope_text = get_horoscope(timeframes[select_option], select_option)
+    print(horoscope_text)
 
 def birth_chart():
     """
