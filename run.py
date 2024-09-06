@@ -295,6 +295,24 @@ def birth_chart():
             tz_str=tz_str,
             geonames_username='petra66orii'
         )
+        
+        """
+        Kerykeion library has the zodiac signs abbreviated
+        and it would display in the terminal as such. I felt like that would 
+        affect the UX, so I decided to create a dictionary that would fix this. 
+        """
+        zodiac_dict = {'Ari': 'Aries',
+                       'Tau': 'Taurus',
+                       'Gem': 'Gemini',
+                       'Can': 'Cancer',
+                       'Leo': 'Leo',
+                       'Vir': 'Virgo',
+                       'Lib': 'Libra',
+                       'Sco': 'Scorpio',
+                       'Sag': 'Sagitarius',
+                       'Cap': 'Capricorn',
+                       'Aqu': 'Aquarius',
+                       'Pis': 'Pisces'}
 
         sun_sign = chart.sun
         moon_sign = chart.moon
