@@ -217,8 +217,9 @@ def horoscope():
     print('Please enter your first name and date of birth.\n')
     print('Example:\n Name: Gerry \n Date of Birth: 20/06/1990\n')
 
-    name = prompt_user_for_name()
-    valid_date = prompt_user_for_date()
+    name = prompt_user_for_input('\nName:\n', validate_name)
+    birth_date = prompt_user_for_input('\nDate of Birth (DD/MM/YYYY):\n', validate_date)
+    valid_date = validate_date(birth_date)
     
     # Outputs the user's zodiac sign
     zodiac_day = valid_date.day
