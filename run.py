@@ -329,10 +329,10 @@ def get_compatibility():
 
     print('\nPlease enter your date of birth:\n')
     birth_date1 = prompt_user_for_input('\nDate of Birth (DD/MM/YYYY):\n', validate_date)
-    valid_date1 = validate_date(birth_date)
+    valid_date1 = validate_date(birth_date1)
     print('\nPlease enter their birth date:\n')
     birth_date2 = prompt_user_for_input('\nDate of Birth (DD/MM/YYYY):\n', validate_date)
-    valid_date2 = validate_date(birth_date)
+    valid_date2 = validate_date(birth_date2)
 
     zodiac_day1 = valid_date1.day
     zodiac_month1 = valid_date1.month
