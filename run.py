@@ -279,8 +279,8 @@ def birth_chart():
     birth_time = prompt_user_for_input('\nTime of Birth (24-hour format - HH:MM):\n', validate_time)
     valid_time = validate_time(birth_time)
     print('\nPlease enter your location of birth:\n')
-    location_city = input('\nCity:\n')
-    location_country = input('\nCountry:\n')
+    location_city = prompt_user_for_input('\nCity:\n', validate_location)
+    location_country = prompt_user_for_input('\nCountry:\n', validate_location)
 
     try:
 
