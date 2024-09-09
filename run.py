@@ -43,8 +43,8 @@ def start_app(message):
     Args: 
         message (str): Message that gets printed in the terminal.
     """
-    print("Welcome to AstrologyApp!")
-    options = ['Horoscope', 'Birth Chart', 'Compatibility']
+    print(message)
+    options = ['Horoscope', 'Birth Chart', 'Compatibility', 'Exit']
 
     select_option = (questionary.select('Select an option:', choices=options).ask())
 
@@ -54,6 +54,8 @@ def start_app(message):
         birth_chart()
     elif select_option == 'Compatibility':
         get_compatibility()
+    elif select_option == 'Exit':
+        print('Thank you for using AstrologyApp!')
 
 def validate_name(name):
     """
