@@ -35,10 +35,13 @@ with gzip.open('assets/datasets/compressed-cities-df.csv.gz', 'rb') as file:
     cities_df = pd.read_csv(file)
 
 
-def start_app():
+def start_app(message):
     """
-    Starts the app by asking the user to pick an option: 
-    Horoscope or Birth Chart
+    Starts the app by asking the user to pick multiple options: 
+    Horoscope, Birth Chart, Compatibility or simply exit the app.
+
+    Args: 
+        message (str): Message that gets printed in the terminal.
     """
     print("Welcome to AstrologyApp!")
     options = ['Horoscope', 'Birth Chart', 'Compatibility']
