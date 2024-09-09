@@ -245,6 +245,7 @@ def horoscope():
     print(f'\n{select_option} horoscope for {name}, a {zodiac_sign[0]}:\n')
     horoscope_text = get_horoscope(timeframes[select_option], select_option)
     print(horoscope_text)
+    start_app('\nTry something else!')
 
 def birth_chart():
     """
@@ -318,6 +319,8 @@ def birth_chart():
         print(f"An error occurred: {e}\n Please try again.")
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
+    
+    start_app('\nTry something else!')
 
 def get_compatibility():
     """
@@ -353,6 +356,7 @@ def get_compatibility():
     horoscope_text = soup.find('div', class_='module-skin').p.text
     formatted_text = textwrap.fill(horoscope_text, width=shutil.get_terminal_size().columns)
     print(formatted_text)
+    start_app('\nTry something else!')
 
 
-start_app()
+start_app('Welcome to AstrologyApp!')
