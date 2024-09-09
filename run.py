@@ -164,7 +164,7 @@ def fetch_timezone(lat, long):
         long (float): Longitude of the location.
 
     Returns:
-        str: Timezone name.
+        tz_str (str): Timezone name.
     """
     tz = TimezoneFinder()
     tz_str = tz.timezone_at(lat=lat, lng=long)
