@@ -103,6 +103,25 @@ def validate_time(time):
         raise ValueError('Invalid time. Please enter the time in 24-hour HH:MM format.')
     return valid_time
 
+def validate_location(location):
+    """
+    Validates the location of birth.
+
+    Args: 
+        location (str): Location of birth.
+    """
+    allowed_characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ /-'
+
+    for char in location:
+        if char not in allowed_characters:
+            raise TypeError("Location must only contain letters, spaces, '/' and/or '-'.")
+    if not location:
+        raise TypeError('This field cannot be empty.')
+    elif not location[0].isupper():
+        raise TypeError('Location name must start with a capital letter.')
+    return location
+
+
 def prompt_user_for_input(prompt, validation_func):
     """
     Prompts user to input their details and then validates it.
