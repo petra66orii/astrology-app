@@ -44,6 +44,7 @@ def start_app(message):
     print(message)
     options = ['Horoscope', 'Birth Chart', 'Compatibility', 'Exit']
 
+    # Use Questionary library to provide options for a pleasant UX
     select_option = (questionary.select('Select an option:', choices=options).ask())
 
     # Returns a tuple containing the option selected and the function that will initialize
