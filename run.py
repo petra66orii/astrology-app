@@ -241,6 +241,7 @@ def get_horoscope(url, timeframe):
         timeframe (str): The timeframe the user chooses for their horoscope.
     """
     try:
+        # Used BeautifulSoup code to scrap data and display it - credits in README.md
         soup = BeautifulSoup(requests.get(url).content, 'html.parser')
         if timeframe == 'Yearly':
             horoscope_text = soup.find('section', id='personal').p.text
@@ -443,6 +444,7 @@ def get_compatibility():
     print(f"\nHello, {name1}. Your zodiac sign is {zodiac_sign1[0]},\nand {name2}'s zodiac sign is {zodiac_sign2[0]}.\n")
     print("Let's see your compatibility!")
 
+    # Use BeautifulSoup library to generate data and display it in the terminal
     url = f'https://www.horoscope.com/love/compatibility/{zodiac_sign1[0]}-{zodiac_sign2[0]}'
     soup = BeautifulSoup(requests.get(url).content, 'html.parser')
     horoscope_text = soup.find('div', class_='module-skin').p.text
