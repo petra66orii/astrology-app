@@ -13,6 +13,7 @@ import pytz
 import questionary
 import textwrap
 import shutil
+import json
 
 # This section of code is borrowed from the "Love Sandwiches" project
 SCOPE = [
@@ -264,6 +265,13 @@ def horoscope():
     print(f'\n{select_option} horoscope for {name}, a {zodiac_sign[0]}:\n')
     horoscope_text = get_horoscope(timeframes[select_option], select_option)
     print(horoscope_text)
+
+    # Convert valid_date into json_date so it can be appended to the worksheet - credits to Geeks for Geeks
+    # website - article linked in README.md
+    str_date = valid_date.strftime('%d/%m/%Y')
+    json_date = json.dumps(str_date)
+
+    horoscope_data = [name, json_date, zodiac_sign[0], select_option, horoscope_text]
     start_app('\nTry something else!')
 
 def birth_chart():
