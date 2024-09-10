@@ -6,14 +6,15 @@ This is a simple astrology app that works within a terminal. The app offers a co
 1. **[Project Goals](#project-goals)**
 2. **[Target Audience](#target-audience)**
     * [User Stories](#user-stories)
-3. **[Technologies](#technologies)**
+3. **[Features](#features)**
+4. **[Technologies](#technologies)**
     * [Libraries](#libraries)
-4. **[Deployment and Local Development](#deployment-and-local-development)**
+5. **[Deployment and Local Development](#deployment-and-local-development)**
     * [Deployment](#deployment)
     * [Local Development](#local-development)
         + [How to Clone](#how-to-clone)
         + [How to Fork](#how-to-fork)
-5. **[Testing](#testing)**
+6. **[Testing](#testing)**
     * [Bugs](#bugs)
         + [Bug #1 - Zodiac sign doesn't show up](#bug-1---zodiac-sign-doesnt-show-up-attributeerror)
         + [Bug #2 - Words getting broken up in the terminal](#bug2---words-getting-broken-up-in-the-terminal)
@@ -22,7 +23,12 @@ This is a simple astrology app that works within a terminal. The app offers a co
         + [Bug #5 - Input validation rule for capital letter didn't work](#bug5---input-validation-rule-for-capital-letter-didnt-work)
         + [Bug #6 - `AstrologicalSubject()` didn't work](#bug6---astrologicalsubject-didnt-work)
         + [Bug #7 - Fetch coordinates function not defined](#bug7---fetch-coordinates-function-not-defined)
-
+7. **[Credits](#credits)**
+    * [Code Used](#code-used)
+        + [Library Documentation](#library-documentation)
+        + [Webpages](#webpages)
+    * [Content](#content)
+8. **[Acknowledgements](#acknowledgements)**
 
 # Project Goals
 
