@@ -46,15 +46,18 @@ def start_app(message):
     select_option = (questionary.select('Select an option:', choices=options).ask())
     
     # Returns a tuple containing the option selected and the function that will initialize
-    if select_option == 'Horoscope':
-        return 'Horoscope', horoscope()
-    elif select_option == 'Birth Chart':
-        return 'Birth Chart', birth_chart()
-    elif select_option == 'Compatibility':
-        return 'Compatibility', get_compatibility()
-    elif select_option == 'Exit':
-        print('Thank you for using AstrologyApp!')
-        return None, None
+    try:
+        if select_option == 'Horoscope':
+            return 'Horoscope', horoscope()
+        elif select_option == 'Birth Chart':
+            return 'Birth Chart', birth_chart()
+        elif select_option == 'Compatibility':
+            return 'Compatibility', get_compatibility()
+        elif select_option == 'Exit':
+            print('Thank you for using AstrologyApp!')
+            return None, None
+    except (TypeError, ValueError) as e:
+        print(f'An error occured while starting the app: {e}')
 
 def validate_name(name):
     """
