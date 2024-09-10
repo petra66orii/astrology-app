@@ -449,10 +449,12 @@ def main_program():
     horoscope_sheet = SHEET.worksheet('horoscope')
     birth_chart_sheet = SHEET.worksheet('birth_chart')
 
-    data = start_app('Welcome to AstrologyApp!')
+    option, data = start_app('Welcome to AstrologyApp!')
     try:
-        if data:
+        if option == 'Horoscope' and data:
             update_worksheet(data, horoscope_sheet)
+        elif option == 'Birth Chart' and data:
+            update_worksheet(data, birth_chart_sheet)
     except TypeError as e:
         print(e)
 
