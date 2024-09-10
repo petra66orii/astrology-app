@@ -425,8 +425,25 @@ def get_compatibility():
     horoscope_text = soup.find('div', class_='module-skin').p.text
     formatted_text = textwrap.fill(horoscope_text, width=shutil.get_terminal_size().columns)
     print(formatted_text)
-    start_app('\nTry something else!')
 
+    # Convert valid_date into json_date so it can be appended to the worksheet - credits to Geeks for Geeks
+    # website - article linked in README.md
+    str_date1 = valid_date1.strftime('%d/%m/%Y')
+    json_date1 = json.dumps(str_date1)
+    str_date2 = valid_date2.strftime('%d/%m/%Y')
+    json_date2 = json.dumps(str_date2)
+
+    compatibility_data = [name1,
+                          json_date1, 
+                          zodiac_sign1[0], 
+                          name2,
+                          json_date2,
+                          zodiac_sign2[0], 
+                          formatted_text
+                          ]
+
+    start_app('\nTry something else!')
+    return compatibility_data
 
 
 def update_worksheet(data, worksheet):
