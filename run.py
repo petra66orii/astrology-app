@@ -478,6 +478,7 @@ def get_compatibility():
 def update_worksheet(data, worksheet):
     """
     Updates the worksheet with the provided data.
+    Using gspread library for this function.
 
     Args:
         data (obj): Data provided from the user.
@@ -491,7 +492,7 @@ def main_program():
     Initiates the entire program
     """
 
-    # Define the sheet variables
+    # Define the sheet variables using gspread's methods
     horoscope_sheet = SHEET.worksheet('horoscope')
     birth_chart_sheet = SHEET.worksheet('birth_chart')
     compatibility_sheet = SHEET.worksheet('compatibility')
