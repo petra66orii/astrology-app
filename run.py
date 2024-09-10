@@ -143,7 +143,7 @@ def prompt_user_for_input(prompt, validation_func):
             validation_func(user_input)
             return user_input
         except (TypeError, ValueError) as e:
-            print(e)
+            print(f'An error occured while getting input: {e}')
 
 
 def fetch_coordinates_from_dataset(city, df):
@@ -159,8 +159,8 @@ def fetch_coordinates_from_dataset(city, df):
         lat = city_data.iloc[0]['Latitude']
         long = city_data.iloc[0]['Longitude']
         return lat, long
-    except ValueError:
-        raise ValueError('City not found.')
+    except ValueError as e:
+        print(f'An error occured while fetching coordinates: {e}')
 
 def fetch_timezone(lat, long):
     """
@@ -492,8 +492,8 @@ def main_program():
             update_worksheet(data, birth_chart_sheet)
         elif option == 'Compatibility' and data:
             update_worksheet(data, compatibility_sheet)
-    except TypeError as e:
-        print(e)
+    except (TypeError, ValueError) as e:
+        print(f'An error occured while updating the worksheet: {e}')
 
 
 main_program()
