@@ -197,29 +197,30 @@ def get_zodiac_sign(day, month):
     """
 
     # Validate the date within the function
-    if not (1 <= month <= 12 and 1 <= day <= 31):
-        return 'Invalid date'
+    try:
+        if not (1 <= month <= 12 and 1 <= day <= 31):
+            return 'Invalid date'
 
-    zodiac_signs = [
-    ((3, 21, 4, 19), 'Aries', 1),
-    ((4, 20, 5, 20), 'Taurus', 2),
-    ((5, 21, 6, 20), 'Gemini', 3),
-    ((6, 21, 7, 22), 'Cancer', 4),
-    ((7, 23, 8, 22), 'Leo', 5),
-    ((8, 23, 9, 22), 'Virgo', 6),
-    ((9, 23, 10, 22), 'Libra', 7),
-    ((10, 23, 11, 21), 'Scorpio', 8),
-    ((11, 22, 12, 21), 'Sagittarius', 9),
-    ((12, 22, 1, 19), 'Capricorn', 10),
-    ((1, 20, 2, 18), 'Aquarius', 11),
-    ((2, 19, 3, 20), 'Pisces', 12)
-    ]
+        zodiac_signs = [
+        ((3, 21, 4, 19), 'Aries', 1),
+        ((4, 20, 5, 20), 'Taurus', 2),
+        ((5, 21, 6, 20), 'Gemini', 3),
+        ((6, 21, 7, 22), 'Cancer', 4),
+        ((7, 23, 8, 22), 'Leo', 5),
+        ((8, 23, 9, 22), 'Virgo', 6),
+        ((9, 23, 10, 22), 'Libra', 7),
+        ((10, 23, 11, 21), 'Scorpio', 8),
+        ((11, 22, 12, 21), 'Sagittarius', 9),
+        ((12, 22, 1, 19), 'Capricorn', 10),
+        ((1, 20, 2, 18), 'Aquarius', 11),
+        ((2, 19, 3, 20), 'Pisces', 12)
+        ]
 
-    for (start_month, start_day, end_month, end_day), sign, order in zodiac_signs:
-        if (month == start_month and day >= start_day) or (month == end_month and day <= end_day):
-            return sign, order
-
-    return 'Invalid date'
+        for (start_month, start_day, end_month, end_day), sign, order in zodiac_signs:
+            if (month == start_month and day >= start_day) or (month == end_month and day <= end_day):
+                return sign, order
+    except ValueError as e:
+        print(f'An error occured while calculating zodiac sign: {e}')
 
 
 def get_horoscope(url, timeframe):
