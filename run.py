@@ -28,10 +28,6 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('astrology_app')
 
-# Define the sheet variables
-horoscope_sheet = SHEET.worksheet('horoscope')
-birth_chart_sheet = SHEET.worksheet('birth_chart')
-
 with gzip.open('assets/datasets/compressed-cities-df.csv.gz', 'rb') as file:
     cities_df = pd.read_csv(file)
 
@@ -400,3 +396,22 @@ def update_worksheet(data, worksheet):
     worksheet.append_row(data)
     print(f'The worksheet {worksheet.title} has been updated! It works!')
 
+
+def main_program():
+    """
+    Initiates the entire program
+    """
+    
+    # Define the sheet variables
+    horoscope_sheet = SHEET.worksheet('horoscope')
+    birth_chart_sheet = SHEET.worksheet('birth_chart')
+
+    data = start_app('Welcome to AstrologyApp!')
+    try:
+        if data:
+            update_worksheet(data, horoscope_sheet)
+    except TypeError as e:
+        print(e)
+
+
+main_program()
