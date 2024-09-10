@@ -170,10 +170,13 @@ def fetch_timezone(lat, long):
     Returns:
         tz_str (str): Timezone name.
     """
-    tz = TimezoneFinder()
-    tz_str = tz.timezone_at(lat=lat, lng=long)
-    if tz_str is None:
-        raise ValueError('Timezone not found.')
+    try:
+        tz = TimezoneFinder()
+        tz_str = tz.timezone_at(lat=lat, lng=long)
+        if tz_str is None:
+            raise ValueError('Timezone not found.')
+    except ValueError as e:
+        print(f'An error occured while fetching the timezone: {e}')
     return tz_str
 
 
