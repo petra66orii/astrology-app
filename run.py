@@ -22,7 +22,7 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive"
     ]
 
-# Define constant variables 
+# Define constant variables
 CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
@@ -35,17 +35,17 @@ with gzip.open('assets/datasets/compressed-cities-df.csv.gz', 'rb') as file:
 
 def start_app(message):
     """
-    Starts the app by asking the user to pick multiple options: 
+    Starts the app by asking the user to pick multiple options:
     Horoscope, Birth Chart, Compatibility or simply exit the app.
 
-    Args: 
+    Args:
         message (str): Message that gets printed in the terminal.
     """
     print(message)
     options = ['Horoscope', 'Birth Chart', 'Compatibility', 'Exit']
 
     select_option = (questionary.select('Select an option:', choices=options).ask())
-    
+
     # Returns a tuple containing the option selected and the function that will initialize
     try:
         if select_option == 'Horoscope':
@@ -62,11 +62,11 @@ def start_app(message):
 
 def validate_name(name):
     """
-    Validates name so it can only contain alphabetic characters 
+    Validates name so it can only contain alphabetic characters
     and can't be longer than 50 characters.
 
-    Args: 
-        name (str): A string containing a name. 
+    Args:
+        name (str): A string containing a name.
     """
     try:
         if not name:
@@ -110,7 +110,7 @@ def validate_location(location):
     """
     Validates the location of birth.
 
-    Args: 
+    Args:
         location (str): Location of birth.
     """
 
@@ -133,7 +133,7 @@ def prompt_user_for_input(prompt, validation_func):
     """
     Prompts user to input their details and then validates it.
 
-    Args: 
+    Args:
         prompt (str): Prompt for the input.
         validation_func (func): Validation function.
     """
@@ -185,7 +185,7 @@ def fetch_timezone(lat, long):
 
 def get_zodiac_sign(day, month):
     """
-    Returns a tuple containing the user's zodiac sign 
+    Returns a tuple containing the user's zodiac sign
     and its order in the zodiac list based on the day and month inputs.
     Inner tuple contains the corresponding start months and days, end months and end days
     respectively for each zodiac sign, followed by sign name and order in its list.
@@ -233,7 +233,7 @@ def get_horoscope(url, timeframe):
 
     Args:
         url (str): The URL BeautifulSoup needs to request information from.
-        timeframe (str): The timeframe the user chooses for their horoscope.  
+        timeframe (str): The timeframe the user chooses for their horoscope.
     """
     try:
         soup = BeautifulSoup(requests.get(url).content, 'html.parser')
@@ -249,7 +249,7 @@ def get_horoscope(url, timeframe):
 
 def horoscope():
     """
-    Takes input from the user, validates it and returns the user's 
+    Takes input from the user, validates it and returns the user's
     zodiac sign and horoscope for the desired timeframe.
     """
     print('Please enter your first name and date of birth.\n')
@@ -258,7 +258,7 @@ def horoscope():
     name = prompt_user_for_input('\nName:\n', validate_name)
     birth_date = prompt_user_for_input('\nDate of Birth (DD/MM/YYYY):\n', validate_date)
     valid_date = validate_date(birth_date)
-    
+
     # Outputs the user's zodiac sign
     zodiac_day = valid_date.day
     zodiac_month = valid_date.month
@@ -312,11 +312,11 @@ def birth_chart():
         tz_str = fetch_timezone(lat, long)
 
         chart = AstrologicalSubject(
-            name=name, 
-            year=valid_date.year, 
-            month=valid_date.month, 
-            day=valid_date.day, 
-            hour=valid_time.hour, 
+            name=name,
+            year=valid_date.year,
+            month=valid_date.month,
+            day=valid_date.day,
+            hour=valid_time.hour,
             minute=valid_time.minute,
             city=location_city,
             nation=location_country,
@@ -325,11 +325,11 @@ def birth_chart():
             tz_str=tz_str,
             geonames_username='petra66orii'
         )
-        
+
         """
         Kerykeion library has the zodiac signs abbreviated
-        and it would display in the terminal as such. I felt like that would 
-        affect the UX, so I decided to create a dictionary that would fix this. 
+        and it would display in the terminal as such. I felt like that would
+        affect the UX, so I decided to create a dictionary that would fix this.
         """
         zodiac_dict = {'Ari': 'Aries',
                        'Tau': 'Taurus',
@@ -342,7 +342,8 @@ def birth_chart():
                        'Sag': 'Sagitarius',
                        'Cap': 'Capricorn',
                        'Aqu': 'Aquarius',
-                       'Pis': 'Pisces'}
+                       'Pis': 'Pisces'
+                       }
 
         sun_sign = chart.sun
         moon_sign = chart.moon
@@ -382,8 +383,8 @@ def birth_chart():
         json_time = json.dumps(str_time)
 
         # Save the data in a variable
-        birth_chart_data = [name, 
-                            json_date, 
+        birth_chart_data = [name,
+                            json_date,
                             json_time,
                             location_city,
                             location_country,
@@ -404,7 +405,7 @@ def birth_chart():
         print(f"An error occurred: {e}\n Please try again.")
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
-    
+
     start_app('\nTry something else!')
     return birth_chart_data
 
@@ -451,8 +452,8 @@ def get_compatibility():
     json_date2 = json.dumps(str_date2)
 
     compatibility_data = [name1,
-                          json_date1, 
-                          zodiac_sign1[0], 
+                          json_date1,
+                          zodiac_sign1[0],
                           name2,
                           json_date2,
                           zodiac_sign2[0], 
@@ -467,7 +468,7 @@ def update_worksheet(data, worksheet):
     """
     Updates the worksheet with the provided data.
 
-    Args: 
+    Args:
         data (obj): Data provided from the user.
         worksheet (obj): Where the data gets stored.
     """
@@ -478,7 +479,7 @@ def main_program():
     """
     Initiates the entire program
     """
-    
+
     # Define the sheet variables
     horoscope_sheet = SHEET.worksheet('horoscope')
     birth_chart_sheet = SHEET.worksheet('birth_chart')
