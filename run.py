@@ -363,12 +363,32 @@ def birth_chart():
         str_time = valid_time.strftime('%H:%M')
         json_time = json.dumps(str_time)
 
+        # Save the data in a variable
+        birth_chart_data = [name, 
+                            json_date, 
+                            json_time,
+                            location_city,
+                            location_country,
+                            sun_sign_full,
+                            moon_sign_full,
+                            rising_sign_full,
+                            mercury_sign_full,
+                            venus_sign_full,
+                            mars_sign_full,
+                            jupiter_sign_full,
+                            saturn_sign_full,
+                            uranus_sign_full,
+                            neptune_sign_full,
+                            pluto_sign_full
+                            ]
+        
     except KerykeionException as e:
         print(f"An error occurred: {e}\n Please try again.")
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
     
     start_app('\nTry something else!')
+    return birth_chart_data
 
 def get_compatibility():
     """
