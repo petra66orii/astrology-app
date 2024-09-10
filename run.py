@@ -50,13 +50,14 @@ def start_app(message):
     select_option = (questionary.select('Select an option:', choices=options).ask())
 
     if select_option == 'Horoscope':
-        horoscope()
+        return horoscope()
     elif select_option == 'Birth Chart':
         birth_chart()
     elif select_option == 'Compatibility':
         get_compatibility()
     elif select_option == 'Exit':
         print('Thank you for using AstrologyApp!')
+        return None
 
 def validate_name(name):
     """
@@ -273,6 +274,7 @@ def horoscope():
 
     horoscope_data = [name, json_date, zodiac_sign[0], select_option, horoscope_text]
     start_app('\nTry something else!')
+    return horoscope_data
 
 def birth_chart():
     """
