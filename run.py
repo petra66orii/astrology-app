@@ -329,6 +329,14 @@ def birth_chart():
         sun_sign = chart.sun
         moon_sign = chart.moon
         rising_sign = chart.first_house
+        mercury_sign = chart.mercury
+        venus_sign = chart.venus
+        mars_sign = chart.mars
+        jupiter_sign = chart.jupiter
+        saturn_sign = chart.saturn
+        uranus_sign = chart.uranus
+        neptune_sign = chart.neptune
+        pluto_sign = chart.pluto
 
         sun_sign_full = zodiac_dict.get(sun_sign.sign)
         moon_sign_full = zodiac_dict.get(moon_sign.sign)
