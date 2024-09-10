@@ -273,6 +273,7 @@ def horoscope():
 
     # Display timeframe options to choose from
     options = ['Daily', 'Weekly', 'Monthly', 'Yearly']
+    # Use Questionary library to provide options for a pleasant UX
     select_option = (questionary.select('Please choose the timeframe of your desired horoscope:', choices=options, ).ask())
 
     timeframes = {'Daily': f'https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-today.aspx?sign={zodiac_sign[1]}',
