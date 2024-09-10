@@ -89,6 +89,7 @@ def validate_date(date):
         date (obj): The date of birth (DD/MM/YYYY)
     """
     try:
+        # Used datetimes' strptime method to validate the birth date
         valid_date = dt.strptime(date, '%d/%m/%Y')
     except ValueError:
         raise ValueError('Invalid date. Please enter the date in DD/MM/YYYY format.')
@@ -102,6 +103,7 @@ def validate_time(time):
         time (obj): The time of birth (HH:MM)
     """
     try:
+        # Used datetimes' strptime method to validate the birth time
         valid_time = dt.strptime(time, '%H:%M')
     except ValueError:
         raise ValueError('Invalid time. Please enter the time in 24-hour HH:MM format.')
