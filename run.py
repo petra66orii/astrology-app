@@ -355,7 +355,14 @@ def birth_chart():
         print(f'Your Rising sign is {rising_sign_full} {rising_sign.emoji}.\n')
         report = Report(chart)
         report.print_report()
-        
+
+        # Convert valid_date into json_date so it can be appended to the worksheet - credits to Geeks for Geeks
+        # website - article linked in README.md
+        str_date = valid_date.strftime('%d/%m/%Y')
+        json_date = json.dumps(str_date)
+        str_time = valid_time.strftime('%H:%M')
+        json_time = json.dumps(str_time)
+
     except KerykeionException as e:
         print(f"An error occurred: {e}\n Please try again.")
     except Exception as e:
