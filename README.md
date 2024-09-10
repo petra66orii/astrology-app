@@ -181,3 +181,25 @@ When I first ran the function, I got this message:
 ![Seventh bug](assets/images/bug-number7.png)
 
 **Solution**: It was an indentation error; the whole function was indented, making it nested within the `prompt_user_for_time()` function. 
+
+# Credits
+
+## Code Used
+
+Since Python is extremely versatile and has a library for almost everything I need, I'll separate this section between `Library Documentation` and `Webpages` to distinguish between code that I used from documentation and code used from website articles/projects.
+
+### Library Documentation
+
+* [`Kerykeion`](https://www.kerykeion.net/pydocs/kerykeion.html) - Documentation came in handy when writing the `birth_chart` function. All the data and calculations in this function are provided through Kerykeion's `AstrologicalSubject()` class. Also used the `Report()` and `print_report()` to generate and display a nice table containing all the user's astrological information.
+* [`datetime`](https://docs.python.org/3/library/datetime.html#format-codes) - For finding the best way to format datetime objects; I used it to validate birth dates and times of birth as well.
+* [`Questionary`](https://questionary.readthedocs.io/en/stable/pages/quickstart.html#) - I used the quickstart guide to provide a pleasant UX through the use of arrow keys to navigate the app when selecting options.
+* [`BeautifulSoup4`](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) - Used BeautifulSoup to request and display data from this [website](https://www.horoscope.com/us/index.aspx). Further credits using BeautifulSoup are shown [here](#webpages).
+* [`timezonefinder`](https://timezonefinder.readthedocs.io/en/latest/1_usage.html) - This documentation came in very handy for calculating the timezone based on the coordinates provided, so I didn't have to ruin the UX by requesting manual input from the user.
+* [`gzip`](https://docs.python.org/3/library/gzip.html#examples-of-usage) - Used gzip to compress the dataset containing coordinates for every location. The original dataset was 95MB, which is very large for the purpose of this project; in order to fix this, I used gzip's `open` method to compress the dataset. I've deleted the initial lines of code where the compression took place in order to avoid additional redundant compressing that could've affected the data. The code used can be seen in this past [commit](https://github.com/petra66orii/astrology-app/commit/d9a96b7bc2c1e56e9bcf4d7db8a7143ded746fdf?diff=unified&w=0). *Note: `shutil` library was also used in this section as seen in the documentation. This is used in a different function as well and it is credited in the [**Webpages**](#webpages) section.*
+* [`pandas`](https://pandas.pydata.org/docs/reference/frame.html) - **pandas** is like an old friend of mine; I've used **pandas** whilst doing the [Google Advanced Data Analytics](https://www.coursera.org/professional-certificates/google-advanced-data-analytics) course, so I was already familiar with it. Still, I still made use of the documentation for a little refresher on the `iloc` method. I've also used this library to clean and remove columns that weren't needed for this project. You can see the notebook [here](https://www.kaggle.com/code/petrabot/cities-coordinates-dataset?scriptVersionId=196110656).
+
+### Webpages
+
+## Content
+
+# Acknowledgements
