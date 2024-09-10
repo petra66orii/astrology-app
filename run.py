@@ -388,4 +388,15 @@ def get_compatibility():
     start_app('\nTry something else!')
 
 
-start_app('Welcome to AstrologyApp!')
+
+def update_worksheet(data, worksheet):
+    """
+    Updates the worksheet with the provided data.
+
+    Args: 
+        data (obj): Data provided from the user.
+        worksheet (obj): Where the data gets stored.
+    """
+    worksheet.append_row(data)
+    print(f'The worksheet {worksheet.title} has been updated! It works!')
+
