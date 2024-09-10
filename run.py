@@ -178,6 +178,7 @@ def fetch_timezone(lat, long):
         tz_str (str): Timezone name.
     """
     try:
+        # Used TimezoneFinder() from timezonefinder to calculate timezone
         tz = TimezoneFinder()
         tz_str = tz.timezone_at(lat=lat, lng=long)
         if tz_str is None:
