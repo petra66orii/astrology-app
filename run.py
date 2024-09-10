@@ -232,14 +232,17 @@ def get_horoscope(url, timeframe):
         url (str): The URL BeautifulSoup needs to request information from.
         timeframe (str): The timeframe the user chooses for their horoscope.  
     """
-    soup = BeautifulSoup(requests.get(url).content, 'html.parser')
-    if timeframe == 'Yearly':
-        horoscope_text = soup.find('section', id='personal').p.text
-    else:
-        horoscope_text = soup.find('div', class_='main-horoscope').p.text
-    # This line of code was taken and adapted from a StackOverflow forum page - link in README.md
-    formatted_text = textwrap.fill(horoscope_text, width=shutil.get_terminal_size().columns)
-    return formatted_text
+    try:
+        soup = BeautifulSoup(requests.get(url).content, 'html.parser')
+        if timeframe == 'Yearly':
+            horoscope_text = soup.find('section', id='personal').p.text
+        else:
+            horoscope_text = soup.find('div', class_='main-horoscope').p.text
+        # This line of code was taken and adapted from a StackOverflow forum page - link in README.md
+        formatted_text = textwrap.fill(horoscope_text, width=shutil.get_terminal_size().columns)
+        return formatted_text
+    except Exception as e:
+        print(f'An unexpected error occured while requesting data: {e}')
 
 def horoscope():
     """
