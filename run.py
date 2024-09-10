@@ -288,6 +288,7 @@ def horoscope():
 
     # Convert valid_date into json_date so it can be appended to the worksheet - credits to Geeks for Geeks
     # website - article linked in README.md
+    # Also used the datetimes' strftime method to display data in a specific way
     str_date = valid_date.strftime('%d/%m/%Y')
     json_date = json.dumps(str_date)
 
@@ -384,6 +385,7 @@ def birth_chart():
 
         # Convert valid_date into json_date so it can be appended to the worksheet - credits to Geeks for Geeks
         # website - article linked in README.md
+        # Also used the datetimes' strftime method to display data in a specific way
         str_date = valid_date.strftime('%d/%m/%Y')
         json_date = json.dumps(str_date)
         str_time = valid_time.strftime('%H:%M')
@@ -454,6 +456,7 @@ def get_compatibility():
 
     # Convert valid_date into json_date so it can be appended to the worksheet - credits to Geeks for Geeks
     # website - article linked in README.md
+    # Also used the datetimes' strftime method to display data in a specific way
     str_date1 = valid_date1.strftime('%d/%m/%Y')
     json_date1 = json.dumps(str_date1)
     str_date2 = valid_date2.strftime('%d/%m/%Y')
