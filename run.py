@@ -44,16 +44,17 @@ def start_app(message):
     options = ['Horoscope', 'Birth Chart', 'Compatibility', 'Exit']
 
     select_option = (questionary.select('Select an option:', choices=options).ask())
-
+    
+    # Returns a tuple containing the option selected and the function that will initialize
     if select_option == 'Horoscope':
-        return horoscope()
+        return 'Horoscope', horoscope()
     elif select_option == 'Birth Chart':
-        birth_chart()
+        return 'Birth Chart', birth_chart()
     elif select_option == 'Compatibility':
-        get_compatibility()
+        return 'Compatibility', get_compatibility()
     elif select_option == 'Exit':
         print('Thank you for using AstrologyApp!')
-        return None
+        return None, None
 
 def validate_name(name):
     """
