@@ -394,7 +394,6 @@ def update_worksheet(data, worksheet):
         worksheet (obj): Where the data gets stored.
     """
     worksheet.append_row(data)
-    print(f'The worksheet {worksheet.title} has been updated! It works!')
 
 
 def main_program():
