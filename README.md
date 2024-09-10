@@ -60,7 +60,8 @@ The main technologies used for building this app:
 * **GitHub** - Where the website is stored and pushed.
 * **Heroku** - The website was deployed on Heroku due to it being a terminal-based app.
 * **Google Cloud** - The APIs required for this project were used through Google Cloud.
-* **draw.io** - The flowchart was created using draw.io
+* **draw.io** - The flowchart was created using draw.io.
+* **Kaggle** - I used the Kaggle platform to find the coordinates dataset.
 
 ## Libraries
 
@@ -80,7 +81,7 @@ This project turned out to be more complex than I initially imagined, so I made 
 * **`questionary`** - This library was used to make the app more user-friendly.
 * **`textwrap`** - Used with **`shutil`** to wrap the text in the terminal without getting words broken up.
 * **`shutil`** - Used with **`textwrap`** 
-* **`OpenAI`** - Used to interpret the birth chart in a more user-friendly way.
+* **`json`** - Used to convert the datetime objects into serialized json format.
 
 
 # Deployment and Local Development
