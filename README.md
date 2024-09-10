@@ -49,6 +49,8 @@ This app is targeted at people who genuinely believe that the planets' position 
 * As a user, I want to make sure that my input is validated so that I can get accurate information.
 * As a user, I want to learn more about the significance of planetary positions so that I can understand my astrological profile better. 
 
+# Features
+
 # Technologies
 
 The main technologies used for building this app:
