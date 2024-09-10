@@ -28,7 +28,7 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('astrology_app')
 
-# Using gzip and pickle to open the compressed dataset and read the data
+# Using gzip and pandas to open the compressed dataset and read the data
 with gzip.open('assets/datasets/compressed-cities-df.csv.gz', 'rb') as file:
     cities_df = pd.read_csv(file)
 
@@ -159,6 +159,7 @@ def fetch_coordinates_from_dataset(city, df):
     """
     try:
         city_data = df[df['City'].str.lower() == city.lower()]
+        # Used pandas' iloc method to extract the lat and long
         lat = city_data.iloc[0]['Latitude']
         long = city_data.iloc[0]['Longitude']
         return lat, long
