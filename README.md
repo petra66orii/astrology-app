@@ -100,6 +100,8 @@ The app was developed using the Gitpod IDE and the repository can be found on Gi
 
 ## Deployment
 
+*!!! Important: If using BeautifulSoup4, using pip3 freeze for requirements.txt won't add beautifulsoup4 to the file, so it needs to be introduced manually as beautifulsoup4==4.12.3 or later versions.*
+
 1. Log in to **[Heroku](https://www.heroku.com/)** if you already have an account with them. If not, **[create an account](https://signup.heroku.com/)**.
 2. Once signed in, click on the "**Create New App**" button located above your dashboard. Give your app a unique name, choose the region you're in (United States/Europe) and click "**Create app**".
 3. Before deploying, you need to go to the **Settings** tab. Once there, scroll down and click on **Reveal Config Vars** to open this section.
