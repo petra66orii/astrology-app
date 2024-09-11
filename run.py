@@ -397,6 +397,47 @@ def print_first_signs(name, chart, signs):
     print(f'Your Moon sign is {signs['moon_sign']} {chart.moon.emoji}.\n')
     print(f'Your Rising sign is {signs['rising_sign']} {chart.first_house.emoji}.\n')
 
+def save_birth_chart_data(name, valid_date, valid_time, location_city, location_country, signs):
+    """
+    Saves the birth chart data and prepares it to be updated in the worksheet.
+
+    Args:
+        name (str): The user's name.
+        valid_date (datetime): The user's date of birth.
+        valid_time (datetime): The user's time of birth.
+        location_city (str): User's city of birth.
+        location_country (str): User's country of birth.
+        signs (dict): User's zodiac signs.
+    """
+    
+    # Convert valid_date into json_date so it can be appended to the worksheet 
+    # credits to Geeks for Geeks website - article linked in README.md
+    # Also used the datetimes' strftime method to display data in a specific way
+    str_date = valid_date.strftime('%d/%m/%Y')
+    json_date = json.dumps(str_date)
+    str_time = valid_time.strftime('%H:%M')
+    json_time = json.dumps(str_time)
+
+    
+    return [name,
+            json_date,
+            json_time,
+            location_city,
+            location_country,
+            signs['sun_sign'],
+            signs['moon_sign'],
+            signs['rising_sign'],
+            signs['mercury_sign'],
+            signs['venus_sign'],
+            signs['mars_sign'],
+            signs['jupiter_sign'],
+            signs['saturn_sign'],
+            signs['uranus_sign'],
+            signs['neptune_sign'],
+            signs['pluto_sign']
+            ]
+
+
 def birth_chart():
     """
     Gets the birth chart and displays it in the terminal
@@ -424,34 +465,13 @@ def birth_chart():
         # Use Kerykeion's Report() to generate and display the chart 
         report = Report(chart)
         report.print_report()
+        birth_chart_data = save_birth_chart_data(name=name,
+                                                 valid_date=valid_date,
+                                                 valid_time=valid_time,
+                                                 location_city=location_city,
+                                                 location_country=location_country,
+                                                 signs=signs)
 
-        # Convert valid_date into json_date so it can be appended to the worksheet - credits to Geeks for Geeks
-        # website - article linked in README.md
-        # Also used the datetimes' strftime method to display data in a specific way
-        str_date = valid_date.strftime('%d/%m/%Y')
-        json_date = json.dumps(str_date)
-        str_time = valid_time.strftime('%H:%M')
-        json_time = json.dumps(str_time)
-
-        # Save the data in a variable
-        birth_chart_data = [name,
-                            json_date,
-                            json_time,
-                            location_city,
-                            location_country,
-                            signs['sun_sign'],
-                            signs['moon_sign'],
-                            signs['rising_sign'],
-                            signs['mercury_sign'],
-                            signs['venus_sign'],
-                            signs['mars_sign'],
-                            signs['jupiter_sign'],
-                            signs['saturn_sign'],
-                            signs['uranus_sign'],
-                            signs['neptune_sign'],
-                            signs['pluto_sign']
-                            ]
-        
     except KerykeionException as e:
         print(f"An error occurred: {e}\n Please try again.")
     except Exception as e:
