@@ -451,6 +451,7 @@ def birth_chart():
         lat, long = fetch_coordinates_from_dataset(location_city, cities_df)
         tz_str = fetch_timezone(lat, long)
 
+        # Generate the chart
         chart = generate_birth_chart(name=name, 
                                      valid_date=valid_date,
                                      valid_time=valid_time,
@@ -459,12 +460,15 @@ def birth_chart():
                                      lat=lat,
                                      long=long,
                                      tz_str=tz_str)
+        # Get the zodiac dictionary to dislay the full zodiac sign
         signs = zodiac_dictionary(chart=chart)
+        # Print a message for the user
         print_first_signs(name=name, chart=chart, signs=signs)
 
         # Use Kerykeion's Report() to generate and display the chart 
         report = Report(chart)
         report.print_report()
+        # Save the data
         birth_chart_data = save_birth_chart_data(name=name,
                                                  valid_date=valid_date,
                                                  valid_time=valid_time,
