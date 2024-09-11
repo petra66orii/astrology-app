@@ -299,12 +299,10 @@ def horoscope():
     start_app('\nTry something else!')
     return horoscope_data
 
-def birth_chart():
+def birth_chart_user_input():
     """
-    Gets the birth chart and displays it in the terminal
+    Prompts the user to input their details for birth chart generation
     """
-
-    # User input section
     print('\nPlease enter your first name:\n')
     name = prompt_user_for_input('\nName:\n', validate_name)
     print('\nPlease enter your date of birth:\n')
@@ -316,6 +314,17 @@ def birth_chart():
     print('\nPlease enter your location of birth:\n')
     location_city = prompt_user_for_input('\nCity:\n', validate_location)
     location_country = prompt_user_for_input('\nCountry:\n', validate_location)
+
+    return name, valid_date, valid_time, location_city, location_country
+
+
+def birth_chart():
+    """
+    Gets the birth chart and displays it in the terminal
+    """
+
+    # Fetch the user input
+    name, valid_date, valid_time, location_city, location_country = birth_chart_user_input()
 
     try:
 
