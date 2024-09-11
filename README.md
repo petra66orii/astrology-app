@@ -216,9 +216,24 @@ Since Python is extremely versatile and has a library for almost everything I ne
 * [`BeautifulSoup4`](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) - Used BeautifulSoup to request and display data from this [website](https://www.horoscope.com/us/index.aspx). Further credits using BeautifulSoup are shown [here](#webpages).
 * [`timezonefinder`](https://timezonefinder.readthedocs.io/en/latest/1_usage.html) - This documentation came in very handy for calculating the timezone based on the coordinates provided, so I didn't have to ruin the UX by requesting manual input from the user.
 * [`gzip`](https://docs.python.org/3/library/gzip.html#examples-of-usage) - Used gzip to compress the dataset containing coordinates for every location. The original dataset was 95MB, which is very large for the purpose of this project; in order to fix this, I used gzip's `open` method to compress the dataset. I've deleted the initial lines of code where the compression took place in order to avoid additional redundant compressing that could've affected the data. The code used can be seen in this past [commit](https://github.com/petra66orii/astrology-app/commit/d9a96b7bc2c1e56e9bcf4d7db8a7143ded746fdf?diff=unified&w=0). *Note: `shutil` library was also used in this section as seen in the documentation. This is used in a different function as well and it is credited in the [**Webpages**](#webpages) section.*
-* [`pandas`](https://pandas.pydata.org/docs/reference/frame.html) - **pandas** is like an old friend of mine; I've used **pandas** whilst doing the [Google Advanced Data Analytics](https://www.coursera.org/professional-certificates/google-advanced-data-analytics) course, so I was already familiar with it. Still, I still made use of the documentation for a little refresher on the `iloc` method. I've also used this library to clean and remove columns that weren't needed for this project. You can see the notebook [here](https://www.kaggle.com/code/petrabot/cities-coordinates-dataset?scriptVersionId=196110656).
+* [`pandas`](https://pandas.pydata.org/docs/reference/frame.html) - **pandas** is like an old friend of mine; I've used **pandas** whilst doing the [Google Advanced Data Analytics](https://www.coursera.org/professional-certificates/google-advanced-data-analytics) course, so I was already familiar with it. Still, I made use of the documentation for a little refresher on the `iloc` method. I've also used this library to clean and remove columns that weren't needed for this project. You can see the notebook [here](https://www.kaggle.com/code/petrabot/cities-coordinates-dataset?scriptVersionId=196110656).
 
 ### Webpages
+
+* [Python W3Schools Tutorial](https://www.w3schools.com/python/default.asp)
+    * I made use of this tutorial when refactoring the `get_zodiac_sign()` function. The tuple section of this tutorial helped me group the zodiac signs and their respective orders and dates in a very neat way.
+* [Dev.to article on writing a function that calculates the zodiac sign](https://dev.to/dm8ry/python-code-to-know-the-zodiac-sign-based-on-the-provided-birthday-431m)
+    * This article was part of the inspiration for the refactoring of `get_zodiac_sign()` function that was described above. 
+* [StackOverflow question on how to fix broken up words in terminal](https://stackoverflow.com/questions/73677627/how-to-make-python-start-a-new-line-rather-than-cutting-words-off)
+    * This page was handy in solving [Bug #2](#bug2---words-getting-broken-up-in-the-terminal) documented above. This also meant I had to import `textwrap` and `shutil` libraries in order to keep th words displayed in the terminal in one piece.
+* [StackOverflow question on adding BeautifulSoup4 to requirements.txt for Heroku deployment](https://stackoverflow.com/questions/13279930/beautiful-soup-on-heroku?rq=3)
+    * Since deployment on Heroku was crucial for the success of this project, in the first days I went on to research if the packages I intended to use were compatible with Heroku. That's how I've learned that BeautifulSoup4 needed to be manually written in `requirements.txt`. *Note: More on this on the [Deployment](#deployment) section.*
+* [W3Resource article on using BeautifulSoup4 to extract daily horoscope from horoscope.com](https://www.w3resource.com/projects/python/web-programming/python-web-programming-7.php)
+    * This was very helpful when I was trying to wrap my head around requesting data from this [website](https://www.horoscope.com/us/index.aspx).
+* [Geeks for Geeks article on fixing datetime bug](https://www.geeksforgeeks.org/how-to-fix-datetime-datetime-not-json-serializable-in-python/)
+    * This is the article that helped me fix [Bug #8](#bug8---datetime-object-not-json-serializable) documented above.
+* [Love Sandwiches walkthrough project](https://github.com/petra66orii/love-sandwiches/blob/main/run.py)
+    * The Google API code was borrowed from this project
 
 ## Content
 
