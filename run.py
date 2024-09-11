@@ -384,6 +384,18 @@ def zodiac_dictionary(chart):
              }
     return signs 
 
+def print_first_signs(name, chart, signs):
+    """
+    Prints a small message for the user outputting the three main signs.
+
+    Args:
+        name (str): Name of the user.
+        chart (AstrologicalSubject): User's birth chart.
+        signs (dict): The user's signs.
+    """
+    print(f'\nHello, {name}. Your Sun sign is {signs['sun_sign']} {chart.sun.emoji}.\n')
+    print(f'Your Moon sign is {signs['moon_sign']} {chart.moon.emoji}.\n')
+    print(f'Your Rising sign is {signs['rising_sign']} {chart.first_house.emoji}.\n')
 
 def birth_chart():
     """
@@ -407,9 +419,7 @@ def birth_chart():
                                      long=long,
                                      tz_str=tz_str)
         signs = zodiac_dictionary(chart=chart)
-        print(f'\nHello, {name}. Your Sun sign is {signs['sun_sign']} {chart.sun.emoji}.\n')
-        print(f'Your Moon sign is {signs['moon_sign']} {chart.moon.emoji}.\n')
-        print(f'Your Rising sign is {signs['rising_sign']} {chart.first_house.emoji}.\n') 
+        print_first_signs(name=name, chart=chart, signs=signs)
 
         # Use Kerykeion's Report() to generate and display the chart 
         report = Report(chart)
