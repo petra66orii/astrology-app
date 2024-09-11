@@ -4,7 +4,7 @@ from google.oauth2.service_account import Credentials
 from datetime import datetime as dt
 import requests
 from bs4 import BeautifulSoup
-from kerykeion import AstrologicalSubject, Report, KerykeionChartSVG, KerykeionException
+from kerykeion import AstrologicalSubject, Report, KerykeionException
 import pandas as pd
 import pickle
 import gzip
@@ -470,7 +470,7 @@ def get_compatibility():
                           zodiac_sign1[0],
                           name2,
                           json_date2,
-                          zodiac_sign2[0], 
+                          zodiac_sign2[0],
                           formatted_text
                           ]
 
