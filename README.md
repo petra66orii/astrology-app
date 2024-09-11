@@ -238,4 +238,7 @@ Since Python is extremely versatile and has a library for almost everything I ne
 
 ## Content
 
+* The content for the `Horoscope` and `Compatibility` features were scraped using `requests` and `BeautifulSoup4` from this [website](https://www.horoscope.com/us/index.aspx)
+* The dataset for the `fetch_coordinates_from_dataset()` was taken from Kaggle, you can see the original one [here](https://www.kaggle.com/datasets/max-mind/world-cities-database).
+
 # Acknowledgements
