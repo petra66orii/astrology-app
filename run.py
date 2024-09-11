@@ -346,6 +346,44 @@ def generate_birth_chart(name, valid_date, valid_time, location_city, location_c
             geonames_username='petra66orii'
         )
 
+def zodiac_dictionary(chart):
+    """
+    Kerykeion library has the zodiac signs abbreviated
+    and it would display in the terminal as such. I felt like that would
+    affect the UX, so I decided to create a dictionary function that would fix this.
+
+    Args:
+        chart (AstrologicalSubject): The user's birth chart.
+    """
+    zodiac_dict = {'Ari': 'Aries',
+                'Tau': 'Taurus',
+                'Gem': 'Gemini',
+                'Can': 'Cancer',
+                'Leo': 'Leo',
+                'Vir': 'Virgo',
+                'Lib': 'Libra',
+                'Sco': 'Scorpio',
+                'Sag': 'Sagitarius',
+                'Cap': 'Capricorn',
+                'Aqu': 'Aquarius',
+                'Pis': 'Pisces'
+                }
+
+    # Assign variables using AstrologicalSubject() methods
+    signs = {'sun_sign': zodiac_dict.get(chart.sun.sign),
+             'moon_sign': zodiac_dict.get(chart.moon.sign),
+             'rising_sign': zodiac_dict.get(chart.first_house.sign),
+             'mercury_sign': zodiac_dict.get(chart.mercury.sign),
+             'venus_sign': zodiac_dict.get(chart.venus.sign),
+             'mars_sign': zodiac_dict.get(chart.mars.sign),
+             'jupiter_sign': zodiac_dict.get(chart.jupiter.sign),
+             'saturn_sign': zodiac_dict.get(chart.saturn.sign),
+             'uranus_sign': zodiac_dict.get(chart.uranus.sign),
+             'neptune_sign': zodiac_dict.get(chart.neptune.sign),
+             'pluto_sign': zodiac_dict.get(chart.pluto.sign)
+             }
+    return signs 
+
 
 def birth_chart():
     """
@@ -368,54 +406,11 @@ def birth_chart():
                                      lat=lat,
                                      long=long,
                                      tz_str=tz_str)
+        signs = zodiac_dictionary(chart=chart)
+        print(f'\nHello, {name}. Your Sun sign is {signs['sun_sign']} {chart.sun.emoji}.\n')
+        print(f'Your Moon sign is {signs['moon_sign']} {chart.moon.emoji}.\n')
+        print(f'Your Rising sign is {signs['rising_sign']} {chart.first_house.emoji}.\n') 
 
-        """
-        Kerykeion library has the zodiac signs abbreviated
-        and it would display in the terminal as such. I felt like that would
-        affect the UX, so I decided to create a dictionary that would fix this.
-        """
-        zodiac_dict = {'Ari': 'Aries',
-                       'Tau': 'Taurus',
-                       'Gem': 'Gemini',
-                       'Can': 'Cancer',
-                       'Leo': 'Leo',
-                       'Vir': 'Virgo',
-                       'Lib': 'Libra',
-                       'Sco': 'Scorpio',
-                       'Sag': 'Sagitarius',
-                       'Cap': 'Capricorn',
-                       'Aqu': 'Aquarius',
-                       'Pis': 'Pisces'
-                       }
-
-        # Assign variables using AstrologicalSubject() methods
-        sun_sign = chart.sun
-        moon_sign = chart.moon
-        rising_sign = chart.first_house
-        mercury_sign = chart.mercury
-        venus_sign = chart.venus
-        mars_sign = chart.mars
-        jupiter_sign = chart.jupiter
-        saturn_sign = chart.saturn
-        uranus_sign = chart.uranus
-        neptune_sign = chart.neptune
-        pluto_sign = chart.pluto
-
-        sun_sign_full = zodiac_dict.get(sun_sign.sign)
-        moon_sign_full = zodiac_dict.get(moon_sign.sign)
-        rising_sign_full = zodiac_dict.get(rising_sign.sign)
-        mercury_sign_full = zodiac_dict.get(mercury_sign.sign)
-        venus_sign_full = zodiac_dict.get(venus_sign.sign)
-        mars_sign_full = zodiac_dict.get(mars_sign.sign)
-        jupiter_sign_full = zodiac_dict.get(jupiter_sign.sign)
-        saturn_sign_full = zodiac_dict.get(saturn_sign.sign)
-        uranus_sign_full = zodiac_dict.get(uranus_sign.sign)
-        neptune_sign_full = zodiac_dict.get(neptune_sign.sign)
-        pluto_sign_full = zodiac_dict.get(pluto_sign.sign)
-
-        print(f'\nHello, {name}. Your Sun sign is {sun_sign_full} {sun_sign.emoji}.\n')
-        print(f'Your Moon sign is {moon_sign_full} {moon_sign.emoji}.\n')
-        print(f'Your Rising sign is {rising_sign_full} {rising_sign.emoji}.\n')
         # Use Kerykeion's Report() to generate and display the chart 
         report = Report(chart)
         report.print_report()
