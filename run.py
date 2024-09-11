@@ -22,7 +22,7 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive"
     ]
 
-# Define constant variables
+# Define constant variables - also borrowed from "Love Sandwiches" project
 CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
@@ -209,6 +209,8 @@ def get_zodiac_sign(day, month):
         if not (1 <= month <= 12 and 1 <= day <= 31):
             return 'Invalid date'
 
+        # The inspiration for this structure was from the tuple unpacking tutorial
+        # on W3Schools and a dev.to article - link in README.md
         zodiac_signs = [
         ((3, 21, 4, 19), 'Aries', 1),
         ((4, 20, 5, 20), 'Taurus', 2),
@@ -241,7 +243,8 @@ def get_horoscope(url, timeframe):
         timeframe (str): The timeframe the user chooses for their horoscope.
     """
     try:
-        # Used BeautifulSoup code to scrap data and display it - credits in README.md
+        # Used BeautifulSoup and requests code to scrap data and display it 
+        # credits to W3Resources article and BeautifulSoup4 documentation
         soup = BeautifulSoup(requests.get(url).content, 'html.parser')
         if timeframe == 'Yearly':
             horoscope_text = soup.find('section', id='personal').p.text
@@ -450,7 +453,8 @@ def get_compatibility():
     print(f"\nHello, {name1}. Your zodiac sign is {zodiac_sign1[0]},\nand {name2}'s zodiac sign is {zodiac_sign2[0]}.\n")
     print("Let's see your compatibility!")
 
-    # Use BeautifulSoup library to generate data and display it in the terminal
+    # Used BeautifulSoup and requests code to scrap data and display it 
+    # credits to W3Resources article and BeautifulSoup4 documentation
     url = f'https://www.horoscope.com/love/compatibility/{zodiac_sign1[0]}-{zodiac_sign2[0]}'
     soup = BeautifulSoup(requests.get(url).content, 'html.parser')
     horoscope_text = soup.find('div', class_='module-skin').p.text
