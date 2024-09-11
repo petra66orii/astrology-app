@@ -317,22 +317,21 @@ def birth_chart_user_input():
 
     return name, valid_date, valid_time, location_city, location_country
 
-
-def birth_chart():
+def generate_birth_chart(name, valid_date, valid_time, location_city, location_country, lat, long, tz_str):
     """
-    Gets the birth chart and displays it in the terminal
+    Generates the birth chart by using Kerykeion's AstrologicalSubject().
+
+    Args:
+        name (str): The user's name.
+        valid_date (datetime): The user's date of birth.
+        valid_time (datetime): The user's time of birth.
+        location_city (str): The user's city of birth.
+        location_country (str): The user's country of birth.
+        lat (float): The latitude of the location.
+        long (float): The longitude of the location.
+        tz_str (str): The timezone of the location.
     """
-
-    # Fetch the user input
-    name, valid_date, valid_time, location_city, location_country = birth_chart_user_input()
-
-    try:
-
-        lat, long = fetch_coordinates_from_dataset(location_city, cities_df)
-        tz_str = fetch_timezone(lat, long)
-
-        # Used Kerykeions' AstrologicalSubject() class to calculate birth chart
-        chart = AstrologicalSubject(
+    return AstrologicalSubject(
             name=name,
             year=valid_date.year,
             month=valid_date.month,
