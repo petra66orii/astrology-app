@@ -51,6 +51,14 @@ This app is targeted at people who genuinely believe that the planets' position 
 
 # Features
 
+## Future Implementations
+
+This turned out to be one of my favorite projects and I'd love to expand more on it. A few of these future implementations would be:
+
+* Implement an AI API (OpenAI) to interpret the birth chart and give personalized insights about the user's personality and life. This was the initial plan to elevate the birth chart function, but unfortunately the OpenAI API is not free anymore. But I would definitely implement this further down the line.
+* Produce charts and give the user the ability to save their personalized charts along with the interpretation. 
+* Offer a crash course into understanding the planets and houses systems: while making this project, astrology tunred out to be a lot more complex than what is usually seen in newspapers and websites. A little section within the app that explains the more complex concepts of astrology could prove useful for the user to better understand what to look for when using an astrology app.
+
 # Technologies
 
 The main technologies used for building this app:
