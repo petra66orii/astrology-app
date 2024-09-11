@@ -442,7 +442,9 @@ def birth_chart():
     """
     Gets the birth chart and displays it in the terminal
     """
-
+    
+    # Initialize birth_chart_data
+    birth_chart_data = None
     # Fetch the user input
     name, valid_date, valid_time, location_city, location_country = birth_chart_user_input()
 
