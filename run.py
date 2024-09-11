@@ -429,17 +429,17 @@ def birth_chart():
                             json_time,
                             location_city,
                             location_country,
-                            sun_sign_full,
-                            moon_sign_full,
-                            rising_sign_full,
-                            mercury_sign_full,
-                            venus_sign_full,
-                            mars_sign_full,
-                            jupiter_sign_full,
-                            saturn_sign_full,
-                            uranus_sign_full,
-                            neptune_sign_full,
-                            pluto_sign_full
+                            signs['sun_sign'],
+                            signs['moon_sign'],
+                            signs['rising_sign'],
+                            signs['mercury_sign'],
+                            signs['venus_sign'],
+                            signs['mars_sign'],
+                            signs['jupiter_sign'],
+                            signs['saturn_sign'],
+                            signs['uranus_sign'],
+                            signs['neptune_sign'],
+                            signs['pluto_sign']
                             ]
         
     except KerykeionException as e:
