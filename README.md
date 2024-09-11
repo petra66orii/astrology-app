@@ -7,6 +7,7 @@ This is a simple astrology app that works within a terminal. The app offers a co
 2. **[Target Audience](#target-audience)**
     * [User Stories](#user-stories)
 3. **[Features](#features)**
+    * [Future Implementations](#future-implementations)
 4. **[Technologies](#technologies)**
     * [Libraries](#libraries)
 5. **[Deployment and Local Development](#deployment-and-local-development)**
@@ -23,6 +24,7 @@ This is a simple astrology app that works within a terminal. The app offers a co
         + [Bug #5 - Input validation rule for capital letter didn't work](#bug5---input-validation-rule-for-capital-letter-didnt-work)
         + [Bug #6 - `AstrologicalSubject()` didn't work](#bug6---astrologicalsubject-didnt-work)
         + [Bug #7 - Fetch coordinates function not defined](#bug7---fetch-coordinates-function-not-defined)
+        + [Bug #8 - Datetime object not JSON serializable](#bug8---datetime-object-not-json-serializable)
 7. **[Credits](#credits)**
     * [Code Used](#code-used)
         + [Library Documentation](#library-documentation)
