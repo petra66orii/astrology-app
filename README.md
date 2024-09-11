@@ -190,6 +190,14 @@ When I first ran the function, I got this message:
 
 **Solution**: It was an indentation error; the whole function was indented, making it nested within the `prompt_user_for_time()` function. 
 
+### Bug#8 - Datetime object not JSON serializable 
+
+When developing the `update_worksheet()` function, I got this error:
+
+![Eighth bug](assets/images/bug-number8.png)
+
+**Solution**: This [article](https://www.geeksforgeeks.org/how-to-fix-datetime-datetime-not-json-serializable-in-python/) gave the magic solution: import `json` library and use its methods to convert datetime objects into strings.
+
 # Credits
 
 ## Code Used
