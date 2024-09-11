@@ -346,6 +346,29 @@ def generate_birth_chart(name, valid_date, valid_time, location_city, location_c
             geonames_username='petra66orii'
         )
 
+
+def birth_chart():
+    """
+    Gets the birth chart and displays it in the terminal
+    """
+
+    # Fetch the user input
+    name, valid_date, valid_time, location_city, location_country = birth_chart_user_input()
+
+    try:
+
+        lat, long = fetch_coordinates_from_dataset(location_city, cities_df)
+        tz_str = fetch_timezone(lat, long)
+
+        chart = generate_birth_chart(name=name, 
+                                     valid_date=valid_date,
+                                     valid_time=valid_time,
+                                     location_city=location_city,
+                                     location_country=location_country,
+                                     lat=lat,
+                                     long=long,
+                                     tz_str=tz_str)
+
         """
         Kerykeion library has the zodiac signs abbreviated
         and it would display in the terminal as such. I felt like that would
