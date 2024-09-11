@@ -34,7 +34,7 @@ This is a simple astrology app that works within a terminal. The app offers a co
 
 The main goal of this app is to generate meaningful insights into the user's lives, by leveraging APIs and external libraries like Kerykeion and BeautifulSoup. User expectations are met, such as:
 
-* Providing accurate astrological data into visually-appealing birth chart reports that can be saved for future reference
+* Providing accurate astrological data into visually-appealing birth chart reports
 * Providing detailed daily, weekly, monthly and yearly horoscopes 
 * Providing compatibility horoscopes to gain insights into possible compatibility issues and/or advantages.
 
