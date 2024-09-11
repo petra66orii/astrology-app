@@ -363,7 +363,7 @@ def zodiac_dictionary(chart):
                 'Vir': 'Virgo',
                 'Lib': 'Libra',
                 'Sco': 'Scorpio',
-                'Sag': 'Sagitarius',
+                'Sag': 'Sagittarius',
                 'Cap': 'Capricorn',
                 'Aqu': 'Aquarius',
                 'Pis': 'Pisces'
