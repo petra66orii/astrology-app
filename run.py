@@ -93,7 +93,7 @@ def start_app(message):
                           'sparkles')
             return None, None
     except (TypeError, ValueError) as e:
-        prettify_text(warning_text(f'An error occured while starting the app: {e}'))
+        warning_text(f'An error occured while starting the app: {e}')
 
 def validate_name(name):
     """
@@ -126,7 +126,7 @@ def validate_date(date):
         # Used datetimes' strptime method to validate the birth date
         valid_date = dt.strptime(date, '%d/%m/%Y')
     except ValueError:
-        raise ValueError('Invalid date. Please enter the date in DD/MM/YYYY format.')
+        raise ValueError(warning_text('Please enter the date in DD/MM/YYYY format.'))
     return valid_date
 
 def validate_time(time):
@@ -140,7 +140,7 @@ def validate_time(time):
         # Used datetimes' strptime method to validate the birth time
         valid_time = dt.strptime(time, '%H:%M')
     except ValueError:
-        raise ValueError('Invalid time. Please enter the time in 24-hour HH:MM format.')
+        raise ValueError(warning_text('Please enter the time in HH:MM format.'))
     return valid_time
 
 def validate_location(location):
@@ -157,13 +157,13 @@ def validate_location(location):
     try:
         for char in location:
             if char not in allowed_characters:
-                raise TypeError("Location must only contain letters, spaces, '/' and/or '-'.")
+                raise TypeError(warning_text("Location can only contain letters, '/' and/or '-'."))
         if not location:
-            raise TypeError('This field cannot be empty.')
+            raise TypeError(warning_text('This field cannot be empty.'))
         elif not location[0].isupper():
-            raise TypeError('Location name must start with a capital letter.')
+            raise TypeError(warning_text('Location name must start with a capital letter.'))
     except TypeError as e:
-        print(f'An error occured while validating location: {e}')
+        warning_text(f'An error occured while validating location: {e}')
     return location
 
 
@@ -181,7 +181,7 @@ def prompt_user_for_input(prompt, validation_func):
             validation_func(user_input)
             return user_input
         except (TypeError, ValueError) as e:
-            print(f'An error occured while getting input: {e}')
+            warning_text(f'An error occured while getting input: {e}')
 
 
 def fetch_coordinates_from_dataset(city, df):
