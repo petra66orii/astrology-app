@@ -89,9 +89,7 @@ def start_app(message):
                           'sparkles')
             return None, None
     except (TypeError, ValueError) as e:
-        prettify_text(f'An error occured while starting the app: {e}',
-                      'bold',
-                      'red')
+        prettify_text(warning_text(f'An error occured while starting the app: {e}'))
 
 def validate_name(name):
     """
