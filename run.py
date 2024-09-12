@@ -53,7 +53,7 @@ def prettify_text(text, style, color, emoji=None):
 
 def warning_text(text):
     """
-    Formats error messages and displays it 
+    Formats error messages and displays it
     in the terminal by using rich library.
 
     Args:
@@ -75,7 +75,8 @@ def start_app(message):
     options = ['Horoscope', 'Birth Chart', 'Compatibility', 'Exit']
 
     # Use Questionary library to provide options for a pleasant UX
-    select_option = (questionary.select('Select an option:', choices=options).ask())
+    select_option = (questionary.select('Select an option:',
+                                        choices=options).ask())
 
     # Returns a tuple containing the option selected and the function that will initialize
     try:
@@ -150,7 +151,8 @@ def validate_location(location):
         location (str): Location of birth.
     """
 
-    # Iterates through the allowed_characters string to ensure location input is valid
+    # Iterates through the allowed_characters string to ensure 
+    # location input is valid
     allowed_characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ /-'
     try:
         for char in location:
@@ -244,20 +246,19 @@ def get_zodiac_sign(day, month):
 
         # The inspiration for this structure was from the tuple unpacking tutorial
         # on W3Schools and a dev.to article - link in README.md
-        zodiac_signs = [
-        ((3, 21, 4, 19), 'Aries', 1),
-        ((4, 20, 5, 20), 'Taurus', 2),
-        ((5, 21, 6, 20), 'Gemini', 3),
-        ((6, 21, 7, 22), 'Cancer', 4),
-        ((7, 23, 8, 22), 'Leo', 5),
-        ((8, 23, 9, 22), 'Virgo', 6),
-        ((9, 23, 10, 22), 'Libra', 7),
-        ((10, 23, 11, 21), 'Scorpio', 8),
-        ((11, 22, 12, 21), 'Sagittarius', 9),
-        ((12, 22, 1, 19), 'Capricorn', 10),
-        ((1, 20, 2, 18), 'Aquarius', 11),
-        ((2, 19, 3, 20), 'Pisces', 12)
-        ]
+        zodiac_signs = [((3, 21, 4, 19), 'Aries', 1),
+                        ((4, 20, 5, 20), 'Taurus', 2),
+                        ((5, 21, 6, 20), 'Gemini', 3),
+                        ((6, 21, 7, 22), 'Cancer', 4),
+                        ((7, 23, 8, 22), 'Leo', 5),
+                        ((8, 23, 9, 22), 'Virgo', 6),
+                        ((9, 23, 10, 22), 'Libra', 7),
+                        ((10, 23, 11, 21), 'Scorpio', 8),
+                        ((11, 22, 12, 21), 'Sagittarius', 9),
+                        ((12, 22, 1, 19), 'Capricorn', 10),
+                        ((1, 20, 2, 18), 'Aquarius', 11),
+                        ((2, 19, 3, 20), 'Pisces', 12)
+                        ]
 
         for (start_month, start_day, end_month, end_day), sign, order in zodiac_signs:
             if (month == start_month and day >= start_day) or (month == end_month and day <= end_day):
@@ -276,14 +277,15 @@ def get_horoscope(url, timeframe):
         timeframe (str): The timeframe the user chooses for their horoscope.
     """
     try:
-        # Used BeautifulSoup and requests code to scrap data and display it 
+        # Used BeautifulSoup and requests code to scrap data and display it
         # credits to W3Resources article and BeautifulSoup4 documentation
         soup = BeautifulSoup(requests.get(url).content, 'html.parser')
         if timeframe == 'Yearly':
             horoscope_text = soup.find('section', id='personal').p.text
         else:
             horoscope_text = soup.find('div', class_='main-horoscope').p.text
-        # This line of code was taken and adapted from a StackOverflow forum page - link in README.md
+        # This line of code was taken and adapted from a StackOverflow forum page
+        # link in README.md
         formatted_text = textwrap.fill(horoscope_text, width=shutil.get_terminal_size().columns)
         return formatted_text
     except Exception as e:
@@ -298,7 +300,8 @@ def horoscope():
     print('Example:\n Name: Gerry \n Date of Birth: 20/06/1990\n')
 
     name = prompt_user_for_input('\nName:\n', validate_name)
-    birth_date = prompt_user_for_input('\nDate of Birth (DD/MM/YYYY):\n', validate_date)
+    birth_date = prompt_user_for_input('\nDate of Birth (DD/MM/YYYY):\n',
+                                       validate_date)
     valid_date = validate_date(birth_date)
 
     # Outputs the user's zodiac sign
