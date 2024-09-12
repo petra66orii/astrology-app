@@ -440,9 +440,15 @@ def print_first_signs(name, chart, signs):
         chart (AstrologicalSubject): User's birth chart.
         signs (dict): The user's signs.
     """
-    print(f'\nHello, {name}. Your Sun sign is {signs['sun_sign']} {chart.sun.emoji}.\n')
-    print(f'Your Moon sign is {signs['moon_sign']} {chart.moon.emoji}.\n')
-    print(f'Your Rising sign is {signs['rising_sign']} {chart.first_house.emoji}.\n')
+    prettify_text(f'\nHello, {name}. Your Sun sign is {signs['sun_sign']} {chart.sun.emoji}.\n',
+                  'italic',
+                  'deep_pink1')
+    prettify_text(f'Your Moon sign is {signs['moon_sign']} {chart.moon.emoji}.\n',
+                  'italic',
+                  'deep_pink1')
+    prettify_text(f'Your Rising sign is {signs['rising_sign']} {chart.first_house.emoji}.\n',
+                  'italic',
+                  'deep_pink1')
 
 def save_birth_chart_data(name, valid_date, valid_time, location_city, location_country, signs):
     """
