@@ -56,7 +56,7 @@ def start_app(message):
     Args:
         message (str): Message that gets printed in the terminal.
     """
-    print(message)
+    prettify_text(message, 'bold', 'purple', 'crystal_ball')
     options = ['Horoscope', 'Birth Chart', 'Compatibility', 'Exit']
 
     # Use Questionary library to provide options for a pleasant UX
@@ -71,10 +71,15 @@ def start_app(message):
         elif select_option == 'Compatibility':
             return 'Compatibility', get_compatibility()
         elif select_option == 'Exit':
-            print('Thank you for using AstrologyApp!')
+            prettify_text('Thank you for using AstrologyApp!',
+                          'bold',
+                          'orange1',
+                          'sparkles')
             return None, None
     except (TypeError, ValueError) as e:
-        print(f'An error occured while starting the app: {e}')
+        prettify_text(f'An error occured while starting the app: {e}',
+                      'bold',
+                      'red')
 
 def validate_name(name):
     """
