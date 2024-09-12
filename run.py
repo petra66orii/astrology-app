@@ -403,18 +403,18 @@ def zodiac_dictionary(chart):
         chart (AstrologicalSubject): The user's birth chart.
     """
     zodiac_dict = {'Ari': 'Aries',
-                'Tau': 'Taurus',
-                'Gem': 'Gemini',
-                'Can': 'Cancer',
-                'Leo': 'Leo',
-                'Vir': 'Virgo',
-                'Lib': 'Libra',
-                'Sco': 'Scorpio',
-                'Sag': 'Sagittarius',
-                'Cap': 'Capricorn',
-                'Aqu': 'Aquarius',
-                'Pis': 'Pisces'
-                }
+                   'Tau': 'Taurus',
+                   'Gem': 'Gemini',
+                   'Can': 'Cancer',
+                   'Leo': 'Leo',
+                   'Vir': 'Virgo',
+                   'Lib': 'Libra',
+                   'Sco': 'Scorpio',
+                   'Sag': 'Sagittarius',
+                   'Cap': 'Capricorn',
+                   'Aqu': 'Aquarius',
+                   'Pis': 'Pisces'
+                   }
 
     # Assign variables using AstrologicalSubject() methods
     signs = {'sun_sign': zodiac_dict.get(chart.sun.sign),
