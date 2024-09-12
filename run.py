@@ -543,20 +543,37 @@ def get_compatibility():
     """
     Gets the compatibility between two zodiac signs and displays it
     """
-    print("Find out if you're compatible!\n")
-    print('Please fill out the necessary information:\n')
-    print('Example:\n Name: Gerry \n Date of Birth: 20/06/1990\n')
+    prettify_text("Find out if you're compatible!",
+                  'bold',
+                  '#87afff',
+                  'couple_with_heart')
+    prettify_text('Please fill out the necessary information:\n',
+                  'bold',
+                  '#87afff')
+    prettify_text('Example:\n Name: Gerry \n Date of Birth: 20/06/1990\n',
+                  'bold',
+                  '#87afff')
 
-    print('\nPlease enter your first name:\n')
+    prettify_text('\nPlease enter your first name:\n',
+                  'bold',
+                  '#87afff')
     name1 = prompt_user_for_input('\nName:\n', validate_name)
-    print('\nPlease enter their first name:\n')
+    prettify_text('\nPlease enter their first name:\n',
+                  'bold',
+                  '#87afff')
     name2 = prompt_user_for_input('\nName:\n', validate_name)
 
-    print('\nPlease enter your date of birth:\n')
-    birth_date1 = prompt_user_for_input('\nDate of Birth (DD/MM/YYYY):\n', validate_date)
+    prettify_text('\nPlease enter your date of birth:\n',
+                  'bold',
+                  '#5fd700')
+    birth_date1 = prompt_user_for_input('\nDate of Birth (DD/MM/YYYY):\n',
+                                        validate_date)
     valid_date1 = validate_date(birth_date1)
-    print('\nPlease enter their birth date:\n')
-    birth_date2 = prompt_user_for_input('\nDate of Birth (DD/MM/YYYY):\n', validate_date)
+    prettify_text('\nPlease enter their birth date:\n',
+                  'bold',
+                  '#5fd700')
+    birth_date2 = prompt_user_for_input('\nDate of Birth (DD/MM/YYYY):\n',
+                                        validate_date)
     valid_date2 = validate_date(birth_date2)
 
     zodiac_day1 = valid_date1.day
@@ -565,8 +582,10 @@ def get_compatibility():
     zodiac_month2 = valid_date2.month
     zodiac_sign1 = get_zodiac_sign(zodiac_day1, zodiac_month1)
     zodiac_sign2 = get_zodiac_sign(zodiac_day2, zodiac_month2)
-    print(f"\nHello, {name1}. Your zodiac sign is {zodiac_sign1[0]},\nand {name2}'s zodiac sign is {zodiac_sign2[0]}.\n")
-    print("Let's see your compatibility!")
+    prettify_text(f"""\nHello, {name1}. Your zodiac sign is {zodiac_sign1[0]},
+          \nand {name2}'s zodiac sign is {zodiac_sign2[0]}.\n
+          """, 'italic', '#87afff')
+    prettify_text("Let's see your compatibility!", 'italic', '#5fd700')
 
     # Used BeautifulSoup and requests code to scrap data and display it 
     # credits to W3Resources article and BeautifulSoup4 documentation
@@ -574,7 +593,7 @@ def get_compatibility():
     soup = BeautifulSoup(requests.get(url).content, 'html.parser')
     horoscope_text = soup.find('div', class_='module-skin').p.text
     formatted_text = textwrap.fill(horoscope_text, width=shutil.get_terminal_size().columns)
-    print(formatted_text)
+    prettify_text(formatted_text, 'italic', 'deep_pink1')
 
     # Convert valid_date into json_date so it can be appended to the worksheet - credits to Geeks for Geeks
     # website - article linked in README.md
