@@ -199,7 +199,7 @@ def fetch_coordinates_from_dataset(city, df):
         long = city_data.iloc[0]['Longitude']
         return lat, long
     except ValueError as e:
-        print(f'An error occured while fetching coordinates: {e}')
+        warning_text(f'An error occured while fetching coordinates: {e}')
 
 def fetch_timezone(lat, long):
     """
@@ -217,9 +217,9 @@ def fetch_timezone(lat, long):
         tz = TimezoneFinder()
         tz_str = tz.timezone_at(lat=lat, lng=long)
         if tz_str is None:
-            raise ValueError('Timezone not found.')
+            raise ValueError(warning_text('Timezone not found.'))
     except ValueError as e:
-        print(f'An error occured while fetching the timezone: {e}')
+        warning_text(f'An error occured while fetching the timezone: {e}')
     return tz_str
 
 
@@ -264,7 +264,7 @@ def get_zodiac_sign(day, month):
             if (month == start_month and day >= start_day) or (month == end_month and day <= end_day):
                 return sign, order
     except ValueError as e:
-        print(f'An error occured while calculating zodiac sign: {e}')
+        warning_text(f'An error occured while calculating zodiac sign: {e}')
 
 
 def get_horoscope(url, timeframe):
@@ -289,7 +289,7 @@ def get_horoscope(url, timeframe):
         formatted_text = textwrap.fill(horoscope_text, width=shutil.get_terminal_size().columns)
         return formatted_text
     except Exception as e:
-        print(f'An unexpected error occured while requesting data: {e}')
+        warning_text(f'An unexpected error occured while requesting data: {e}')
 
 def horoscope():
     """
