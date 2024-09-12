@@ -103,15 +103,15 @@ def validate_name(name):
     """
     try:
         if not name:
-            raise TypeError('Name cannot be empty.')
+            raise TypeError(warning_text('Name cannot be empty.'))
         elif not name.isalpha():
-            raise TypeError('Invalid name. Name can only contain alphabetic characters.')
+            raise TypeError(warning_text('Name can only contain alphabetic characters.'))
         elif len(name) >= 50:
-            raise TypeError('Invalid name. Name must have 50 characters or less.')
+            raise TypeError(warning_text('Name must have 50 characters or less.'))
         elif not name[0].isupper():
-            raise TypeError('Name must start with a capital letter.')
+            raise TypeError(warning_text('Name must start with a capital letter.'))
     except ValueError:
-        raise ValueError('Invalid Name.')
+        raise ValueError(warning_text('Invalid name.'))
 
 def validate_date(date):
     """
