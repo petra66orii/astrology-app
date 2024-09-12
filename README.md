@@ -115,6 +115,7 @@ This project turned out to be more complex than I initially imagined, so I made 
 * **`textwrap`** - Used with **`shutil`** to wrap the text in the terminal without getting words broken up.
 * **`shutil`** - Used with **`textwrap`** 
 * **`json`** - Used to convert the datetime objects into serialized json format.
+* **`rich`** - Used to add a bit of design to the application.
 
 
 # Deployment and Local Development
@@ -123,7 +124,7 @@ The app was developed using the Gitpod IDE and the repository can be found on Gi
 
 ## Deployment
 
-*!!! Important: If using BeautifulSoup4, using pip3 freeze for requirements.txt won't add beautifulsoup4 to the file, so it needs to be introduced manually as beautifulsoup4==4.12.3 or later versions.*
+*!!! Important: If using BeautifulSoup4 and/or rich, using pip3 freeze for requirements.txt won't add these libraries to the file, so they need to be introduced manually as beautifulsoup4==4.12.3 and rich==13.6.0, respectively (or later versions).*
 
 1. Log in to **[Heroku](https://www.heroku.com/)** if you already have an account with them. If not, **[create an account](https://signup.heroku.com/)**.
 2. Once signed in, click on the "**Create New App**" button located above your dashboard. Give your app a unique name, choose the region you're in (United States/Europe) and click "**Create app**".
@@ -240,6 +241,7 @@ Since Python is extremely versatile and has a library for almost everything I ne
 * [`timezonefinder`](https://timezonefinder.readthedocs.io/en/latest/1_usage.html) - This documentation came in very handy for calculating the timezone based on the coordinates provided, so I didn't have to ruin the UX by requesting manual input from the user.
 * [`gzip`](https://docs.python.org/3/library/gzip.html#examples-of-usage) - Used gzip to compress the dataset containing coordinates for every location. The original dataset was 95MB, which is very large for the purpose of this project; in order to fix this, I used gzip's `open` method to compress the dataset. I've deleted the initial lines of code where the compression took place in order to avoid additional redundant compressing that could've affected the data. The code used can be seen in this past [commit](https://github.com/petra66orii/astrology-app/commit/d9a96b7bc2c1e56e9bcf4d7db8a7143ded746fdf?diff=unified&w=0). *Note: `shutil` library was also used in this section as seen in the documentation. This is used in a different function as well and it is credited in the [**Webpages**](#webpages) section.*
 * [`pandas`](https://pandas.pydata.org/docs/reference/frame.html) - **pandas** is like an old friend of mine; I've used **pandas** whilst doing the [Google Advanced Data Analytics](https://www.coursera.org/professional-certificates/google-advanced-data-analytics) course, so I was already familiar with it. Still, I made use of the documentation for a little refresher on the `iloc` method. I've also used this library to clean and remove columns that weren't needed for this project. You can see the notebook [here](https://www.kaggle.com/code/petrabot/cities-coordinates-dataset?scriptVersionId=196110656).
+* [`rich`](https://rich.readthedocs.io/en/latest/index.html) - I've made use of this documentation to import `Console()` and use it to add styles to the output like colors, styles and even emojis.
 
 ### Webpages
 
