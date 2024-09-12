@@ -14,6 +14,7 @@ import questionary
 import textwrap
 import shutil
 import json
+from rich.console import Console
 
 # This section of code is borrowed from the "Love Sandwiches" project
 SCOPE = [
