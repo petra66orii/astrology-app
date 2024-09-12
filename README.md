@@ -48,6 +48,12 @@ The main goal of this app is to generate meaningful insights into the user's liv
 * Providing detailed daily, weekly, monthly and yearly horoscopes 
 * Providing compatibility horoscopes to gain insights into possible compatibility issues and/or advantages.
 
+## Design
+
+### Logic Flow
+### Flowchart
+### Data Model
+
 # Target Audience
 
 This app is targeted at people who genuinely believe that the planets' position affects a person's personality, and/or the outcome of their life. This is also dedicated to people that follow horoscope reading for fun and may not fully believe in astrology. Since young adults and teenagers seem to be more interested in horoscopes and birth charts, this app could appeal to them as well.
@@ -60,6 +66,14 @@ This app is targeted at people who genuinely believe that the planets' position 
 * As a user, I want to learn more about the significance of planetary positions so that I can understand my astrological profile better. 
 
 # Features
+
+## Existing Features
+
+### Horoscope
+
+### Birth Chart
+
+### Compatibility
 
 ## Future Implementations
 
