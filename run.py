@@ -296,8 +296,14 @@ def horoscope():
     Takes input from the user, validates it and returns the user's
     zodiac sign and horoscope for the desired timeframe.
     """
-    print('Please enter your first name and date of birth.\n')
-    print('Example:\n Name: Gerry \n Date of Birth: 20/06/1990\n')
+    prettify_text('Please enter your first name and date of birth.\n',
+                  'bold',
+                  '#875fff'
+                 )
+    prettify_text('Example:\n Name: Gerry \n Date of Birth: 20/06/1990\n',
+                  'bold',
+                  '#875fff'
+                 )
 
     name = prompt_user_for_input('\nName:\n', validate_name)
     birth_date = prompt_user_for_input('\nDate of Birth (DD/MM/YYYY):\n',
@@ -308,7 +314,10 @@ def horoscope():
     zodiac_day = valid_date.day
     zodiac_month = valid_date.month
     zodiac_sign = get_zodiac_sign(zodiac_day, zodiac_month)
-    print(f'\nHello, {name}. Your zodiac sign is {zodiac_sign[0]}.\n')
+    prettify_text(f'\nHello, {name}. Your zodiac sign is {zodiac_sign[0]}.',
+                  'italic',
+                  '#87afff'
+                 )
 
     # Display timeframe options to choose from
     options = ['Daily', 'Weekly', 'Monthly', 'Yearly']
