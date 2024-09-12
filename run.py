@@ -348,15 +348,17 @@ def birth_chart_user_input():
     """
     Prompts the user to input their details for birth chart generation
     """
-    print('\nPlease enter your first name:\n')
+    prettify_text('\nPlease enter your first name:\n', 'bold', '#87afff')
     name = prompt_user_for_input('\nName:\n', validate_name)
-    print('\nPlease enter your date of birth:\n')
-    birth_date = prompt_user_for_input('\nDate of Birth (DD/MM/YYYY):\n', validate_date)
+    prettify_text('\nPlease enter your date of birth:\n', 'bold', '#5fd700')
+    birth_date = prompt_user_for_input('\nDate of Birth (DD/MM/YYYY):\n',
+                                       validate_date)
     valid_date = validate_date(birth_date)
-    print('\nPlease enter your time of birth:\n')
-    birth_time = prompt_user_for_input('\nTime of Birth (24-hour format - HH:MM):\n', validate_time)
+    prettify_text('\nPlease enter your time of birth:\n', 'bold', '#5fd700')
+    birth_time = prompt_user_for_input('\nTime of Birth (HH:MM):\n',
+                                       validate_time)
     valid_time = validate_time(birth_time)
-    print('\nPlease enter your location of birth:\n')
+    prettify_text('\nPlease enter your location of birth:\n', 'bold', '#87afff')
     location_city = prompt_user_for_input('\nCity:\n', validate_location)
     location_country = prompt_user_for_input('\nCountry:\n', validate_location)
 
