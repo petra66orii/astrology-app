@@ -298,12 +298,10 @@ def horoscope():
     """
     prettify_text('Please enter your first name and date of birth.\n',
                   'bold',
-                  '#875fff'
-                 )
+                  '#875fff')
     prettify_text('Example:\n Name: Gerry \n Date of Birth: 20/06/1990\n',
                   'bold',
-                  '#875fff'
-                 )
+                  '#875fff')
 
     name = prompt_user_for_input('\nName:\n', validate_name)
     birth_date = prompt_user_for_input('\nDate of Birth (DD/MM/YYYY):\n',
@@ -316,8 +314,7 @@ def horoscope():
     zodiac_sign = get_zodiac_sign(zodiac_day, zodiac_month)
     prettify_text(f'\nHello, {name}. Your zodiac sign is {zodiac_sign[0]}.',
                   'italic',
-                  '#87afff'
-                 )
+                  '#87afff')
 
     # Display timeframe options to choose from
     options = ['Daily', 'Weekly', 'Monthly', 'Yearly']
@@ -330,9 +327,12 @@ def horoscope():
                   'Yearly': f'https://www.horoscope.com/us/horoscopes/yearly/2024-horoscope-{zodiac_sign[0]}.aspx'
                   }
 
-    print(f'\n{select_option} horoscope for {name}, a {zodiac_sign[0]}:\n')
+    prettify_text(f'\n{select_option} horoscope for {name}, a {zodiac_sign[0]}:\n',
+                  'italic',
+                  '#87afff')
     horoscope_text = get_horoscope(timeframes[select_option], select_option)
-    print(horoscope_text)
+    prettify_text(horoscope_text, 'bold', 'deep_pink1')
+
 
     # Convert valid_date into json_date so it can be appended to the worksheet - credits to Geeks for Geeks
     # website - article linked in README.md
