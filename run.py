@@ -314,7 +314,7 @@ def horoscope():
     zodiac_sign = get_zodiac_sign(zodiac_day, zodiac_month)
     prettify_text(f'\nHello, {name}. Your zodiac sign is {zodiac_sign[0]}.',
                   'italic',
-                  '#87afff')
+                  '#875fff')
 
     # Display timeframe options to choose from
     options = ['Daily', 'Weekly', 'Monthly', 'Yearly']
@@ -329,7 +329,7 @@ def horoscope():
 
     prettify_text(f'\n{select_option} horoscope for {name}, a {zodiac_sign[0]}:\n',
                   'italic',
-                  '#87afff')
+                  '#875fff')
     horoscope_text = get_horoscope(timeframes[select_option], select_option)
     prettify_text(horoscope_text, 'bold', 'deep_pink1')
 
@@ -348,7 +348,7 @@ def birth_chart_user_input():
     """
     Prompts the user to input their details for birth chart generation
     """
-    prettify_text('\nPlease enter your first name:\n', 'bold', '#87afff')
+    prettify_text('\nPlease enter your first name:\n', 'bold', '#875fff')
     name = prompt_user_for_input('\nName:\n', validate_name)
     prettify_text('\nPlease enter your date of birth:\n', 'bold', '#5fd700')
     birth_date = prompt_user_for_input('\nDate of Birth (DD/MM/YYYY):\n',
@@ -358,7 +358,7 @@ def birth_chart_user_input():
     birth_time = prompt_user_for_input('\nTime of Birth (HH:MM):\n',
                                        validate_time)
     valid_time = validate_time(birth_time)
-    prettify_text('\nPlease enter your location of birth:\n', 'bold', '#87afff')
+    prettify_text('\nPlease enter your location of birth:\n', 'bold', '#875fff')
     location_city = prompt_user_for_input('\nCity:\n', validate_location)
     location_country = prompt_user_for_input('\nCountry:\n', validate_location)
 
@@ -545,22 +545,22 @@ def get_compatibility():
     """
     prettify_text("Find out if you're compatible!",
                   'bold',
-                  '#87afff',
+                  '#875fff',
                   'couple_with_heart')
     prettify_text('Please fill out the necessary information:\n',
                   'bold',
-                  '#87afff')
+                  '#875fff')
     prettify_text('Example:\n Name: Gerry \n Date of Birth: 20/06/1990\n',
                   'bold',
-                  '#87afff')
+                  '#875fff')
 
     prettify_text('\nPlease enter your first name:\n',
                   'bold',
-                  '#87afff')
+                  '#875fff')
     name1 = prompt_user_for_input('\nName:\n', validate_name)
     prettify_text('\nPlease enter their first name:\n',
                   'bold',
-                  '#87afff')
+                  '#875fff')
     name2 = prompt_user_for_input('\nName:\n', validate_name)
 
     prettify_text('\nPlease enter your date of birth:\n',
@@ -583,8 +583,10 @@ def get_compatibility():
     zodiac_sign1 = get_zodiac_sign(zodiac_day1, zodiac_month1)
     zodiac_sign2 = get_zodiac_sign(zodiac_day2, zodiac_month2)
     prettify_text(f"""\nHello, {name1}. Your zodiac sign is {zodiac_sign1[0]},
-          \nand {name2}'s zodiac sign is {zodiac_sign2[0]}.\n
-          """, 'italic', '#87afff')
+                  \nand {name2}'s zodiac sign is {zodiac_sign2[0]}.\n
+                  """,
+                  'italic',
+                  '#875fff')
     prettify_text("Let's see your compatibility!", 'italic', '#5fd700')
 
     # Used BeautifulSoup and requests code to scrap data and display it 
