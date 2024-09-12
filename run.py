@@ -48,6 +48,18 @@ def prettify_text(text, style, color, emoji):
     console = Console()
     console.print(f'[{style} {color}]{text}[/] :{emoji}:')
 
+def warning_text(text):
+    """
+    Formats error messages and displays it 
+    in the terminal by using rich library.
+
+    Args:
+        text (str): The text that is displayed.
+    """
+    console = Console()
+    console.print(f'[bold red]{text}[/] :warning:')
+
+
 def start_app(message):
     """
     Starts the app by asking the user to pick multiple options:
