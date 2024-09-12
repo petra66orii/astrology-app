@@ -31,3 +31,4 @@ tzdata==2024.1
 url-normalize==1.4.3
 zope.interface==7.0.2
 beautifulsoup4==4.12.3
+rich==13.6.0
