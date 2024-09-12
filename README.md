@@ -4,9 +4,17 @@ This is a simple astrology app that works within a terminal. The app offers a co
 
 # Table of Contents 
 1. **[Project Goals](#project-goals)**
+    * [Design](#design)
+        + [Logic Flow](#logic-flow)
+        + [Flowchart](#flowchart)
+        + [Data Model](#data-model)
 2. **[Target Audience](#target-audience)**
     * [User Stories](#user-stories)
 3. **[Features](#features)**
+    * [Existing Features](#existing-features)
+        + [Horoscope](#horoscope)
+        + [Birth Chart](#birth-chart)
+        + [Compatibility](#compatibility)
     * [Future Implementations](#future-implementations)
 4. **[Technologies](#technologies)**
     * [Libraries](#libraries)
