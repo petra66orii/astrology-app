@@ -532,9 +532,9 @@ def birth_chart():
                                                  signs=signs)
 
     except KerykeionException as e:
-        print(f"An error occurred: {e}\n Please try again.")
+        warning_text(f"An error occurred: {e}\n Please try again.")
     except Exception as e:
-        print(f"An unexpected error occurred: {e}")
+        warning_text(f"An unexpected error occurred: {e}")
 
     start_app('\nTry something else!')
     return birth_chart_data
@@ -628,7 +628,7 @@ def main_program():
         elif option == 'Compatibility' and data:
             update_worksheet(data, compatibility_sheet)
     except (TypeError, ValueError) as e:
-        print(f'An error occured while updating the worksheet: {e}')
+        warning_text(f'An error occured while updating the worksheet: {e}')
 
 
 main_program()
