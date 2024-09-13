@@ -255,15 +255,13 @@ This project turned out to be more complex than I initially imagined, so I made 
 * **`bs4 (BeautifulSoup)`** - This library was used for the **Horoscope** and **Compatibility** sections.
 * **`Kerykeion`** - This library was used for the generation if birth chart based on user input.
 * **`pandas`** - This library was used to clean the dataset and import it in the app.
-* **`pickle`** - Used with **`gzip`** to compress the dataset given its large size.
 * **`gzip`** - Used to compress the dataset to reduce its size (original size was 95MB).
 * **`timezonefinder`** - Used to calculate the time zone given coordinates.
-* **`pytz`** - Added for extra functionality and timezones together with **`timezonefinder`**.
 * **`questionary`** - This library was used to make the app more user-friendly.
 * **`textwrap`** - Used with **`shutil`** to wrap the text in the terminal without getting words broken up.
 * **`shutil`** - Used with **`textwrap`** 
 * **`json`** - Used to convert the datetime objects into serialized json format.
-* **`rich`** - Used to add a bit of design to the application.
+* **`rich`** - Used to add a bit of design to the application. The colors were determined using [this page](https://rich.readthedocs.io/en/latest/appendix/colors.html) of their documentation. 
 
 
 # Deployment and Local Development
