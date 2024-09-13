@@ -158,7 +158,7 @@ def validate_location(location):
     allowed_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ /-"
     try:
         for char in location:
-            if char not in allowed_characters:
+            if char not in allowed_chars:
                 raise TypeError(warning("Name must contain letters, / and -."))
         if not location:
             raise TypeError(warning('This field cannot be empty.'))
