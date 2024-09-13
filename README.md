@@ -214,6 +214,14 @@ After the instance is created, the chart is then instantiated in the `Report()` 
 
 ### Compatibility
 
+If the user chooses **Compatibility**, the user is asked for their input:
+
+![Compatibility input](assets/images/compatibility-input.png)
+
+The user is required to input their name and date of birth, and also the name and date of birth of another person, usually the user's significant other. Once the input is validated, the user gets their compatibility verdict: 
+
+![Compatibility output](assets/images/compatibility-output.png)
+
 ## Future Implementations
 
 This turned out to be one of my favorite projects and I'd love to expand more on it. A few of these future implementations would be:
