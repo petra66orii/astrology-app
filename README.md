@@ -124,6 +124,7 @@ This app is targeted at people who genuinely believe that the planets' position 
 * As a user, I want to see my daily horoscope so that I can plan my day accordingly.
 * As a user, I want to make sure that my input is validated so that I can get accurate information.
 * As a user, I want to learn more about the significance of planetary positions so that I can understand my astrological profile better. 
+* As a user, I want to check my compatibility level with my partner to see if they're a good fit.
 
 # Features
 
