@@ -434,6 +434,28 @@ When developing the `update_worksheet()` function, I got this error:
 
 **Solution**: This [article](https://www.geeksforgeeks.org/how-to-fix-datetime-datetime-not-json-serializable-in-python/) gave the magic solution: import `json` library and use its methods to convert datetime objects into strings.
 
+### Bug#9 - ModuleNotFoundError - `rich` library
+
+After installing and importing `rich`, I deployed the app and I got this error at the start of the application:
+
+![Ninth bug](assets/images/bug-number9.png)
+
+Even though I used the `freeze` command for the `requirements.txt` file, the library wasn't automatically uploaded, so Heroku couldn't find the library.
+
+**Solution**: Manually type `rich==13.6.0` in `requirements.txt`. After deploying it, the app was back to normal.
+
+## Unfixed bugs
+
+### Bug#1 - Worksheet doesn't update after first input
+
+If the user chooses to continue using the app and not exit after they've gotten their first horoscope/birth chart/compatibility report, the worksheet doesn't update. The information stored is only the first option that the user chooses. 
+
+Ex: If the user initially goes with a daily horoscope and then exits the app, daily horoscope is being stored in the spreadsheet. If the user chooses a daily horoscope, then chooses a weekly one and then exits, only the daily one is stored as well. 
+
+I've tried looping through the options, but ended up in an endless loop where I couldn't exit the app altogether. I kept getting the welcome message and was forced to choose one of the three features. 
+
+Since this bug doesn't affect the functionalty of the app, and information is still stored, this bug will be fixed in a future developement. 
+
 # Credits
 
 ## Code Used
