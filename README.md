@@ -300,7 +300,69 @@ To fork the repository:
 
 # Testing
 
-## Bugs
+## Validation
+
+The validation error messages appear written in red to express an error as seen in the screenshots below:
+![Name Validation](assets/images/name-validation.png)
+![Date Validation](assets/images/date-validation1.png)
+![Date Validation](assets/images/date-validation2.png)
+![Time Validation](assets/images/time-validation.png)
+![Location Validation](assets/images/city-validation.png)
+![Location Validation](assets/images/country-validation.png)
+
+### PEP8 Validation
+
+Initially, the PEP8 linter came out with a few `line too long` errors. After refactoring, shortening variable names and structuring comments and docstrings, the linter showed no errors:
+
+![PEP8 Validator](assets/images/pep8-validation-pass.png)
+
+However, after clicking into the code, I got a few lines that were still too long. I managed to structure the code (whilst still maintaining its readability and functionality), with the exception of a single line. I couldn't find any way to make the code shorter, I've shortened the variable names as much as I could, but I prefer that the variable names are easily understandable for their intended purpose. 
+
+Hence, the final code validation returned this:
+
+![PEP8 Validator](assets/images/pep8-validation-line-too-long.png)
+
+### Manual Validation
+
+|Test Item|Test Carried Out|Result|Pass/Fail|
+|-------------|------------------|-----------|-------|
+|Run program|Open page with program |Program loads and asks the user to choose from three options: **Horoscope**, **Birth Chart** and **Compatibility**|PASS|
+|Select Option|Select **Horoscope**|User is asked to input their name and date of birth |PASS|
+||Select **Birth Chart**|User is asked to input their name, date and time of birth, and city and country of birth|PASS|
+||Select **Compatibility**|User is asked to input their and their significant other's name and date of birth|PASS|
+||Select **Exit**|The message `Thank you for using AstrologyApp!` displays and the program finishes|PASS|
+|Name Input Validation|Enter nothing|Input is not accepted. The message `Name cannot be empty.` displays and prompts the user to enter their name again.|PASS|
+||Enter name in lowercase|Input is not accepted. The message `Name must start with a capital letter.` displays and prompts the user to enter their name again.|PASS|
+||Enter integers and/or special characters|Input is not accepted. The message `Name must contain alphabetic characters.` displays and prompts the user to enter their name again.|PASS|
+||Enter more than 50 characters|Input is not accepted. The message `Name must have 50 characters or less.` displays and prompts the user to enter their name again.|PASS|
+|Date Input Validation|Enter date in DD-MM-YYYY format|Input is not accepted. The message `Please enter date in DD/MM/YYYY format` appears and prompts the user to enter the date again.|PASS|
+||Enter alphabetic characters|Input is not accepted. The message `Please enter date in DD/MM/YYYY format` appears and prompts the user to enter the date again.|PASS|
+||Enter nothing|Input is not accepted. The message `Please enter date in DD/MM/YYYY format` appears and prompts the user to enter the date again.|PASS|
+||Enter alphabetic characters|Input is not accepted. The message `Please enter date in DD/MM/YYYY format` appears and prompts the user to enter the date again.|PASS|
+||Enter random integers and special characters|Input is not accepted. The message `Please enter date in DD/MM/YYYY format` appears and prompts the user to enter the date again.|PASS|
+||Enter invalid dates like `33/12/1996`|Input is not accepted. The message `Please enter date in DD/MM/YYYY format` appears and prompts the user to enter the date again.|PASS|
+|Time Input Validation|Enter nothing|Input is not accepted. The message `Please enter time in HH:MM format.` appears and prompts the user to enter the time again.|PASS|
+||Enter random alphanumeric characters|Input is not accepted. The message `Please enter time in HH:MM format.` appears and prompts the user to enter the time again.|PASS|
+||Enter special characters|Input is not accepted. The message `Please enter time in HH:MM format.` appears and prompts the user to enter the time again.|PASS|
+||Enter time in HH-MM format|Input is not accepted. The message `Please enter time in HH:MM format.` appears and prompts the user to enter the time again.|PASS|
+|Location Input Validation|Enter nothing|Input is not accepted. The message `This field cannot be empty.` appears and prompts the user to enter the location again.|PASS| 
+||Enter numeric characters|Input is not accepted. The message `Name must contain letters, / and -.` appears and prompts the user to enter the location again.|PASS|
+||Enter any other special characters than "/" or "-"|Input is not accepted. The message `Name must contain letters, / and -.` appears and prompts the user to enter the location again.|PASS|
+||Enter location in lowercase|Input is not accepted. The message `Name must start with a capital letter.` appears and prompts the user to enter the location again.|PASS|
+|**Horoscope** Feature|Display of zodiac sign|After user input, the app displays their zodiac sign like this: `Hello, (name). Your zodiac sign is (zodiac sign)`|PASS|
+||Timeframe options|User is given four options for their timeframe of horoscope: **Daily**, **Weekly**, **Monthly** and **Yearly**|PASS|
+||User chooses **Daily**|Daily horoscope is displayed|PASS|
+||User chooses **Weekly**|Weekly horoscope is displayed|PASS|
+||User chooses **Monthly**|Monthly horoscope is displayed|PASS|
+||User chooses **Yearly**|Yearly horoscope is displayed|PASS|
+|Feature Options Reappearing|Options pop up again|After user gets their desired information, the options containing features appear again|PASS|
+|**Birth Chart** Feature|Message with moon sign and rising sign|After user input, the user gets the following message displayed in the terminal: `Hello, (name). Your Sun sign is (sun sign). Your Moon sign is (moon sign). Your Rising sign is (rising sign).`|PASS|
+||Birth chart table is generated|Table containing a comprehensive report about the user's birth chart is displayed|PASS|
+|**Compatibility** Feature|User gets zodiac signs|After user input, the following message appears: `Hello, (name 1). Your zodiac sign is (zodiac sign 1) and (name 2)'s zodiac sign is (zodiac sign 2)`|PASS|
+||User receives compatibility verdict|The compatibility text is displayed in the terminal|PASS|
+
+
+## Fixed Bugs
 
 ### Bug #1 - Zodiac sign doesn't show up (AttributeError)
 
