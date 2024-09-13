@@ -60,8 +60,59 @@ The main goal of this app is to generate meaningful insights into the user's liv
 ## Design
 
 ### Logic Flow
-### Flowchart
+
+This project turned out to be a lot more complex than initially imagined. Initially it would've only contained the **Horoscope** and **Birth Chart** features, but the app would be benefiting more if it also contained a **Compatibility** feature, since most people interested in astrology could also be interested in reading into their significant other's astrological data. This is also illustrated in the big difference between the initial flowchart and the subsequent, more complex flowchart.
+
+Initial flowchart: 
+
+![Initial flowchart](assets/images/initial-flowchart.jpg)
+
+Final flowchart:
+
+![Final flowchart](assets/images/astrology-app-updated-flowchart.drawio.png)
+
 ### Data Model
+
+The **key project** components for this project were met as written below:
+
+#### Data Input and Validation
+
+1. Functions to prompt and validate user inputs: 
+    * `validate_name` 
+    * `validate_date`
+    * `validate_time`
+    * `validate_location`
+
+2. Functions to fetch user inputs for different functionalities:
+    * `birth_chart_user_input`
+    * `prompt_user_for_input`
+
+#### Data Processing
+
+1. Functions to fetch coordinates and timezone based on user input 
+    * `fetch_coordinates_from_dataset`
+    * `fetch_timezone`
+
+2. Functions to generate astrological data:
+    * `generate_birth_chart`
+    * `get_zodiac_sign`
+    * `get_horoscope`
+    * `get_compatibility`
+
+#### Data Storage and Retrieval
+
+1. Function to update Google Sheets with user data:
+    * `update_worksheet`
+
+2. Function to save and format data for storage: 
+    * `save_birth_chart_data`
+
+#### User Interaction
+
+1. Functions to interact with the user and display information: 
+    * `prettify_text`
+    * `warning`
+    * `start_app`
 
 # Target Audience
 
