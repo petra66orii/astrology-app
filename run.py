@@ -71,7 +71,7 @@ def start_app(message):
     Args:
         message (str): Message that gets printed in the terminal.
     """
-    prettify_text(message, 'bold', 'purple', 'crystal_ball')
+    prettify_text(message, 'purple', 'crystal_ball')
     options = ['Horoscope', 'Birth Chart', 'Compatibility', 'Exit']
 
     # Use Questionary library to provide options for a pleasant UX
@@ -88,7 +88,6 @@ def start_app(message):
             return 'Compatibility', get_compatibility()
         elif select_option == 'Exit':
             prettify_text('Thank you for using AstrologyApp!',
-                          'bold',
                           'orange1',
                           'sparkles')
             return None, None
@@ -297,10 +296,8 @@ def horoscope():
     zodiac sign and horoscope for the desired timeframe.
     """
     prettify_text('Please enter your first name and date of birth.\n',
-                  'bold',
                   '#875fff')
     prettify_text('Example:\n Name: Gerry \n Date of Birth: 20/06/1990\n',
-                  'bold',
                   '#875fff')
 
     name = prompt_user_for_input('\nName:\n', validate_name)
@@ -313,7 +310,6 @@ def horoscope():
     zodiac_month = valid_date.month
     zodiac_sign = get_zodiac_sign(zodiac_day, zodiac_month)
     prettify_text(f'\nHello, {name}. Your zodiac sign is {zodiac_sign[0]}.',
-                  'italic',
                   '#875fff')
 
     # Display timeframe options to choose from
@@ -327,12 +323,11 @@ def horoscope():
                   'Yearly': f'https://www.horoscope.com/us/horoscopes/yearly/2024-horoscope-{zodiac_sign[0]}.aspx'
                   }
 
-    prettify_text(f'\n{select_option} horoscope for {name}, a {zodiac_sign[0]}:\n',
-                  'italic',
-                  '#875fff')
+    prettify_text(f"\n{select_option} horoscope for {name}, a {zodiac_sign[0]}: ",
+                  '#875fff',
+                  'sparkles')
     horoscope_text = get_horoscope(timeframes[select_option], select_option)
-    prettify_text(horoscope_text, 'bold', 'deep_pink1')
-
+    prettify_text(horoscope_text, 'deep_pink1')
 
     # Convert valid_date into json_date so it can be appended to the worksheet - credits to Geeks for Geeks
     # website - article linked in README.md
@@ -348,17 +343,17 @@ def birth_chart_user_input():
     """
     Prompts the user to input their details for birth chart generation
     """
-    prettify_text('\nPlease enter your first name:\n', 'bold', '#875fff')
+    prettify_text('\nPlease enter your first name:\n', '#875fff')
     name = prompt_user_for_input('\nName:\n', validate_name)
-    prettify_text('\nPlease enter your date of birth:\n', 'bold', '#5fd700')
+    prettify_text('\nPlease enter your date of birth:\n', '#5fd700')
     birth_date = prompt_user_for_input('\nDate of Birth (DD/MM/YYYY):\n',
                                        validate_date)
     valid_date = validate_date(birth_date)
-    prettify_text('\nPlease enter your time of birth:\n', 'bold', '#5fd700')
+    prettify_text('\nPlease enter your time of birth:\n', '#5fd700')
     birth_time = prompt_user_for_input('\nTime of Birth (HH:MM):\n',
                                        validate_time)
     valid_time = validate_time(birth_time)
-    prettify_text('\nPlease enter your location of birth:\n', 'bold', '#875fff')
+    prettify_text('\nPlease enter your location of birth:\n', '#875fff')
     location_city = prompt_user_for_input('\nCity:\n', validate_location)
     location_country = prompt_user_for_input('\nCountry:\n', validate_location)
 
@@ -440,11 +435,12 @@ def print_first_signs(name, chart, signs):
         chart (AstrologicalSubject): User's birth chart.
         signs (dict): The user's signs.
     """
-    prettify_text(f'\nHello, {name}. Your Sun sign is {signs['sun_sign']} {chart.sun.emoji}.\n',
-                  'italic',
+    prettify_text(f"""\nHello, {name}.
+                  Your Sun sign is {signs['sun_sign']}
+                  {chart.sun.emoji}.\n""",
                   'deep_pink1')
-    prettify_text(f'Your Moon sign is {signs['moon_sign']} {chart.moon.emoji}.\n',
-                  'italic',
+    prettify_text(f"""Your Moon sign is {signs['moon_sign']}
+                  {chart.moon.emoji}.\n""",
                   'deep_pink1')
     prettify_text(f'Your Rising sign is {signs['rising_sign']} {chart.first_house.emoji}.\n',
                   'italic',
@@ -544,33 +540,25 @@ def get_compatibility():
     Gets the compatibility between two zodiac signs and displays it
     """
     prettify_text("Find out if you're compatible!",
-                  'bold',
                   '#875fff',
                   'couple_with_heart')
     prettify_text('Please fill out the necessary information:\n',
-                  'bold',
                   '#875fff')
     prettify_text('Example:\n Name: Gerry \n Date of Birth: 20/06/1990\n',
-                  'bold',
                   '#875fff')
-
     prettify_text('\nPlease enter your first name:\n',
-                  'bold',
                   '#875fff')
     name1 = prompt_user_for_input('\nName:\n', validate_name)
     prettify_text('\nPlease enter their first name:\n',
-                  'bold',
                   '#875fff')
     name2 = prompt_user_for_input('\nName:\n', validate_name)
 
     prettify_text('\nPlease enter your date of birth:\n',
-                  'bold',
                   '#5fd700')
     birth_date1 = prompt_user_for_input('\nDate of Birth (DD/MM/YYYY):\n',
                                         validate_date)
     valid_date1 = validate_date(birth_date1)
     prettify_text('\nPlease enter their birth date:\n',
-                  'bold',
                   '#5fd700')
     birth_date2 = prompt_user_for_input('\nDate of Birth (DD/MM/YYYY):\n',
                                         validate_date)
@@ -585,17 +573,17 @@ def get_compatibility():
     prettify_text(f"""\nHello, {name1}. Your zodiac sign is {zodiac_sign1[0]},
                   \nand {name2}'s zodiac sign is {zodiac_sign2[0]}.\n
                   """,
-                  'italic',
                   '#875fff')
-    prettify_text("Let's see your compatibility!", 'italic', '#5fd700')
+    prettify_text("Let's see your compatibility!", '#5fd700')
 
     # Used BeautifulSoup and requests code to scrap data and display it 
     # credits to W3Resources article and BeautifulSoup4 documentation
     url = f'https://www.horoscope.com/love/compatibility/{zodiac_sign1[0]}-{zodiac_sign2[0]}'
     soup = BeautifulSoup(requests.get(url).content, 'html.parser')
     horoscope_text = soup.find('div', class_='module-skin').p.text
-    formatted_text = textwrap.fill(horoscope_text, width=shutil.get_terminal_size().columns)
-    prettify_text(formatted_text, 'italic', 'deep_pink1')
+    formatted_text = textwrap.fill(horoscope_text,
+                                   width=shutil.get_terminal_size().columns)
+    prettify_text(formatted_text, 'deep_pink1')
 
     # Convert valid_date into json_date so it can be appended to the worksheet - credits to Geeks for Geeks
     # website - article linked in README.md
