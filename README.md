@@ -6,8 +6,11 @@ This is a simple astrology app that works within a terminal. The app offers a co
 1. **[Project Goals](#project-goals)**
     * [Design](#design)
         + [Logic Flow](#logic-flow)
-        + [Flowchart](#flowchart)
         + [Data Model](#data-model)
+            - [Data Input and Validation](#data-input-and-validation)
+            - [Data Processing](#data-processing)
+            - [Data Storage and Retrieval](#data-storage-and-retrieval)
+            - [User Interaction](#user-interaction)
 2. **[Target Audience](#target-audience)**
     * [User Stories](#user-stories)
 3. **[Features](#features)**
@@ -24,7 +27,10 @@ This is a simple astrology app that works within a terminal. The app offers a co
         + [How to Clone](#how-to-clone)
         + [How to Fork](#how-to-fork)
 6. **[Testing](#testing)**
-    * [Bugs](#bugs)
+    * [Validation](#validation)
+        + [PEP8 Validation](#pep8-validation)
+        + [Manual Validation](#manual-validation)
+    * [Fixed Bugs](#fixed-bugs)
         + [Bug #1 - Zodiac sign doesn't show up](#bug-1---zodiac-sign-doesnt-show-up-attributeerror)
         + [Bug #2 - Words getting broken up in the terminal](#bug2---words-getting-broken-up-in-the-terminal)
         + [Bug #3 - Yearly horoscope displays `None`](#bug3---yearly-horoscope-displays-none)
@@ -33,6 +39,9 @@ This is a simple astrology app that works within a terminal. The app offers a co
         + [Bug #6 - `AstrologicalSubject()` didn't work](#bug6---astrologicalsubject-didnt-work)
         + [Bug #7 - Fetch coordinates function not defined](#bug7---fetch-coordinates-function-not-defined)
         + [Bug #8 - Datetime object not JSON serializable](#bug8---datetime-object-not-json-serializable)
+        + [Bug #9 - ModuleNotFoundError - `rich` library](#bug9---modulenotfounderror---rich-library)
+    * [Unfixed Bugs](#unfixed-bugs)
+        + [Bug#1 - Worksheet doesn't update after first input](#bug1---worksheet-doesnt-update-after-first-input)
 7. **[Credits](#credits)**
     * [Code Used](#code-used)
         + [Library Documentation](#library-documentation)
