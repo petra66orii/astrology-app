@@ -34,22 +34,22 @@ with gzip.open('assets/datasets/compressed-cities-df.csv.gz', 'rb') as file:
     cities_df = pd.read_csv(file)
 
 
-def prettify_text(text, style, color, emoji=None):
+def prettify_text(text, color, emoji=None):
     """
     Formats text with colors and emojis and displays it
     in the terminal by using rich library.
 
     Args:
         text (str): Text that is displayed.
-        style (str): Style of the text i.e.: bold.
         color (str): The color of the text.
         emoji (str): The emoji displayed. Defaults to None.
     """
     console = Console()
     if emoji:
-        console.print(f'[{style} {color}]{text}[/] :{emoji}:')
+        console.print(f'[bold {color}]{text}[/] :{emoji}:')
     else:
-        console.print(f'[{style} {color}]{text}[/]')
+        console.print(f'[bold {color}]{text}[/]')
+
 
 def warning_text(text):
     """
