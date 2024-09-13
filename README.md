@@ -1,6 +1,6 @@
 # Astrology App
 
-This is a simple astrology app that works within a terminal. The app offers a comprehensive set of features that deliver personalized astrological insights. Users can input their birth details (date, time and location) to generate detailed birth charts, including information like the sun sign (the main zodiac sign), the moon sign or the ascendant sign. The app can also provide a user's daily, weekly, monthly and even yearly horoscopes depending in the user's zodiac sign, helping them to gain insights into their daily lives or to see any long-term trends. The app offers accurate and insightful astrological guidance, whilst maintaining a user-friendly design and has a robust validation process in place.
+This is a simple astrology app that works within a terminal. The app offers a comprehensive set of features that deliver personalized astrological insights. Users can input their birth details (date, time and location) to generate detailed birth charts, including information like the sun sign (the main zodiac sign), the moon sign or the ascendant sign. The app can also provide a user's daily, weekly, monthly and even yearly horoscopes depending on the user's zodiac sign. It is also helping them to gain insights into their daily lives or to see any long-term trends. The app offers accurate and insightful astrological guidance, whilst maintaining a user-friendly design and has a robust validation process in place.
 
 # Table of Contents 
 1. **[Project Goals](#project-goals)**
@@ -236,7 +236,7 @@ This turned out to be one of my favorite projects and I'd love to expand more on
 
 The main technologies used for building this app:
 
-* **Python** - As seen, this project was created by solely using Python.
+* **Python** - As seen in the code, this project was created by using Python only.
 * **Gitpod** - The IDE where all the coding and commits have been done
 * **GitHub** - Where the website is stored and pushed.
 * **Heroku** - The website was deployed on Heroku due to it being a terminal-based app.
