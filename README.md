@@ -158,6 +158,36 @@ Compatibility worksheet:
 
 ### Horoscope
 
+If the user chooses **Horoscope**, the word is highlighted and the user is then prompted to input their name and date of birth.
+
+![Name input](assets/images/choose-option.png)
+
+The user inputs their details:
+
+![Input completed](assets/images/horoscope-input.png)
+
+And the user gets a message where they're told what their zodiac sign is. After that, the user is then prompted to choose a timeframe for their horoscope (**Daily**, **Weekly**, **Monthly**, **Yearly**):
+
+![Choose timeframe](assets/images/horoscope-options.png)
+
+If the user chooses **Daily**, they get their daily horoscope:
+
+![Daily horoscope](assets/images/daily-horoscope.png)
+
+If the user chooses **Weekly**, they get their weekly horoscope:
+
+![Weekly horoscope](assets/images/weekly-horoscope.png)
+
+If the user chooses **Monthly**, they get their monthly horoscope:
+
+![Monthly horoscope](assets/images/monthly-horoscope.png)
+
+If the user chooses **Yearly**, they get their yearly horoscope:
+
+![Yearly horoscope](assets/images/yearly-horoscope.png)
+
+The horoscope text is scraped using `BeautifulSoup4` from this [website](https://www.horoscope.com/us/index.aspx) and then displayed in the terminal. The user receives information that could guide them in planning their day, week, or other near-future timeframes.
+
 ### Birth Chart
 
 ### Compatibility
