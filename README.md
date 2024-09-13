@@ -190,6 +190,28 @@ The horoscope text is scraped using `BeautifulSoup4` from this [website](https:/
 
 ### Birth Chart
 
+If the user chooses **Birth Chart**, the user is asked for their input:
+
+![Birth chart input](assets/images/birth-chart-input.png)
+
+Unlike the **Horoscope**, where the user is only prompted for their name and date of birth, in this feature, the user is required to input the above mentioned, plus the time of birth (*Note: If not sure, input 12:00*), city of birth and country of birth. 
+After the input is validated, the user receives a little message, followed by a table containing the user's chart. In this table, the user is shown their zodiac signs for every planet and house, with their positions in the stars.
+
+![Birth chart table](assets/images/birth-chart-table1.png)
+![Birth chart table](assets/images/birth-chart-table2.png)
+![Birth chart table](assets/images/birth-chart-table3.png)
+
+The table is generated using `Kerykeion` library, more specifically the `AstrologicalSubject()` class, the `Report()`
+class and the `print_report()` function. 
+
+The user's input is instantiated in `AstrologicalSubject()` class that calculates all the astrological data needed to generate a birth chart.
+
+Whilst the user is asked for their city and country only, `AstrologicalSubject()` also needs the latitude, longitude and timezone. 
+
+Since asking the user to input those details would rather prompt them to leave the app altogether, the latitude and longitude are calculated with the help of a cleaned dataset from [Kaggle](https://www.kaggle.com/code/petrabot/cities-coordinates-dataset) and a function, and the timezone is calculated with the help of `TimezoneFinder()` class from the `timezonefinder` library. 
+
+After the instance is created, the chart is then instantiated in the `Report()` class that generates the table. The `print_report()` function is then displaying the table.
+
 ### Compatibility
 
 ## Future Implementations
