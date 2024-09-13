@@ -130,6 +130,32 @@ This app is targeted at people who genuinely believe that the planets' position 
 
 ## Existing Features
 
+The app has three main features: **Horoscope**, **Birth Chart** and **Compatibility**. The user is greeted by a little welcome message:
+
+![Landing page](assets/images/start-app.png)
+
+Below the message the user is asked to select an option out of three above using arrow keys. 
+
+The user always has the option to exit the app as well:
+
+![Exit app](assets/images/exit-app.png)
+
+The user's input and the information they've received is then stored in a spreadsheet, each feature containing its respective worksheet:
+
+![Spreadsheet pages](assets/images/spreadsheet-pages.png)
+
+Horoscope worksheet:
+
+![Horoscope worksheet](assets/images/horoscope-worksheet.png)
+
+Birth chart worksheet:
+
+![Birth chart worksheet](assets/images/birth-chart-worksheet.png)
+
+Compatibility worksheet:
+
+![Compatibility worksheet](assets/images/compatibility-worksheet.png)
+
 ### Horoscope
 
 ### Birth Chart
