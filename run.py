@@ -156,16 +156,13 @@ def validate_location(location):
     # Iterates through the allowed_characters string to ensure
     # location input is valid
     allowed_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ /-"
-    try:
-        for char in location:
-            if char not in allowed_chars:
-                raise TypeError(warning("Name must contain letters, / and -."))
-        if not location:
-            raise TypeError(warning('This field cannot be empty.'))
-        elif not location[0].isupper():
-            raise TypeError(warning("Name must start with a capital letter."))
-    except TypeError as e:
-        warning(f'An error occured while validating location: {e}')
+    for char in location:
+        if char not in allowed_chars:
+            raise TypeError(warning("Name must contain letters, / and -."))
+    if not location:
+        raise TypeError(warning('This field cannot be empty.'))
+    elif not location[0].isupper():
+        raise TypeError(warning("Name must start with a capital letter."))
     return location
 
 
