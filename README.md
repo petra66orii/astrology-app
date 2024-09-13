@@ -230,6 +230,7 @@ This turned out to be one of my favorite projects and I'd love to expand more on
 * Produce charts and give the user the ability to save their personalized charts along with the interpretation. 
 * Offer a crash course into understanding the planets and houses systems: while making this project, astrology tunred out to be a lot more complex than what is usually seen in newspapers and websites. A little section within the app that explains the more complex concepts of astrology could prove useful for the user to better understand what to look for when using an astrology app.
 * Build a Streamlit webpage for better UX design; Streamlit is a very neat Python library that can be used to build websites quickly. Given that Streamlit isn't required to make the app fully functional, but is merely a means of making the website better looking, I've decided to leave Streamlit implementation for now.
+* Fix the worksheet bug to store more information (*Note: see [Unfixed Bugs](#unfixed-bugs)*)
 
 # Technologies
 
