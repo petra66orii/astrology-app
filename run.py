@@ -1,19 +1,17 @@
 # Import neccesary packages for our app
-import gspread
-from google.oauth2.service_account import Credentials
-from datetime import datetime as dt
-import requests
-from bs4 import BeautifulSoup
-from kerykeion import AstrologicalSubject, Report, KerykeionException
-import pandas as pd
-import pickle
-import gzip
-from timezonefinder import TimezoneFinder
-import pytz
-import questionary
 import textwrap
 import shutil
 import json
+import gzip
+from datetime import datetime as dt
+import requests
+import gspread
+from google.oauth2.service_account import Credentials
+from bs4 import BeautifulSoup
+from kerykeion import AstrologicalSubject, Report, KerykeionException
+import pandas as pd
+from timezonefinder import TimezoneFinder
+import questionary
 from rich.console import Console
 
 # This section of code is borrowed from the "Love Sandwiches" project
@@ -51,7 +49,7 @@ def prettify_text(text, color, emoji=None):
         console.print(f'[bold {color}]{text}[/]')
 
 
-def warning_text(text):
+def warning(text):
     """
     Formats error messages and displays it
     in the terminal by using rich library.
@@ -78,7 +76,8 @@ def start_app(message):
     select_option = (questionary.select('Select an option:',
                                         choices=options).ask())
 
-    # Returns a tuple containing the option selected and the function that will initialize
+    # Returns a tuple containing the option selected
+    # and the function that will initialize
     try:
         if select_option == 'Horoscope':
             return 'Horoscope', horoscope()
@@ -92,7 +91,8 @@ def start_app(message):
                           'sparkles')
             return None, None
     except (TypeError, ValueError) as e:
-        warning_text(f'An error occured while starting the app: {e}')
+        warning(f'An error occured while starting the app: {e}')
+
 
 def validate_name(name):
     """
@@ -104,15 +104,16 @@ def validate_name(name):
     """
     try:
         if not name:
-            raise TypeError(warning_text('Name cannot be empty.'))
+            raise TypeError(warning('Name cannot be empty.'))
         elif not name.isalpha():
-            raise TypeError(warning_text('Name can only contain alphabetic characters.'))
+            raise TypeError(warning("Name must contain alphabetic characters"))
         elif len(name) >= 50:
-            raise TypeError(warning_text('Name must have 50 characters or less.'))
+            raise TypeError(warning("Name must have 50 characters or less."))
         elif not name[0].isupper():
-            raise TypeError(warning_text('Name must start with a capital letter.'))
+            raise TypeError(warning("Name must start with a capital letter."))
     except ValueError:
-        raise ValueError(warning_text('Invalid name.'))
+        raise ValueError(warning('Invalid name.'))
+
 
 def validate_date(date):
     """
@@ -125,8 +126,9 @@ def validate_date(date):
         # Used datetimes' strptime method to validate the birth date
         valid_date = dt.strptime(date, '%d/%m/%Y')
     except ValueError:
-        raise ValueError(warning_text('Please enter the date in DD/MM/YYYY format.'))
+        raise ValueError(warning("Please enter date in DD/MM/YYYY format."))
     return valid_date
+
 
 def validate_time(time):
     """
@@ -139,8 +141,9 @@ def validate_time(time):
         # Used datetimes' strptime method to validate the birth time
         valid_time = dt.strptime(time, '%H:%M')
     except ValueError:
-        raise ValueError(warning_text('Please enter the time in HH:MM format.'))
+        raise ValueError(warning("Please enter time in HH:MM format."))
     return valid_time
+
 
 def validate_location(location):
     """
@@ -150,19 +153,19 @@ def validate_location(location):
         location (str): Location of birth.
     """
 
-    # Iterates through the allowed_characters string to ensure 
+    # Iterates through the allowed_characters string to ensure
     # location input is valid
-    allowed_characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ /-'
+    allowed_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ /-"
     try:
         for char in location:
             if char not in allowed_characters:
-                raise TypeError(warning_text("Location can only contain letters, '/' and/or '-'."))
+                raise TypeError(warning("Name must contain letters, / and -."))
         if not location:
-            raise TypeError(warning_text('This field cannot be empty.'))
+            raise TypeError(warning('This field cannot be empty.'))
         elif not location[0].isupper():
-            raise TypeError(warning_text('Location name must start with a capital letter.'))
+            raise TypeError(warning("Name must start with a capital letter."))
     except TypeError as e:
-        warning_text(f'An error occured while validating location: {e}')
+        warning(f'An error occured while validating location: {e}')
     return location
 
 
@@ -180,7 +183,7 @@ def prompt_user_for_input(prompt, validation_func):
             validation_func(user_input)
             return user_input
         except (TypeError, ValueError) as e:
-            warning_text(f'An error occured while getting input: {e}')
+            warning(f'An error occured while getting input: {e}')
 
 
 def fetch_coordinates_from_dataset(city, df):
@@ -198,7 +201,8 @@ def fetch_coordinates_from_dataset(city, df):
         long = city_data.iloc[0]['Longitude']
         return lat, long
     except ValueError as e:
-        warning_text(f'An error occured while fetching coordinates: {e}')
+        warning(f'An error occured while fetching coordinates: {e}')
+
 
 def fetch_timezone(lat, long):
     """
@@ -216,9 +220,9 @@ def fetch_timezone(lat, long):
         tz = TimezoneFinder()
         tz_str = tz.timezone_at(lat=lat, lng=long)
         if tz_str is None:
-            raise ValueError(warning_text('Timezone not found.'))
+            raise ValueError(warning('Timezone not found.'))
     except ValueError as e:
-        warning_text(f'An error occured while fetching the timezone: {e}')
+        warning(f'An error occured while fetching the timezone: {e}')
     return tz_str
 
 
@@ -226,8 +230,10 @@ def get_zodiac_sign(day, month):
     """
     Returns a tuple containing the user's zodiac sign
     and its order in the zodiac list based on the day and month inputs.
-    Inner tuple contains the corresponding start months and days, end months and end days
-    respectively for each zodiac sign, followed by sign name and order in its list.
+    Inner tuple contains the corresponding
+    start months and days, end months and end days
+    respectively for each zodiac sign,
+    followed by sign name and order in its list.
 
     Args:
         day (int): Day of the month.
@@ -243,32 +249,33 @@ def get_zodiac_sign(day, month):
         if not (1 <= month <= 12 and 1 <= day <= 31):
             return 'Invalid date'
 
-        # The inspiration for this structure was from the tuple unpacking tutorial
+        # The inspiration for this structure was from the tuple tutorial
         # on W3Schools and a dev.to article - link in README.md
-        zodiac_signs = [((3, 21, 4, 19), 'Aries', 1),
-                        ((4, 20, 5, 20), 'Taurus', 2),
-                        ((5, 21, 6, 20), 'Gemini', 3),
-                        ((6, 21, 7, 22), 'Cancer', 4),
-                        ((7, 23, 8, 22), 'Leo', 5),
-                        ((8, 23, 9, 22), 'Virgo', 6),
-                        ((9, 23, 10, 22), 'Libra', 7),
-                        ((10, 23, 11, 21), 'Scorpio', 8),
-                        ((11, 22, 12, 21), 'Sagittarius', 9),
-                        ((12, 22, 1, 19), 'Capricorn', 10),
-                        ((1, 20, 2, 18), 'Aquarius', 11),
-                        ((2, 19, 3, 20), 'Pisces', 12)
-                        ]
+        signs = [((3, 21, 4, 19), 'Aries', 1),
+                 ((4, 20, 5, 20), 'Taurus', 2),
+                 ((5, 21, 6, 20), 'Gemini', 3),
+                 ((6, 21, 7, 22), 'Cancer', 4),
+                 ((7, 23, 8, 22), 'Leo', 5),
+                 ((8, 23, 9, 22), 'Virgo', 6),
+                 ((9, 23, 10, 22), 'Libra', 7),
+                 ((10, 23, 11, 21), 'Scorpio', 8),
+                 ((11, 22, 12, 21), 'Sagittarius', 9),
+                 ((12, 22, 1, 19), 'Capricorn', 10),
+                 ((1, 20, 2, 18), 'Aquarius', 11),
+                 ((2, 19, 3, 20), 'Pisces', 12)
+                 ]
 
-        for (start_month, start_day, end_month, end_day), sign, order in zodiac_signs:
+        for (start_month, start_day, end_month, end_day), sign, order in signs:
             if (month == start_month and day >= start_day) or (month == end_month and day <= end_day):
                 return sign, order
     except ValueError as e:
-        warning_text(f'An error occured while calculating zodiac sign: {e}')
+        warning(f'An error occured while calculating zodiac sign: {e}')
 
 
 def get_horoscope(url, timeframe):
     """
-    Gets the desired horoscope and formats it from the given URL based on the timeframe.
+    Gets the desired horoscope and formats it
+    from the given URL based on the timeframe.
     This function was created using the BeautifulSoup4 library.
 
     Args:
@@ -283,12 +290,14 @@ def get_horoscope(url, timeframe):
             horoscope_text = soup.find('section', id='personal').p.text
         else:
             horoscope_text = soup.find('div', class_='main-horoscope').p.text
-        # This line of code was taken and adapted from a StackOverflow forum page
-        # link in README.md
-        formatted_text = textwrap.fill(horoscope_text, width=shutil.get_terminal_size().columns)
-        return formatted_text
+        # This line of code was taken and adapted
+        # from a StackOverflow forum page link in README.md
+        format_text = textwrap.fill(horoscope_text,
+                                    width=shutil.get_terminal_size().columns)
+        return format_text
     except Exception as e:
-        warning_text(f'An unexpected error occured while requesting data: {e}')
+        warning(f'An unexpected error occured while requesting data: {e}')
+
 
 def horoscope():
     """
@@ -315,29 +324,38 @@ def horoscope():
     # Display timeframe options to choose from
     options = ['Daily', 'Weekly', 'Monthly', 'Yearly']
     # Use Questionary library to provide options for a pleasant UX
-    select_option = (questionary.select('Please choose the timeframe of your desired horoscope:', choices=options, ).ask())
+    select_opt = (questionary.select('Please choose the timeframe:',
+                                     choices=options, ).ask())
+    base = 'https://www.horoscope.com/us/horoscopes/general/horoscope-general-'
+    base_url_yearly = 'https://www.horoscope.com/us/horoscopes/yearly/2024-'
 
-    timeframes = {'Daily': f'https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-today.aspx?sign={zodiac_sign[1]}',
-                  'Weekly': f'https://www.horoscope.com/us/horoscopes/general/horoscope-general-weekly.aspx?sign={zodiac_sign[1]}',
-                  'Monthly': f'https://www.horoscope.com/us/horoscopes/general/horoscope-general-monthly.aspx?sign={zodiac_sign[1]}',
-                  'Yearly': f'https://www.horoscope.com/us/horoscopes/yearly/2024-horoscope-{zodiac_sign[0]}.aspx'
+    timeframes = {'Daily': f'{base}daily-today.aspx?sign={zodiac_sign[1]}',
+                  'Weekly': f'{base}weekly.aspx?sign={zodiac_sign[1]}',
+                  'Monthly': f'{base}monthly.aspx?sign={zodiac_sign[1]}',
+                  'Yearly': f'{base_url_yearly}horoscope-{zodiac_sign[0]}.aspx'
                   }
 
-    prettify_text(f"\n{select_option} horoscope for {name}, a {zodiac_sign[0]}: ",
+    prettify_text(f"\n{select_opt} horoscope for {name}, a {zodiac_sign[0]}: ",
                   '#875fff',
                   'sparkles')
-    horoscope_text = get_horoscope(timeframes[select_option], select_option)
+    horoscope_text = get_horoscope(timeframes[select_opt], select_opt)
     prettify_text(horoscope_text, 'deep_pink1')
 
-    # Convert valid_date into json_date so it can be appended to the worksheet - credits to Geeks for Geeks
-    # website - article linked in README.md
-    # Also used the datetimes' strftime method to display data in a specific way
+    # Convert valid_date into json_date so it can be appended to the worksheet
+    # credits to Geeks for Geeks website - article linked in README.md
+    # Also used the datetimes' strftime method
+    # to display data in a specific way
     str_date = valid_date.strftime('%d/%m/%Y')
     json_date = json.dumps(str_date)
 
-    horoscope_data = [name, json_date, zodiac_sign[0], select_option, horoscope_text]
+    horoscope_data = [name,
+                      json_date,
+                      zodiac_sign[0],
+                      select_opt,
+                      horoscope_text]
     start_app('\nTry something else!')
     return horoscope_data
+
 
 def birth_chart_user_input():
     """
@@ -349,7 +367,7 @@ def birth_chart_user_input():
     birth_date = prompt_user_for_input('\nDate of Birth (DD/MM/YYYY):\n',
                                        validate_date)
     valid_date = validate_date(birth_date)
-    prettify_text('\nPlease enter your time of birth:\n', '#5fd700')
+    prettify_text('\nPlease enter your time of birth (24-hour):\n', '#5fd700')
     birth_time = prompt_user_for_input('\nTime of Birth (HH:MM):\n',
                                        validate_time)
     valid_time = validate_time(birth_time)
@@ -359,7 +377,15 @@ def birth_chart_user_input():
 
     return name, valid_date, valid_time, location_city, location_country
 
-def generate_birth_chart(name, valid_date, valid_time, location_city, location_country, lat, long, tz_str):
+
+def generate_birth_chart(name,
+                         valid_date,
+                         valid_time,
+                         location_city,
+                         location_country,
+                         lat,
+                         long,
+                         tz_str):
     """
     Generates the birth chart by using Kerykeion's AstrologicalSubject().
 
@@ -388,11 +414,13 @@ def generate_birth_chart(name, valid_date, valid_time, location_city, location_c
             geonames_username='petra66orii'
         )
 
+
 def zodiac_dictionary(chart):
     """
     Kerykeion library has the zodiac signs abbreviated
     and it would display in the terminal as such. I felt like that would
-    affect the UX, so I decided to create a dictionary function that would fix this.
+    affect the UX, so I decided to create
+    a dictionary function that would fix this.
 
     Args:
         chart (AstrologicalSubject): The user's birth chart.
@@ -424,7 +452,8 @@ def zodiac_dictionary(chart):
              'neptune_sign': zodiac_dict.get(chart.neptune.sign),
              'pluto_sign': zodiac_dict.get(chart.pluto.sign)
              }
-    return signs 
+    return signs
+
 
 def print_first_signs(name, chart, signs):
     """
@@ -435,18 +464,28 @@ def print_first_signs(name, chart, signs):
         chart (AstrologicalSubject): User's birth chart.
         signs (dict): The user's signs.
     """
-    prettify_text(f"""\nHello, {name}.
-                  Your Sun sign is {signs['sun_sign']}
-                  {chart.sun.emoji}.\n""",
+    sun_sign = signs['sun_sign']
+    moon_sign = signs['moon_sign']
+    rising_sign = signs['rising_sign']
+
+    sun_emoji = chart.sun.emoji
+    moon_emoji = chart.moon.emoji
+    rising_emoji = chart.first_house.emoji
+    prettify_text(f'\nHello, {name}.', 'deep_pink1', 'sparkles')
+    prettify_text(f"Your Sun sign is {sun_sign}. {sun_emoji}\n",
                   'deep_pink1')
-    prettify_text(f"""Your Moon sign is {signs['moon_sign']}
-                  {chart.moon.emoji}.\n""",
+    prettify_text(f"Your Moon sign is {moon_sign}. {moon_emoji}\n",
                   'deep_pink1')
-    prettify_text(f'Your Rising sign is {signs['rising_sign']} {chart.first_house.emoji}.\n',
-                  'italic',
+    prettify_text(f'Your Rising sign is {rising_sign}. {rising_emoji}\n',
                   'deep_pink1')
 
-def save_birth_chart_data(name, valid_date, valid_time, location_city, location_country, signs):
+
+def save_birth_chart_data(name,
+                          valid_date,
+                          valid_time,
+                          location_city,
+                          location_country,
+                          signs):
     """
     Saves the birth chart data and prepares it to be updated in the worksheet.
 
@@ -458,16 +497,16 @@ def save_birth_chart_data(name, valid_date, valid_time, location_city, location_
         location_country (str): User's country of birth.
         signs (dict): User's zodiac signs.
     """
-    
-    # Convert valid_date into json_date so it can be appended to the worksheet 
+
+    # Convert valid_date into json_date so it can be appended to the worksheet
     # credits to Geeks for Geeks website - article linked in README.md
-    # Also used the datetimes' strftime method to display data in a specific way
+    # Also used the datetimes' strftime method
+    # to display data in a specific way
     str_date = valid_date.strftime('%d/%m/%Y')
     json_date = json.dumps(str_date)
     str_time = valid_time.strftime('%H:%M')
     json_time = json.dumps(str_time)
 
-    
     return [name,
             json_date,
             json_time,
@@ -491,49 +530,49 @@ def birth_chart():
     """
     Gets the birth chart and displays it in the terminal
     """
-    
+
     # Initialize birth_chart_data
     birth_chart_data = None
     # Fetch the user input
-    name, valid_date, valid_time, location_city, location_country = birth_chart_user_input()
+    name, date, time, loc_city, loc_country = birth_chart_user_input()
 
     try:
 
-        lat, long = fetch_coordinates_from_dataset(location_city, cities_df)
+        lat, long = fetch_coordinates_from_dataset(loc_city, cities_df)
         tz_str = fetch_timezone(lat, long)
 
         # Generate the chart
-        chart = generate_birth_chart(name=name, 
-                                     valid_date=valid_date,
-                                     valid_time=valid_time,
-                                     location_city=location_city,
-                                     location_country=location_country,
-                                     lat=lat,
-                                     long=long,
-                                     tz_str=tz_str)
+        chart = generate_birth_chart(name,
+                                     date,
+                                     time,
+                                     loc_city,
+                                     loc_country,
+                                     lat,
+                                     long,
+                                     tz_str)
         # Get the zodiac dictionary to dislay the full zodiac sign
-        signs = zodiac_dictionary(chart=chart)
+        signs = zodiac_dictionary(chart)
         # Print a message for the user
-        print_first_signs(name=name, chart=chart, signs=signs)
+        print_first_signs(name, chart, signs)
 
-        # Use Kerykeion's Report() to generate and display the chart 
+        # Use Kerykeion's Report() to generate and display the chart
         report = Report(chart)
         report.print_report()
         # Save the data
-        birth_chart_data = save_birth_chart_data(name=name,
-                                                 valid_date=valid_date,
-                                                 valid_time=valid_time,
-                                                 location_city=location_city,
-                                                 location_country=location_country,
-                                                 signs=signs)
-
+        birth_chart_data = save_birth_chart_data(name,
+                                                 date,
+                                                 time,
+                                                 loc_city,
+                                                 loc_country,
+                                                 signs)
     except KerykeionException as e:
-        warning_text(f"An error occurred: {e}\n Please try again.")
+        warning(f"An error occurred: {e}\n Please try again.")
     except Exception as e:
-        warning_text(f"An unexpected error occurred: {e}")
+        warning(f"An unexpected error occurred: {e}")
 
     start_app('\nTry something else!')
     return birth_chart_data
+
 
 def get_compatibility():
     """
@@ -576,18 +615,21 @@ def get_compatibility():
                   '#875fff')
     prettify_text("Let's see your compatibility!", '#5fd700')
 
-    # Used BeautifulSoup and requests code to scrap data and display it 
+    # Used BeautifulSoup and requests code to scrap data and display it
     # credits to W3Resources article and BeautifulSoup4 documentation
-    url = f'https://www.horoscope.com/love/compatibility/{zodiac_sign1[0]}-{zodiac_sign2[0]}'
+    base_url = 'https://www.horoscope.com/love/compatibility/'
+    url = f"{base_url}{zodiac_sign1[0]}-{zodiac_sign2[0]}"
     soup = BeautifulSoup(requests.get(url).content, 'html.parser')
     horoscope_text = soup.find('div', class_='module-skin').p.text
     formatted_text = textwrap.fill(horoscope_text,
                                    width=shutil.get_terminal_size().columns)
     prettify_text(formatted_text, 'deep_pink1')
 
-    # Convert valid_date into json_date so it can be appended to the worksheet - credits to Geeks for Geeks
+    # Convert valid_date into json_date so it can be appended to the worksheet
+    # credits to Geeks for Geeks
     # website - article linked in README.md
-    # Also used the datetimes' strftime method to display data in a specific way
+    # Also used the datetimes' strftime method
+    # to display data in a specific way
     str_date1 = valid_date1.strftime('%d/%m/%Y')
     json_date1 = json.dumps(str_date1)
     str_date2 = valid_date2.strftime('%d/%m/%Y')
@@ -637,7 +679,7 @@ def main_program():
         elif option == 'Compatibility' and data:
             update_worksheet(data, compatibility_sheet)
     except (TypeError, ValueError) as e:
-        warning_text(f'An error occured while updating the worksheet: {e}')
+        warning(f'An error occured while updating the worksheet: {e}')
 
 
 main_program()
