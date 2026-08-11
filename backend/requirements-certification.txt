@@ -1,0 +1,3 @@
+# Certification-only tooling. This is not a runtime dependency.
+# Review the Swiss Ephemeris dual-license terms before any product integration.
+pysweph==2.10.3.6

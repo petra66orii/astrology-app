@@ -1,0 +1,2291 @@
+{
+  "schema_version": "1.0.0",
+  "generated_from": "gate-b-certification-2026-08-11",
+  "gate_decision": "BLOCKED",
+  "blocked_reason": "BLOCKED_BY_CREDENTIALS",
+  "paid_live_credits_consumed": 0,
+  "summary": {
+    "PASS": 0,
+    "FAIL": 0,
+    "BLOCKED": 5,
+    "maximum_observed_planet_difference": null,
+    "maximum_observed_moon_difference": null,
+    "maximum_observed_angle_or_cusp_difference": null,
+    "timezone_correctness": "PASS",
+    "sign_correctness": "BLOCKED",
+    "aspect_correctness": "BLOCKED",
+    "unknown_time_omissions": "BLOCKED"
+  },
+  "fixtures": [
+    {
+      "fixture_id": "A_DUBLIN_EXACT",
+      "status": "BLOCKED",
+      "comparisons": [
+        {
+          "field": "planet.Sun.longitude",
+          "provider": null,
+          "reference": 88.9638496072911,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Sun.sign",
+          "provider": null,
+          "reference": "Gemini",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Sun.retrograde",
+          "provider": null,
+          "reference": false,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Sun.house",
+          "provider": null,
+          "reference": 9,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Moon.longitude",
+          "provider": null,
+          "reference": 57.65804815316478,
+          "difference": null,
+          "tolerance": 0.003,
+          "passed": null
+        },
+        {
+          "field": "planet.Moon.sign",
+          "provider": null,
+          "reference": "Taurus",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Moon.retrograde",
+          "provider": null,
+          "reference": false,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Moon.house",
+          "provider": null,
+          "reference": 8,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Mercury.longitude",
+          "provider": null,
+          "reference": 74.94860534236928,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Mercury.sign",
+          "provider": null,
+          "reference": "Gemini",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Mercury.retrograde",
+          "provider": null,
+          "reference": false,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Mercury.house",
+          "provider": null,
+          "reference": 9,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Venus.longitude",
+          "provider": null,
+          "reference": 54.742493015662895,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Venus.sign",
+          "provider": null,
+          "reference": "Taurus",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Venus.retrograde",
+          "provider": null,
+          "reference": false,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Venus.house",
+          "provider": null,
+          "reference": 8,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Mars.longitude",
+          "provider": null,
+          "reference": 14.665720197051302,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Mars.sign",
+          "provider": null,
+          "reference": "Aries",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Mars.retrograde",
+          "provider": null,
+          "reference": false,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Mars.house",
+          "provider": null,
+          "reference": 7,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Jupiter.longitude",
+          "provider": null,
+          "reference": 106.99310725641506,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Jupiter.sign",
+          "provider": null,
+          "reference": "Cancer",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Jupiter.retrograde",
+          "provider": null,
+          "reference": false,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Jupiter.house",
+          "provider": null,
+          "reference": 10,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Saturn.longitude",
+          "provider": null,
+          "reference": 293.7227661247653,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Saturn.sign",
+          "provider": null,
+          "reference": "Capricorn",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Saturn.retrograde",
+          "provider": null,
+          "reference": true,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Saturn.house",
+          "provider": null,
+          "reference": 4,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Uranus.longitude",
+          "provider": null,
+          "reference": 277.9654963623658,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Uranus.sign",
+          "provider": null,
+          "reference": "Capricorn",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Uranus.retrograde",
+          "provider": null,
+          "reference": true,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Uranus.house",
+          "provider": null,
+          "reference": 3,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Neptune.longitude",
+          "provider": null,
+          "reference": 283.5880648043335,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Neptune.sign",
+          "provider": null,
+          "reference": "Capricorn",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Neptune.retrograde",
+          "provider": null,
+          "reference": true,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Neptune.house",
+          "provider": null,
+          "reference": 4,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Pluto.longitude",
+          "provider": null,
+          "reference": 225.30448753111273,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Pluto.sign",
+          "provider": null,
+          "reference": "Scorpio",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Pluto.retrograde",
+          "provider": null,
+          "reference": true,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Pluto.house",
+          "provider": null,
+          "reference": 2,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "angle.ascendant",
+          "provider": null,
+          "reference": 190.15554291204543,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "angle.midheaven",
+          "provider": null,
+          "reference": 103.58186632181774,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.1.cusp",
+          "provider": null,
+          "reference": 190.15554291204543,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.2.cusp",
+          "provider": null,
+          "reference": 214.8483048905982,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.3.cusp",
+          "provider": null,
+          "reference": 246.0907800383522,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.4.cusp",
+          "provider": null,
+          "reference": 283.58186632181776,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.5.cusp",
+          "provider": null,
+          "reference": 319.37069772507306,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.6.cusp",
+          "provider": null,
+          "reference": 348.0426881317002,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.7.cusp",
+          "provider": null,
+          "reference": 10.155542912045462,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.8.cusp",
+          "provider": null,
+          "reference": 34.84830489059823,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.9.cusp",
+          "provider": null,
+          "reference": 66.0907800383522,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.10.cusp",
+          "provider": null,
+          "reference": 103.58186632181774,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.11.cusp",
+          "provider": null,
+          "reference": 139.37069772507306,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.12.cusp",
+          "provider": null,
+          "reference": 168.04268813170017,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Moon.Venus.Conjunction.orb",
+          "provider": null,
+          "reference": 2.915555137501883,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Moon.Saturn.Trine.orb",
+          "provider": null,
+          "reference": 3.935282028399456,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Mars.Mercury.Sextile.orb",
+          "provider": null,
+          "reference": 0.2828851453179766,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Jupiter.Venus.Sextile.orb",
+          "provider": null,
+          "reference": 7.7493857592478435,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Saturn.Venus.Trine.orb",
+          "provider": null,
+          "reference": 1.019726890897573,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Jupiter.Mars.Square.orb",
+          "provider": null,
+          "reference": 2.3273870593637582,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Mars.Uranus.Square.orb",
+          "provider": null,
+          "reference": 6.7002238346855165,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Mars.Neptune.Square.orb",
+          "provider": null,
+          "reference": 1.0776553927178156,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Jupiter.Saturn.Opposition.orb",
+          "provider": null,
+          "reference": 6.7296588683502705,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Jupiter.Neptune.Opposition.orb",
+          "provider": null,
+          "reference": 3.4050424520815454,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Jupiter.Pluto.Trine.orb",
+          "provider": null,
+          "reference": 1.6886197253023312,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Neptune.Uranus.Conjunction.orb",
+          "provider": null,
+          "reference": 5.622568441967701,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Pluto.Uranus.Sextile.orb",
+          "provider": null,
+          "reference": 7.338991168746929,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Neptune.Pluto.Sextile.orb",
+          "provider": null,
+          "reference": 1.7164227267792285,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        }
+      ]
+    },
+    {
+      "fixture_id": "B_BUCHAREST_EXACT",
+      "status": "BLOCKED",
+      "comparisons": [
+        {
+          "field": "planet.Sun.longitude",
+          "provider": null,
+          "reference": 88.8842846141256,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Sun.sign",
+          "provider": null,
+          "reference": "Gemini",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Sun.retrograde",
+          "provider": null,
+          "reference": false,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Sun.house",
+          "provider": null,
+          "reference": 9,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Moon.longitude",
+          "provider": null,
+          "reference": 56.407455305369886,
+          "difference": null,
+          "tolerance": 0.003,
+          "passed": null
+        },
+        {
+          "field": "planet.Moon.sign",
+          "provider": null,
+          "reference": "Taurus",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Moon.retrograde",
+          "provider": null,
+          "reference": false,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Moon.house",
+          "provider": null,
+          "reference": 8,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Mercury.longitude",
+          "provider": null,
+          "reference": 74.78732785192652,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Mercury.sign",
+          "provider": null,
+          "reference": "Gemini",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Mercury.retrograde",
+          "provider": null,
+          "reference": false,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Mercury.house",
+          "provider": null,
+          "reference": 9,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Venus.longitude",
+          "provider": null,
+          "reference": 54.64412499870434,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Venus.sign",
+          "provider": null,
+          "reference": "Taurus",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Venus.retrograde",
+          "provider": null,
+          "reference": false,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Venus.house",
+          "provider": null,
+          "reference": 8,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Mars.longitude",
+          "provider": null,
+          "reference": 14.606319667724826,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Mars.sign",
+          "provider": null,
+          "reference": "Aries",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Mars.retrograde",
+          "provider": null,
+          "reference": false,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Mars.house",
+          "provider": null,
+          "reference": 7,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Jupiter.longitude",
+          "provider": null,
+          "reference": 106.9748340624922,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Jupiter.sign",
+          "provider": null,
+          "reference": "Cancer",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Jupiter.retrograde",
+          "provider": null,
+          "reference": false,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Jupiter.house",
+          "provider": null,
+          "reference": 10,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Saturn.longitude",
+          "provider": null,
+          "reference": 293.7280425683798,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Saturn.sign",
+          "provider": null,
+          "reference": "Capricorn",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Saturn.retrograde",
+          "provider": null,
+          "reference": true,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Saturn.house",
+          "provider": null,
+          "reference": 4,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Uranus.longitude",
+          "provider": null,
+          "reference": 277.96881886083406,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Uranus.sign",
+          "provider": null,
+          "reference": "Capricorn",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Uranus.retrograde",
+          "provider": null,
+          "reference": true,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Uranus.house",
+          "provider": null,
+          "reference": 3,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Neptune.longitude",
+          "provider": null,
+          "reference": 283.5902205426278,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Neptune.sign",
+          "provider": null,
+          "reference": "Capricorn",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Neptune.retrograde",
+          "provider": null,
+          "reference": true,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Neptune.house",
+          "provider": null,
+          "reference": 3,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Pluto.longitude",
+          "provider": null,
+          "reference": 225.30599651760068,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Pluto.sign",
+          "provider": null,
+          "reference": "Scorpio",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Pluto.retrograde",
+          "provider": null,
+          "reference": true,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Pluto.house",
+          "provider": null,
+          "reference": 2,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "angle.ascendant",
+          "provider": null,
+          "reference": 193.00966611788385,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "angle.midheaven",
+          "provider": null,
+          "reference": 105.69234306512963,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.1.cusp",
+          "provider": null,
+          "reference": 193.00966611788385,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.2.cusp",
+          "provider": null,
+          "reference": 219.5165348203748,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.3.cusp",
+          "provider": null,
+          "reference": 250.80403946708188,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.4.cusp",
+          "provider": null,
+          "reference": 285.69234306512965,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.5.cusp",
+          "provider": null,
+          "reference": 319.6587667387413,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.6.cusp",
+          "provider": null,
+          "reference": 348.99201802107154,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.7.cusp",
+          "provider": null,
+          "reference": 13.009666117883853,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.8.cusp",
+          "provider": null,
+          "reference": 39.51653482037477,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.9.cusp",
+          "provider": null,
+          "reference": 70.8040394670819,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.10.cusp",
+          "provider": null,
+          "reference": 105.69234306512963,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.11.cusp",
+          "provider": null,
+          "reference": 139.65876673874132,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.12.cusp",
+          "provider": null,
+          "reference": 168.99201802107152,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Moon.Venus.Conjunction.orb",
+          "provider": null,
+          "reference": 1.7633303066655515,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Moon.Saturn.Trine.orb",
+          "provider": null,
+          "reference": 2.679412736990116,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Mars.Mercury.Sextile.orb",
+          "provider": null,
+          "reference": 0.18100818420168707,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Jupiter.Venus.Sextile.orb",
+          "provider": null,
+          "reference": 7.6692909362121355,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Saturn.Venus.Trine.orb",
+          "provider": null,
+          "reference": 0.9160824303245363,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Jupiter.Mars.Square.orb",
+          "provider": null,
+          "reference": 2.3685143947673737,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Mars.Uranus.Square.orb",
+          "provider": null,
+          "reference": 6.637500806890785,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Mars.Neptune.Square.orb",
+          "provider": null,
+          "reference": 1.016099125097071,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Jupiter.Saturn.Opposition.orb",
+          "provider": null,
+          "reference": 6.753208505887585,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Jupiter.Neptune.Opposition.orb",
+          "provider": null,
+          "reference": 3.3846135198644447,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Jupiter.Pluto.Trine.orb",
+          "provider": null,
+          "reference": 1.668837544891531,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Neptune.Uranus.Conjunction.orb",
+          "provider": null,
+          "reference": 5.621401681793714,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Pluto.Uranus.Sextile.orb",
+          "provider": null,
+          "reference": 7.337177656766613,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Neptune.Pluto.Sextile.orb",
+          "provider": null,
+          "reference": 1.7157759749728996,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        }
+      ]
+    },
+    {
+      "fixture_id": "C_SYDNEY_EXACT",
+      "status": "BLOCKED",
+      "comparisons": [
+        {
+          "field": "planet.Sun.longitude",
+          "provider": null,
+          "reference": 88.60580386106116,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Sun.sign",
+          "provider": null,
+          "reference": "Gemini",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Sun.retrograde",
+          "provider": null,
+          "reference": false,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Sun.house",
+          "provider": null,
+          "reference": 8,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Moon.longitude",
+          "provider": null,
+          "reference": 52.03834764194689,
+          "difference": null,
+          "tolerance": 0.003,
+          "passed": null
+        },
+        {
+          "field": "planet.Moon.sign",
+          "provider": null,
+          "reference": "Taurus",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Moon.retrograde",
+          "provider": null,
+          "reference": false,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Moon.house",
+          "provider": null,
+          "reference": 6,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Mercury.longitude",
+          "provider": null,
+          "reference": 74.22508041370615,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Mercury.sign",
+          "provider": null,
+          "reference": "Gemini",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Mercury.retrograde",
+          "provider": null,
+          "reference": false,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Mercury.house",
+          "provider": null,
+          "reference": 7,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Venus.longitude",
+          "provider": null,
+          "reference": 54.29988265709306,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Venus.sign",
+          "provider": null,
+          "reference": "Taurus",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Venus.retrograde",
+          "provider": null,
+          "reference": false,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Venus.house",
+          "provider": null,
+          "reference": 7,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Mars.longitude",
+          "provider": null,
+          "reference": 14.398345312515072,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Mars.sign",
+          "provider": null,
+          "reference": "Aries",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Mars.retrograde",
+          "provider": null,
+          "reference": false,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Mars.house",
+          "provider": null,
+          "reference": 6,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Jupiter.longitude",
+          "provider": null,
+          "reference": 106.91090434404254,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Jupiter.sign",
+          "provider": null,
+          "reference": "Cancer",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Jupiter.retrograde",
+          "provider": null,
+          "reference": false,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Jupiter.house",
+          "provider": null,
+          "reference": 9,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Saturn.longitude",
+          "provider": null,
+          "reference": 293.7464635552185,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Saturn.sign",
+          "provider": null,
+          "reference": "Capricorn",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Saturn.retrograde",
+          "provider": null,
+          "reference": true,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Saturn.house",
+          "provider": null,
+          "reference": 3,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Uranus.longitude",
+          "provider": null,
+          "reference": 277.98043999335124,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Uranus.sign",
+          "provider": null,
+          "reference": "Capricorn",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Uranus.retrograde",
+          "provider": null,
+          "reference": true,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Uranus.house",
+          "provider": null,
+          "reference": 2,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Neptune.longitude",
+          "provider": null,
+          "reference": 283.597758186083,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Neptune.sign",
+          "provider": null,
+          "reference": "Capricorn",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Neptune.retrograde",
+          "provider": null,
+          "reference": true,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Neptune.house",
+          "provider": null,
+          "reference": 3,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Pluto.longitude",
+          "provider": null,
+          "reference": 225.3113020284972,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Pluto.sign",
+          "provider": null,
+          "reference": "Scorpio",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Pluto.retrograde",
+          "provider": null,
+          "reference": true,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Pluto.house",
+          "provider": null,
+          "reference": 12,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "angle.ascendant",
+          "provider": null,
+          "reference": 232.06938905926378,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "angle.midheaven",
+          "provider": null,
+          "reference": 124.50176602402874,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.1.cusp",
+          "provider": null,
+          "reference": 232.06938905926378,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.2.cusp",
+          "provider": null,
+          "reference": 258.8346228036804,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.3.cusp",
+          "provider": null,
+          "reference": 281.35328261355596,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.4.cusp",
+          "provider": null,
+          "reference": 304.5017660240287,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.5.cusp",
+          "provider": null,
+          "reference": 332.4613829719324,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.6.cusp",
+          "provider": null,
+          "reference": 9.228658398757545,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.7.cusp",
+          "provider": null,
+          "reference": 52.06938905926381,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.8.cusp",
+          "provider": null,
+          "reference": 78.83462280368042,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.9.cusp",
+          "provider": null,
+          "reference": 101.35328261355596,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.10.cusp",
+          "provider": null,
+          "reference": 124.50176602402874,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.11.cusp",
+          "provider": null,
+          "reference": 152.46138297193235,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.12.cusp",
+          "provider": null,
+          "reference": 189.22865839875755,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Moon.Venus.Conjunction.orb",
+          "provider": null,
+          "reference": 2.2615350151461655,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Jupiter.Moon.Sextile.orb",
+          "provider": null,
+          "reference": 5.127443297904364,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Moon.Saturn.Trine.orb",
+          "provider": null,
+          "reference": 1.7081159132716266,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Moon.Pluto.Opposition.orb",
+          "provider": null,
+          "reference": 6.72704561344969,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Mars.Mercury.Sextile.orb",
+          "provider": null,
+          "reference": 0.17326489880892382,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Jupiter.Venus.Sextile.orb",
+          "provider": null,
+          "reference": 7.388978313050529,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Saturn.Venus.Trine.orb",
+          "provider": null,
+          "reference": 0.5534191018745673,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Jupiter.Mars.Square.orb",
+          "provider": null,
+          "reference": 2.5125590315274593,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Mars.Uranus.Square.orb",
+          "provider": null,
+          "reference": 6.417905319163822,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Mars.Neptune.Square.orb",
+          "provider": null,
+          "reference": 0.800587126432049,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Jupiter.Saturn.Opposition.orb",
+          "provider": null,
+          "reference": 6.835559211175962,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Jupiter.Neptune.Opposition.orb",
+          "provider": null,
+          "reference": 3.3131461579595225,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Jupiter.Pluto.Trine.orb",
+          "provider": null,
+          "reference": 1.5996023155453258,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Neptune.Uranus.Conjunction.orb",
+          "provider": null,
+          "reference": 5.617318192731773,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Pluto.Uranus.Sextile.orb",
+          "provider": null,
+          "reference": 7.3308620351459695,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Neptune.Pluto.Sextile.orb",
+          "provider": null,
+          "reference": 1.7135438424141967,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        }
+      ]
+    },
+    {
+      "fixture_id": "D_DUBLIN_DST_FOLD_1",
+      "status": "BLOCKED",
+      "comparisons": [
+        {
+          "field": "planet.Sun.longitude",
+          "provider": null,
+          "reference": 211.6536892374377,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Sun.sign",
+          "provider": null,
+          "reference": "Scorpio",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Sun.retrograde",
+          "provider": null,
+          "reference": false,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Sun.house",
+          "provider": null,
+          "reference": 3,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Moon.longitude",
+          "provider": null,
+          "reference": 16.966508293319404,
+          "difference": null,
+          "tolerance": 0.003,
+          "passed": null
+        },
+        {
+          "field": "planet.Moon.sign",
+          "provider": null,
+          "reference": "Aries",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Moon.retrograde",
+          "provider": null,
+          "reference": false,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Moon.house",
+          "provider": null,
+          "reference": 8,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Mercury.longitude",
+          "provider": null,
+          "reference": 230.93991936930362,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Mercury.sign",
+          "provider": null,
+          "reference": "Scorpio",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Mercury.retrograde",
+          "provider": null,
+          "reference": true,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Mercury.house",
+          "provider": null,
+          "reference": 3,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Venus.longitude",
+          "provider": null,
+          "reference": 210.19519620888724,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Venus.sign",
+          "provider": null,
+          "reference": "Scorpio",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Venus.retrograde",
+          "provider": null,
+          "reference": true,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Venus.house",
+          "provider": null,
+          "reference": 3,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Mars.longitude",
+          "provider": null,
+          "reference": 135.05331283680218,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Mars.sign",
+          "provider": null,
+          "reference": "Leo",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Mars.retrograde",
+          "provider": null,
+          "reference": false,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Mars.house",
+          "provider": null,
+          "reference": 12,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Jupiter.longitude",
+          "provider": null,
+          "reference": 143.42600015984758,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Jupiter.sign",
+          "provider": null,
+          "reference": "Leo",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Jupiter.retrograde",
+          "provider": null,
+          "reference": false,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Jupiter.house",
+          "provider": null,
+          "reference": 12,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Saturn.longitude",
+          "provider": null,
+          "reference": 9.747338485075833,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Saturn.sign",
+          "provider": null,
+          "reference": "Aries",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Saturn.retrograde",
+          "provider": null,
+          "reference": true,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Saturn.house",
+          "provider": null,
+          "reference": 8,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Uranus.longitude",
+          "provider": null,
+          "reference": 64.9165947548506,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Uranus.sign",
+          "provider": null,
+          "reference": "Gemini",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Uranus.retrograde",
+          "provider": null,
+          "reference": true,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Uranus.house",
+          "provider": null,
+          "reference": 10,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Neptune.longitude",
+          "provider": null,
+          "reference": 2.237472684172668,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Neptune.sign",
+          "provider": null,
+          "reference": "Aries",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Neptune.retrograde",
+          "provider": null,
+          "reference": true,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Neptune.house",
+          "provider": null,
+          "reference": 8,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Pluto.longitude",
+          "provider": null,
+          "reference": 303.0874691094803,
+          "difference": null,
+          "tolerance": 0.001,
+          "passed": null
+        },
+        {
+          "field": "planet.Pluto.sign",
+          "provider": null,
+          "reference": "Aquarius",
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Pluto.retrograde",
+          "provider": null,
+          "reference": false,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "planet.Pluto.house",
+          "provider": null,
+          "reference": 5,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "angle.ascendant",
+          "provider": null,
+          "reference": 152.34817141710263,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "angle.midheaven",
+          "provider": null,
+          "reference": 52.126486815546784,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.1.cusp",
+          "provider": null,
+          "reference": 152.34817141710263,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.2.cusp",
+          "provider": null,
+          "reference": 171.9274659514653,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.3.cusp",
+          "provider": null,
+          "reference": 197.92847121738083,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.4.cusp",
+          "provider": null,
+          "reference": 232.1264868155468,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.5.cusp",
+          "provider": null,
+          "reference": 271.44871507658775,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.6.cusp",
+          "provider": null,
+          "reference": 305.5742060763915,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.7.cusp",
+          "provider": null,
+          "reference": 332.34817141710266,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.8.cusp",
+          "provider": null,
+          "reference": 351.9274659514653,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.9.cusp",
+          "provider": null,
+          "reference": 17.92847121738083,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.10.cusp",
+          "provider": null,
+          "reference": 52.126486815546784,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.11.cusp",
+          "provider": null,
+          "reference": 91.44871507658777,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "house.12.cusp",
+          "provider": null,
+          "reference": 125.57420607639148,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Sun.Venus.Conjunction.orb",
+          "provider": null,
+          "reference": 1.458493028550464,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Pluto.Sun.Square.orb",
+          "provider": null,
+          "reference": 1.4337798720426065,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Mars.Moon.Trine.orb",
+          "provider": null,
+          "reference": 1.9131954565172293,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Jupiter.Moon.Trine.orb",
+          "provider": null,
+          "reference": 6.459491866528168,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Moon.Saturn.Conjunction.orb",
+          "provider": null,
+          "reference": 7.219169808243578,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Mars.Mercury.Square.orb",
+          "provider": null,
+          "reference": 5.886606532501446,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Jupiter.Mercury.Square.orb",
+          "provider": null,
+          "reference": 2.4860807905439515,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Jupiter.Venus.Sextile.orb",
+          "provider": null,
+          "reference": 6.769196049039664,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Pluto.Venus.Square.orb",
+          "provider": null,
+          "reference": 2.8922729005930705,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Mars.Saturn.Trine.orb",
+          "provider": null,
+          "reference": 5.305974351726377,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Saturn.Uranus.Sextile.orb",
+          "provider": null,
+          "reference": 4.8307437302252225,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Neptune.Saturn.Conjunction.orb",
+          "provider": null,
+          "reference": 7.509865800903157,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Pluto.Saturn.Sextile.orb",
+          "provider": null,
+          "reference": 6.65986937559552,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Neptune.Uranus.Sextile.orb",
+          "provider": null,
+          "reference": 2.6791220706779484,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Pluto.Uranus.Trine.orb",
+          "provider": null,
+          "reference": 1.8291256453703113,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        },
+        {
+          "field": "aspect.Neptune.Pluto.Sextile.orb",
+          "provider": null,
+          "reference": 0.8499964253076655,
+          "difference": null,
+          "tolerance": 0.01,
+          "passed": null
+        }
+      ]
+    },
+    {
+      "fixture_id": "E_DUBLIN_UNKNOWN",
+      "status": "BLOCKED",
+      "comparisons": [
+        {
+          "field": "unknown.angles",
+          "provider": null,
+          "reference": null,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "unknown.houses",
+          "provider": null,
+          "reference": [],
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "unknown.planet_longitudes_omitted",
+          "provider": null,
+          "reference": true,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        },
+        {
+          "field": "unknown.house_placements_omitted",
+          "provider": null,
+          "reference": true,
+          "difference": null,
+          "tolerance": "exact",
+          "passed": null
+        }
+      ]
+    }
+  ]
+}

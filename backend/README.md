@@ -80,4 +80,22 @@ Live Prokerala testing is off by default. Set `PROKERALA_CLIENT_ID`, `PROKERALA_
 - `charts/engines`: the only layer allowed to know Prokerala response shapes.
 - Browser responses never contain raw provider JSON.
 
-Unknown-time calculation begins with five samples and adaptively subdivides to a hard maximum of 17 calculation requests. At 500 credits per request, the strict maximum is **8,500 credits**. Calculation requests are never automatically retried, preserving that ceiling. Live unknown-time execution remains disabled unless `ENABLE_LIVE_UNKNOWN_TIME=1` is deliberately configured.
+Unknown-time calculation begins with five samples and can adaptively subdivide to a hard maximum of 17 calculation requests. The production default is capped at five samples. At 500 credits per request, the configurable theoretical ceiling is **8,500 credits**. Calculation requests are never automatically retried. Live unknown-time execution remains disabled unless `ENABLE_LIVE_UNKNOWN_TIME=1` is deliberately configured.
+
+## Correctness certification
+
+Certification evidence and results live in `../docs/certification/`. The committed
+Swiss Ephemeris numerical fixtures can be regenerated only after installing the
+separate `requirements-certification.txt`; Swiss Ephemeris is not a runtime fallback.
+
+Live certification is disabled by default. The guarded command requires server-side
+Prokerala credentials, `RUN_LIVE_PROKERALA_TESTS=1`, and a positive
+`PROKERALA_LIVE_CREDIT_BUDGET`. The initial Dublin run requires exactly 500 credits:
+
+```powershell
+python manage.py run_live_certification --output ../artifacts/live-dublin-normalized.json
+```
+
+The command persists normalized output and structural observations only, never the raw
+provider response, OAuth token, or credentials. Do not rerun a failed paid request until
+its safe error has been diagnosed.

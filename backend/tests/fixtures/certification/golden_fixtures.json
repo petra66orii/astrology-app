@@ -1,0 +1,986 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_id": "gate-b-certification-2026-08-11",
+  "reference_engine": {
+    "name": "Swiss Ephemeris",
+    "library_version": "2.10.03",
+    "binding": "pysweph 2.10.3.6 (certification-only, not a runtime dependency)",
+    "planet_file_sha256": "ca1393ceab3a44fbc895887cf789c68819ae6a1cbc9b22225872dbe4ccd99a66",
+    "moon_file_sha256": "1ca07bd67c24374d77226180c20a4f9996cba013697894810518e7eb582ca4f7",
+    "license_note": "Swiss Ephemeris licensing must be reviewed before any product integration."
+  },
+  "fixtures": [
+    {
+      "fixture_id": "A_DUBLIN_EXACT",
+      "display_name": "Dublin exact time",
+      "local_date": "1990-06-20",
+      "local_time": "14:30:00",
+      "fold": 0,
+      "geonames_id": 2964574,
+      "latitude": 53.33306,
+      "longitude": -6.24889,
+      "timezone": "Europe/Dublin",
+      "birth_time_precision": "EXACT",
+      "utc_instant": "1990-06-20T13:30:00Z",
+      "utc_interval": null,
+      "zodiac_system": "tropical",
+      "house_system": "placidus",
+      "aspect_profile": "major aspects, 8 degree maximum orb",
+      "prokerala_endpoint": "/v2/astrology/natal-planet-position",
+      "prokerala_api_version": "v2 (OpenAPI retrieved 2026-08-11)",
+      "calculation_timestamp": "2026-08-11",
+      "independent_reference_sources": [
+        {
+          "name": "Swiss Ephemeris 2.10.03 with official DE441-derived .se1 files",
+          "url": "https://github.com/aloistr/swisseph",
+          "role": "planetary longitudes, speeds, Placidus houses, angles, and derived major aspects"
+        },
+        {
+          "name": "GeoNames and IANA tzdata human verification",
+          "url": "https://download.geonames.org/export/dump/",
+          "role": "coordinates, timezone ID, UTC conversion, and DST fold/gap checks"
+        }
+      ],
+      "reference_retrieval_date": "2026-08-11",
+      "reviewer_notes": "Numerical reference generated independently of Prokerala; shared Swiss Ephemeris ancestry remains possible and unverified.",
+      "reference_result": {
+        "planets": {
+          "Sun": {
+            "longitude": 88.9638496072911,
+            "sign": "Gemini",
+            "is_retrograde": false,
+            "house_number": 9
+          },
+          "Moon": {
+            "longitude": 57.65804815316478,
+            "sign": "Taurus",
+            "is_retrograde": false,
+            "house_number": 8
+          },
+          "Mercury": {
+            "longitude": 74.94860534236928,
+            "sign": "Gemini",
+            "is_retrograde": false,
+            "house_number": 9
+          },
+          "Venus": {
+            "longitude": 54.742493015662895,
+            "sign": "Taurus",
+            "is_retrograde": false,
+            "house_number": 8
+          },
+          "Mars": {
+            "longitude": 14.665720197051302,
+            "sign": "Aries",
+            "is_retrograde": false,
+            "house_number": 7
+          },
+          "Jupiter": {
+            "longitude": 106.99310725641506,
+            "sign": "Cancer",
+            "is_retrograde": false,
+            "house_number": 10
+          },
+          "Saturn": {
+            "longitude": 293.7227661247653,
+            "sign": "Capricorn",
+            "is_retrograde": true,
+            "house_number": 4
+          },
+          "Uranus": {
+            "longitude": 277.9654963623658,
+            "sign": "Capricorn",
+            "is_retrograde": true,
+            "house_number": 3
+          },
+          "Neptune": {
+            "longitude": 283.5880648043335,
+            "sign": "Capricorn",
+            "is_retrograde": true,
+            "house_number": 4
+          },
+          "Pluto": {
+            "longitude": 225.30448753111273,
+            "sign": "Scorpio",
+            "is_retrograde": true,
+            "house_number": 2
+          }
+        },
+        "angles": {
+          "ascendant": 190.15554291204543,
+          "midheaven": 103.58186632181774
+        },
+        "house_cusps": [
+          190.15554291204543,
+          214.8483048905982,
+          246.0907800383522,
+          283.58186632181776,
+          319.37069772507306,
+          348.0426881317002,
+          10.155542912045462,
+          34.84830489059823,
+          66.0907800383522,
+          103.58186632181774,
+          139.37069772507306,
+          168.04268813170017
+        ],
+        "aspects": [
+          {
+            "body_one": "Moon",
+            "body_two": "Venus",
+            "name": "Conjunction",
+            "orb_degrees": 2.915555137501883
+          },
+          {
+            "body_one": "Moon",
+            "body_two": "Saturn",
+            "name": "Trine",
+            "orb_degrees": 3.935282028399456
+          },
+          {
+            "body_one": "Mercury",
+            "body_two": "Mars",
+            "name": "Sextile",
+            "orb_degrees": 0.2828851453179766
+          },
+          {
+            "body_one": "Venus",
+            "body_two": "Jupiter",
+            "name": "Sextile",
+            "orb_degrees": 7.7493857592478435
+          },
+          {
+            "body_one": "Venus",
+            "body_two": "Saturn",
+            "name": "Trine",
+            "orb_degrees": 1.019726890897573
+          },
+          {
+            "body_one": "Mars",
+            "body_two": "Jupiter",
+            "name": "Square",
+            "orb_degrees": 2.3273870593637582
+          },
+          {
+            "body_one": "Mars",
+            "body_two": "Uranus",
+            "name": "Square",
+            "orb_degrees": 6.7002238346855165
+          },
+          {
+            "body_one": "Mars",
+            "body_two": "Neptune",
+            "name": "Square",
+            "orb_degrees": 1.0776553927178156
+          },
+          {
+            "body_one": "Jupiter",
+            "body_two": "Saturn",
+            "name": "Opposition",
+            "orb_degrees": 6.7296588683502705
+          },
+          {
+            "body_one": "Jupiter",
+            "body_two": "Neptune",
+            "name": "Opposition",
+            "orb_degrees": 3.4050424520815454
+          },
+          {
+            "body_one": "Jupiter",
+            "body_two": "Pluto",
+            "name": "Trine",
+            "orb_degrees": 1.6886197253023312
+          },
+          {
+            "body_one": "Uranus",
+            "body_two": "Neptune",
+            "name": "Conjunction",
+            "orb_degrees": 5.622568441967701
+          },
+          {
+            "body_one": "Uranus",
+            "body_two": "Pluto",
+            "name": "Sextile",
+            "orb_degrees": 7.338991168746929
+          },
+          {
+            "body_one": "Neptune",
+            "body_two": "Pluto",
+            "name": "Sextile",
+            "orb_degrees": 1.7164227267792285
+          }
+        ]
+      },
+      "provider_result": null,
+      "tolerance_result": "BLOCKED_BY_CREDENTIALS",
+      "status": "BLOCKED"
+    },
+    {
+      "fixture_id": "B_BUCHAREST_EXACT",
+      "display_name": "Bucharest exact time",
+      "local_date": "1990-06-20",
+      "local_time": "14:30:00",
+      "fold": 0,
+      "geonames_id": 683506,
+      "latitude": 44.43225,
+      "longitude": 26.10626,
+      "timezone": "Europe/Bucharest",
+      "birth_time_precision": "EXACT",
+      "utc_instant": "1990-06-20T11:30:00Z",
+      "utc_interval": null,
+      "zodiac_system": "tropical",
+      "house_system": "placidus",
+      "aspect_profile": "major aspects, 8 degree maximum orb",
+      "prokerala_endpoint": "/v2/astrology/natal-planet-position",
+      "prokerala_api_version": "v2 (OpenAPI retrieved 2026-08-11)",
+      "calculation_timestamp": "2026-08-11",
+      "independent_reference_sources": [
+        {
+          "name": "Swiss Ephemeris 2.10.03 with official DE441-derived .se1 files",
+          "url": "https://github.com/aloistr/swisseph",
+          "role": "planetary longitudes, speeds, Placidus houses, angles, and derived major aspects"
+        },
+        {
+          "name": "GeoNames and IANA tzdata human verification",
+          "url": "https://download.geonames.org/export/dump/",
+          "role": "coordinates, timezone ID, UTC conversion, and DST fold/gap checks"
+        }
+      ],
+      "reference_retrieval_date": "2026-08-11",
+      "reviewer_notes": "Numerical reference generated independently of Prokerala; shared Swiss Ephemeris ancestry remains possible and unverified.",
+      "reference_result": {
+        "planets": {
+          "Sun": {
+            "longitude": 88.8842846141256,
+            "sign": "Gemini",
+            "is_retrograde": false,
+            "house_number": 9
+          },
+          "Moon": {
+            "longitude": 56.407455305369886,
+            "sign": "Taurus",
+            "is_retrograde": false,
+            "house_number": 8
+          },
+          "Mercury": {
+            "longitude": 74.78732785192652,
+            "sign": "Gemini",
+            "is_retrograde": false,
+            "house_number": 9
+          },
+          "Venus": {
+            "longitude": 54.64412499870434,
+            "sign": "Taurus",
+            "is_retrograde": false,
+            "house_number": 8
+          },
+          "Mars": {
+            "longitude": 14.606319667724826,
+            "sign": "Aries",
+            "is_retrograde": false,
+            "house_number": 7
+          },
+          "Jupiter": {
+            "longitude": 106.9748340624922,
+            "sign": "Cancer",
+            "is_retrograde": false,
+            "house_number": 10
+          },
+          "Saturn": {
+            "longitude": 293.7280425683798,
+            "sign": "Capricorn",
+            "is_retrograde": true,
+            "house_number": 4
+          },
+          "Uranus": {
+            "longitude": 277.96881886083406,
+            "sign": "Capricorn",
+            "is_retrograde": true,
+            "house_number": 3
+          },
+          "Neptune": {
+            "longitude": 283.5902205426278,
+            "sign": "Capricorn",
+            "is_retrograde": true,
+            "house_number": 3
+          },
+          "Pluto": {
+            "longitude": 225.30599651760068,
+            "sign": "Scorpio",
+            "is_retrograde": true,
+            "house_number": 2
+          }
+        },
+        "angles": {
+          "ascendant": 193.00966611788385,
+          "midheaven": 105.69234306512963
+        },
+        "house_cusps": [
+          193.00966611788385,
+          219.5165348203748,
+          250.80403946708188,
+          285.69234306512965,
+          319.6587667387413,
+          348.99201802107154,
+          13.009666117883853,
+          39.51653482037477,
+          70.8040394670819,
+          105.69234306512963,
+          139.65876673874132,
+          168.99201802107152
+        ],
+        "aspects": [
+          {
+            "body_one": "Moon",
+            "body_two": "Venus",
+            "name": "Conjunction",
+            "orb_degrees": 1.7633303066655515
+          },
+          {
+            "body_one": "Moon",
+            "body_two": "Saturn",
+            "name": "Trine",
+            "orb_degrees": 2.679412736990116
+          },
+          {
+            "body_one": "Mercury",
+            "body_two": "Mars",
+            "name": "Sextile",
+            "orb_degrees": 0.18100818420168707
+          },
+          {
+            "body_one": "Venus",
+            "body_two": "Jupiter",
+            "name": "Sextile",
+            "orb_degrees": 7.6692909362121355
+          },
+          {
+            "body_one": "Venus",
+            "body_two": "Saturn",
+            "name": "Trine",
+            "orb_degrees": 0.9160824303245363
+          },
+          {
+            "body_one": "Mars",
+            "body_two": "Jupiter",
+            "name": "Square",
+            "orb_degrees": 2.3685143947673737
+          },
+          {
+            "body_one": "Mars",
+            "body_two": "Uranus",
+            "name": "Square",
+            "orb_degrees": 6.637500806890785
+          },
+          {
+            "body_one": "Mars",
+            "body_two": "Neptune",
+            "name": "Square",
+            "orb_degrees": 1.016099125097071
+          },
+          {
+            "body_one": "Jupiter",
+            "body_two": "Saturn",
+            "name": "Opposition",
+            "orb_degrees": 6.753208505887585
+          },
+          {
+            "body_one": "Jupiter",
+            "body_two": "Neptune",
+            "name": "Opposition",
+            "orb_degrees": 3.3846135198644447
+          },
+          {
+            "body_one": "Jupiter",
+            "body_two": "Pluto",
+            "name": "Trine",
+            "orb_degrees": 1.668837544891531
+          },
+          {
+            "body_one": "Uranus",
+            "body_two": "Neptune",
+            "name": "Conjunction",
+            "orb_degrees": 5.621401681793714
+          },
+          {
+            "body_one": "Uranus",
+            "body_two": "Pluto",
+            "name": "Sextile",
+            "orb_degrees": 7.337177656766613
+          },
+          {
+            "body_one": "Neptune",
+            "body_two": "Pluto",
+            "name": "Sextile",
+            "orb_degrees": 1.7157759749728996
+          }
+        ]
+      },
+      "provider_result": null,
+      "tolerance_result": "BLOCKED_BY_CREDENTIALS",
+      "status": "BLOCKED"
+    },
+    {
+      "fixture_id": "C_SYDNEY_EXACT",
+      "display_name": "Sydney exact time",
+      "local_date": "1990-06-20",
+      "local_time": "14:30:00",
+      "fold": 0,
+      "geonames_id": 2147714,
+      "latitude": -33.86785,
+      "longitude": 151.20732,
+      "timezone": "Australia/Sydney",
+      "birth_time_precision": "EXACT",
+      "utc_instant": "1990-06-20T04:30:00Z",
+      "utc_interval": null,
+      "zodiac_system": "tropical",
+      "house_system": "placidus",
+      "aspect_profile": "major aspects, 8 degree maximum orb",
+      "prokerala_endpoint": "/v2/astrology/natal-planet-position",
+      "prokerala_api_version": "v2 (OpenAPI retrieved 2026-08-11)",
+      "calculation_timestamp": "2026-08-11",
+      "independent_reference_sources": [
+        {
+          "name": "Swiss Ephemeris 2.10.03 with official DE441-derived .se1 files",
+          "url": "https://github.com/aloistr/swisseph",
+          "role": "planetary longitudes, speeds, Placidus houses, angles, and derived major aspects"
+        },
+        {
+          "name": "GeoNames and IANA tzdata human verification",
+          "url": "https://download.geonames.org/export/dump/",
+          "role": "coordinates, timezone ID, UTC conversion, and DST fold/gap checks"
+        }
+      ],
+      "reference_retrieval_date": "2026-08-11",
+      "reviewer_notes": "Numerical reference generated independently of Prokerala; shared Swiss Ephemeris ancestry remains possible and unverified.",
+      "reference_result": {
+        "planets": {
+          "Sun": {
+            "longitude": 88.60580386106116,
+            "sign": "Gemini",
+            "is_retrograde": false,
+            "house_number": 8
+          },
+          "Moon": {
+            "longitude": 52.03834764194689,
+            "sign": "Taurus",
+            "is_retrograde": false,
+            "house_number": 6
+          },
+          "Mercury": {
+            "longitude": 74.22508041370615,
+            "sign": "Gemini",
+            "is_retrograde": false,
+            "house_number": 7
+          },
+          "Venus": {
+            "longitude": 54.29988265709306,
+            "sign": "Taurus",
+            "is_retrograde": false,
+            "house_number": 7
+          },
+          "Mars": {
+            "longitude": 14.398345312515072,
+            "sign": "Aries",
+            "is_retrograde": false,
+            "house_number": 6
+          },
+          "Jupiter": {
+            "longitude": 106.91090434404254,
+            "sign": "Cancer",
+            "is_retrograde": false,
+            "house_number": 9
+          },
+          "Saturn": {
+            "longitude": 293.7464635552185,
+            "sign": "Capricorn",
+            "is_retrograde": true,
+            "house_number": 3
+          },
+          "Uranus": {
+            "longitude": 277.98043999335124,
+            "sign": "Capricorn",
+            "is_retrograde": true,
+            "house_number": 2
+          },
+          "Neptune": {
+            "longitude": 283.597758186083,
+            "sign": "Capricorn",
+            "is_retrograde": true,
+            "house_number": 3
+          },
+          "Pluto": {
+            "longitude": 225.3113020284972,
+            "sign": "Scorpio",
+            "is_retrograde": true,
+            "house_number": 12
+          }
+        },
+        "angles": {
+          "ascendant": 232.06938905926378,
+          "midheaven": 124.50176602402874
+        },
+        "house_cusps": [
+          232.06938905926378,
+          258.8346228036804,
+          281.35328261355596,
+          304.5017660240287,
+          332.4613829719324,
+          9.228658398757545,
+          52.06938905926381,
+          78.83462280368042,
+          101.35328261355596,
+          124.50176602402874,
+          152.46138297193235,
+          189.22865839875755
+        ],
+        "aspects": [
+          {
+            "body_one": "Moon",
+            "body_two": "Venus",
+            "name": "Conjunction",
+            "orb_degrees": 2.2615350151461655
+          },
+          {
+            "body_one": "Moon",
+            "body_two": "Jupiter",
+            "name": "Sextile",
+            "orb_degrees": 5.127443297904364
+          },
+          {
+            "body_one": "Moon",
+            "body_two": "Saturn",
+            "name": "Trine",
+            "orb_degrees": 1.7081159132716266
+          },
+          {
+            "body_one": "Moon",
+            "body_two": "Pluto",
+            "name": "Opposition",
+            "orb_degrees": 6.72704561344969
+          },
+          {
+            "body_one": "Mercury",
+            "body_two": "Mars",
+            "name": "Sextile",
+            "orb_degrees": 0.17326489880892382
+          },
+          {
+            "body_one": "Venus",
+            "body_two": "Jupiter",
+            "name": "Sextile",
+            "orb_degrees": 7.388978313050529
+          },
+          {
+            "body_one": "Venus",
+            "body_two": "Saturn",
+            "name": "Trine",
+            "orb_degrees": 0.5534191018745673
+          },
+          {
+            "body_one": "Mars",
+            "body_two": "Jupiter",
+            "name": "Square",
+            "orb_degrees": 2.5125590315274593
+          },
+          {
+            "body_one": "Mars",
+            "body_two": "Uranus",
+            "name": "Square",
+            "orb_degrees": 6.417905319163822
+          },
+          {
+            "body_one": "Mars",
+            "body_two": "Neptune",
+            "name": "Square",
+            "orb_degrees": 0.800587126432049
+          },
+          {
+            "body_one": "Jupiter",
+            "body_two": "Saturn",
+            "name": "Opposition",
+            "orb_degrees": 6.835559211175962
+          },
+          {
+            "body_one": "Jupiter",
+            "body_two": "Neptune",
+            "name": "Opposition",
+            "orb_degrees": 3.3131461579595225
+          },
+          {
+            "body_one": "Jupiter",
+            "body_two": "Pluto",
+            "name": "Trine",
+            "orb_degrees": 1.5996023155453258
+          },
+          {
+            "body_one": "Uranus",
+            "body_two": "Neptune",
+            "name": "Conjunction",
+            "orb_degrees": 5.617318192731773
+          },
+          {
+            "body_one": "Uranus",
+            "body_two": "Pluto",
+            "name": "Sextile",
+            "orb_degrees": 7.3308620351459695
+          },
+          {
+            "body_one": "Neptune",
+            "body_two": "Pluto",
+            "name": "Sextile",
+            "orb_degrees": 1.7135438424141967
+          }
+        ]
+      },
+      "provider_result": null,
+      "tolerance_result": "BLOCKED_BY_CREDENTIALS",
+      "status": "BLOCKED"
+    },
+    {
+      "fixture_id": "D_DUBLIN_DST_FOLD_1",
+      "display_name": "Dublin ambiguous DST time, second occurrence",
+      "local_date": "2026-10-25",
+      "local_time": "01:30:00",
+      "fold": 1,
+      "geonames_id": 2964574,
+      "latitude": 53.33306,
+      "longitude": -6.24889,
+      "timezone": "Europe/Dublin",
+      "birth_time_precision": "EXACT",
+      "utc_instant": "2026-10-25T01:30:00Z",
+      "utc_interval": null,
+      "zodiac_system": "tropical",
+      "house_system": "placidus",
+      "aspect_profile": "major aspects, 8 degree maximum orb",
+      "prokerala_endpoint": "/v2/astrology/natal-planet-position",
+      "prokerala_api_version": "v2 (OpenAPI retrieved 2026-08-11)",
+      "calculation_timestamp": "2026-08-11",
+      "independent_reference_sources": [
+        {
+          "name": "Swiss Ephemeris 2.10.03 with official DE441-derived .se1 files",
+          "url": "https://github.com/aloistr/swisseph",
+          "role": "planetary longitudes, speeds, Placidus houses, angles, and derived major aspects"
+        },
+        {
+          "name": "GeoNames and IANA tzdata human verification",
+          "url": "https://download.geonames.org/export/dump/",
+          "role": "coordinates, timezone ID, UTC conversion, and DST fold/gap checks"
+        }
+      ],
+      "reference_retrieval_date": "2026-08-11",
+      "reviewer_notes": "Numerical reference generated independently of Prokerala; shared Swiss Ephemeris ancestry remains possible and unverified.",
+      "reference_result": {
+        "planets": {
+          "Sun": {
+            "longitude": 211.6536892374377,
+            "sign": "Scorpio",
+            "is_retrograde": false,
+            "house_number": 3
+          },
+          "Moon": {
+            "longitude": 16.966508293319404,
+            "sign": "Aries",
+            "is_retrograde": false,
+            "house_number": 8
+          },
+          "Mercury": {
+            "longitude": 230.93991936930362,
+            "sign": "Scorpio",
+            "is_retrograde": true,
+            "house_number": 3
+          },
+          "Venus": {
+            "longitude": 210.19519620888724,
+            "sign": "Scorpio",
+            "is_retrograde": true,
+            "house_number": 3
+          },
+          "Mars": {
+            "longitude": 135.05331283680218,
+            "sign": "Leo",
+            "is_retrograde": false,
+            "house_number": 12
+          },
+          "Jupiter": {
+            "longitude": 143.42600015984758,
+            "sign": "Leo",
+            "is_retrograde": false,
+            "house_number": 12
+          },
+          "Saturn": {
+            "longitude": 9.747338485075833,
+            "sign": "Aries",
+            "is_retrograde": true,
+            "house_number": 8
+          },
+          "Uranus": {
+            "longitude": 64.9165947548506,
+            "sign": "Gemini",
+            "is_retrograde": true,
+            "house_number": 10
+          },
+          "Neptune": {
+            "longitude": 2.237472684172668,
+            "sign": "Aries",
+            "is_retrograde": true,
+            "house_number": 8
+          },
+          "Pluto": {
+            "longitude": 303.0874691094803,
+            "sign": "Aquarius",
+            "is_retrograde": false,
+            "house_number": 5
+          }
+        },
+        "angles": {
+          "ascendant": 152.34817141710263,
+          "midheaven": 52.126486815546784
+        },
+        "house_cusps": [
+          152.34817141710263,
+          171.9274659514653,
+          197.92847121738083,
+          232.1264868155468,
+          271.44871507658775,
+          305.5742060763915,
+          332.34817141710266,
+          351.9274659514653,
+          17.92847121738083,
+          52.126486815546784,
+          91.44871507658777,
+          125.57420607639148
+        ],
+        "aspects": [
+          {
+            "body_one": "Sun",
+            "body_two": "Venus",
+            "name": "Conjunction",
+            "orb_degrees": 1.458493028550464
+          },
+          {
+            "body_one": "Sun",
+            "body_two": "Pluto",
+            "name": "Square",
+            "orb_degrees": 1.4337798720426065
+          },
+          {
+            "body_one": "Moon",
+            "body_two": "Mars",
+            "name": "Trine",
+            "orb_degrees": 1.9131954565172293
+          },
+          {
+            "body_one": "Moon",
+            "body_two": "Jupiter",
+            "name": "Trine",
+            "orb_degrees": 6.459491866528168
+          },
+          {
+            "body_one": "Moon",
+            "body_two": "Saturn",
+            "name": "Conjunction",
+            "orb_degrees": 7.219169808243578
+          },
+          {
+            "body_one": "Mercury",
+            "body_two": "Mars",
+            "name": "Square",
+            "orb_degrees": 5.886606532501446
+          },
+          {
+            "body_one": "Mercury",
+            "body_two": "Jupiter",
+            "name": "Square",
+            "orb_degrees": 2.4860807905439515
+          },
+          {
+            "body_one": "Venus",
+            "body_two": "Jupiter",
+            "name": "Sextile",
+            "orb_degrees": 6.769196049039664
+          },
+          {
+            "body_one": "Venus",
+            "body_two": "Pluto",
+            "name": "Square",
+            "orb_degrees": 2.8922729005930705
+          },
+          {
+            "body_one": "Mars",
+            "body_two": "Saturn",
+            "name": "Trine",
+            "orb_degrees": 5.305974351726377
+          },
+          {
+            "body_one": "Saturn",
+            "body_two": "Uranus",
+            "name": "Sextile",
+            "orb_degrees": 4.8307437302252225
+          },
+          {
+            "body_one": "Saturn",
+            "body_two": "Neptune",
+            "name": "Conjunction",
+            "orb_degrees": 7.509865800903157
+          },
+          {
+            "body_one": "Saturn",
+            "body_two": "Pluto",
+            "name": "Sextile",
+            "orb_degrees": 6.65986937559552
+          },
+          {
+            "body_one": "Uranus",
+            "body_two": "Neptune",
+            "name": "Sextile",
+            "orb_degrees": 2.6791220706779484
+          },
+          {
+            "body_one": "Uranus",
+            "body_two": "Pluto",
+            "name": "Trine",
+            "orb_degrees": 1.8291256453703113
+          },
+          {
+            "body_one": "Neptune",
+            "body_two": "Pluto",
+            "name": "Sextile",
+            "orb_degrees": 0.8499964253076655
+          }
+        ]
+      },
+      "provider_result": null,
+      "tolerance_result": "BLOCKED_BY_CREDENTIALS",
+      "status": "BLOCKED"
+    },
+    {
+      "fixture_id": "E_DUBLIN_UNKNOWN",
+      "display_name": "Dublin unknown birth time",
+      "local_date": "1990-06-20",
+      "local_time": null,
+      "fold": null,
+      "geonames_id": 2964574,
+      "latitude": 53.33306,
+      "longitude": -6.24889,
+      "timezone": "Europe/Dublin",
+      "birth_time_precision": "UNKNOWN",
+      "utc_interval": "1990-06-19T23:00:00Z/1990-06-20T23:00:00Z",
+      "utc_instant": null,
+      "zodiac_system": "tropical",
+      "house_system": "placidus",
+      "aspect_profile": "major aspects, 8 degree maximum orb",
+      "prokerala_endpoint": "/v2/astrology/natal-planet-position",
+      "prokerala_api_version": "v2 (OpenAPI retrieved 2026-08-11)",
+      "calculation_timestamp": "2026-08-11",
+      "independent_reference_sources": [
+        {
+          "name": "Swiss Ephemeris 2.10.03 with official DE441-derived .se1 files",
+          "url": "https://github.com/aloistr/swisseph",
+          "role": "planetary longitudes, speeds, Placidus houses, angles, and derived major aspects"
+        },
+        {
+          "name": "GeoNames and IANA tzdata human verification",
+          "url": "https://download.geonames.org/export/dump/",
+          "role": "coordinates, timezone ID, UTC conversion, and DST fold/gap checks"
+        }
+      ],
+      "reference_retrieval_date": "2026-08-11",
+      "reviewer_notes": "Numerical reference generated independently of Prokerala; shared Swiss Ephemeris ancestry remains possible and unverified.",
+      "reference_result": {
+        "angles": null,
+        "houses": [],
+        "house_placements": null,
+        "planet_ranges": {
+          "Sun": {
+            "start_degrees": 88.38699414004793,
+            "end_degrees": 89.3417772485952,
+            "wraps_zero": false,
+            "sign": "Gemini",
+            "is_retrograde": false
+          },
+          "Moon": {
+            "start_degrees": 48.61584680094412,
+            "end_degrees": 63.608613239581125,
+            "wraps_zero": false,
+            "sign": null,
+            "is_retrograde": false
+          },
+          "Mercury": {
+            "start_degrees": 73.78576239995017,
+            "end_degrees": 75.71848460604262,
+            "wraps_zero": false,
+            "sign": "Gemini",
+            "is_retrograde": false
+          },
+          "Venus": {
+            "start_degrees": 54.02945677004299,
+            "end_degrees": 55.20981963113399,
+            "wraps_zero": false,
+            "sign": "Taurus",
+            "is_retrograde": false
+          },
+          "Mars": {
+            "start_degrees": 14.234858373502961,
+            "end_degrees": 14.947745728874937,
+            "wraps_zero": false,
+            "sign": "Aries",
+            "is_retrograde": false
+          },
+          "Jupiter": {
+            "start_degrees": 106.86070304396357,
+            "end_degrees": 107.0799501232171,
+            "wraps_zero": false,
+            "sign": "Cancer",
+            "is_retrograde": false
+          },
+          "Saturn": {
+            "start_degrees": 293.69762291911684,
+            "end_degrees": 293.76088603500557,
+            "wraps_zero": false,
+            "sign": "Capricorn",
+            "is_retrograde": true
+          },
+          "Uranus": {
+            "start_degrees": 277.94970158174135,
+            "end_degrees": 277.98956241655924,
+            "wraps_zero": false,
+            "sign": "Capricorn",
+            "is_retrograde": true
+          },
+          "Neptune": {
+            "start_degrees": 283.57781225539617,
+            "end_degrees": 283.60367242756337,
+            "wraps_zero": false,
+            "sign": "Capricorn",
+            "is_retrograde": true
+          },
+          "Pluto": {
+            "start_degrees": 225.29736161735892,
+            "end_degrees": 225.3154968528393,
+            "wraps_zero": false,
+            "sign": "Scorpio",
+            "is_retrograde": true
+          }
+        },
+        "sampling": "25 hourly Swiss Ephemeris samples including both local-day boundaries"
+      },
+      "provider_result": null,
+      "tolerance_result": "BLOCKED_BY_CREDENTIALS",
+      "status": "BLOCKED"
+    }
+  ],
+  "timezone_validation": {
+    "dublin_nonexistent": {
+      "local": "2026-03-29T01:30:00",
+      "timezone": "Europe/Dublin",
+      "expected": "NONEXISTENT"
+    },
+    "dublin_ambiguous": {
+      "local": "2026-10-25T01:30:00",
+      "timezone": "Europe/Dublin",
+      "fold_0_utc": "2026-10-25T00:30:00Z",
+      "fold_1_utc": "2026-10-25T01:30:00Z"
+    }
+  }
+}
