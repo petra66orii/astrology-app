@@ -1,0 +1,21 @@
+{
+  "status": "ok",
+  "data": {
+    "houses": [
+      {"id": 1, "number": 1, "start_cusp": {"longitude": 101.25, "degree": 11.25, "zodiac": {"id": 4, "name": "Cancer"}}, "end_cusp": {"longitude": 126.0, "degree": 6.0, "zodiac": {"id": 5, "name": "Leo"}}},
+      {"id": 2, "number": 2, "start_cusp": {"longitude": 126.0, "degree": 6.0, "zodiac": {"id": 5, "name": "Leo"}}, "end_cusp": {"longitude": 153.0, "degree": 3.0, "zodiac": {"id": 6, "name": "Virgo"}}}
+    ],
+    "planet_positions": [
+      {"id": 1, "name": "Sun", "longitude": 280.46, "is_retrograde": false, "degree": 10.46, "house_number": 7, "zodiac": {"id": 10, "name": "Capricorn", "lord": {"id": 7, "name": "Saturn"}}},
+      {"id": 2, "name": "Moon", "longitude": 223.32, "is_retrograde": false, "degree": 13.32, "house_number": 5, "zodiac": {"id": 8, "name": "Scorpio", "lord": {"id": 5, "name": "Mars"}}}
+    ],
+    "angles": [
+      {"id": 101, "name": "Ascendant", "longitude": 101.25, "is_retrograde": false, "degree": 11.25, "house_number": 1, "zodiac": {"id": 4, "name": "Cancer", "lord": {"id": 2, "name": "Moon"}}},
+      {"id": 102, "name": "Midheaven", "longitude": 12.5, "is_retrograde": false, "degree": 12.5, "house_number": 10, "zodiac": {"id": 1, "name": "Aries", "lord": {"id": 5, "name": "Mars"}}}
+    ],
+    "aspects": [
+      {"planet_one": {"id": 1, "name": "Sun"}, "planet_two": {"id": 2, "name": "Moon"}, "aspect": {"id": 4, "name": "Sextile"}, "orb": 2.86}
+    ],
+    "declinations": []
+  }
+}

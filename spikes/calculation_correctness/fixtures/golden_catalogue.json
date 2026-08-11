@@ -1,0 +1,26 @@
+{
+  "catalogue_version": "0.1.0",
+  "retrieval_status": "PRELIMINARY_BLOCKED_BY_CREDENTIALS_AND_REFERENCES",
+  "defaults": {
+    "zodiac_system": "tropical",
+    "house_system": "placidus",
+    "aspect_profile": "major",
+    "reference_requirements": ["Prokerala v2", "independent numerical reference", "human timezone/DST review"]
+  },
+  "fixtures": [
+    {"id": "dublin-exact", "gate_case": true, "geoname_id": 2964574, "place": "Dublin", "country_code": "IE", "coordinates": [53.33306, -6.24889], "timezone": "Europe/Dublin", "local_datetime": "1990-06-15T14:30:00", "precision": "EXACT", "status": "AWAITING_NUMERICAL_REFERENCES"},
+    {"id": "bucharest-exact", "gate_case": true, "geoname_id": 683506, "place": "Bucharest", "country_code": "RO", "coordinates": [44.43225, 26.10626], "timezone": "Europe/Bucharest", "local_datetime": "1985-02-10T09:15:00", "precision": "EXACT", "status": "AWAITING_NUMERICAL_REFERENCES"},
+    {"id": "berlin-exact", "gate_case": false, "geoname_id": 2950159, "place": "Berlin", "country_code": "DE", "coordinates": [52.52437, 13.41053], "timezone": "Europe/Berlin", "local_datetime": "2001-09-09T09:09:00", "precision": "EXACT", "status": "CATALOGUED"},
+    {"id": "new-york-exact", "gate_case": false, "geoname_id": 5128581, "place": "New York City", "country_code": "US", "coordinates": [40.71427, -74.00597], "timezone": "America/New_York", "local_datetime": "1975-05-01T08:20:00", "precision": "EXACT", "status": "CATALOGUED"},
+    {"id": "sydney-exact", "gate_case": true, "geoname_id": 2147714, "place": "Sydney", "country_code": "AU", "coordinates": [-33.86785, 151.20732], "timezone": "Australia/Sydney", "local_datetime": "1992-12-20T18:45:00", "precision": "EXACT", "status": "AWAITING_NUMERICAL_REFERENCES"},
+    {"id": "springfield-illinois", "gate_case": false, "geoname_id": 4250542, "place": "Springfield", "country_code": "US", "admin1_code": "IL", "coordinates": [39.80172, -89.64371], "timezone": "America/Chicago", "local_datetime": "1999-03-20T12:00:00", "precision": "EXACT", "status": "CATALOGUED"},
+    {"id": "springfield-massachusetts", "gate_case": false, "geoname_id": 4951788, "place": "Springfield", "country_code": "US", "admin1_code": "MA", "coordinates": [42.10148, -72.58981], "timezone": "America/New_York", "local_datetime": "1999-03-20T12:00:00", "precision": "EXACT", "status": "CATALOGUED"},
+    {"id": "iasi-unicode", "gate_case": false, "geoname_id": 675810, "place": "Iași", "country_code": "RO", "coordinates": [47.16667, 27.6], "timezone": "Europe/Bucharest", "local_datetime": "2000-01-01T12:00:00", "precision": "EXACT", "status": "CATALOGUED"},
+    {"id": "sao-paulo-unicode", "gate_case": false, "geoname_id": 3448439, "place": "São Paulo", "country_code": "BR", "coordinates": [-23.5475, -46.63611], "timezone": "America/Sao_Paulo", "local_datetime": "2018-11-04T00:30:00", "precision": "EXACT", "status": "CATALOGUED"},
+    {"id": "dublin-dst-start-nonexistent", "gate_case": true, "geoname_id": 2964574, "place": "Dublin", "country_code": "IE", "coordinates": [53.33306, -6.24889], "timezone": "Europe/Dublin", "local_datetime": "2026-03-29T01:30:00", "precision": "EXACT", "expected_time_status": "NONEXISTENT", "status": "TIMEZONE_VALIDATED"},
+    {"id": "dublin-dst-end-fold-0", "gate_case": false, "geoname_id": 2964574, "place": "Dublin", "country_code": "IE", "coordinates": [53.33306, -6.24889], "timezone": "Europe/Dublin", "local_datetime": "2026-10-25T01:30:00", "fold": 0, "expected_utc": "2026-10-25T00:30:00Z", "precision": "EXACT", "status": "TIMEZONE_VALIDATED"},
+    {"id": "dublin-dst-end-fold-1", "gate_case": false, "geoname_id": 2964574, "place": "Dublin", "country_code": "IE", "coordinates": [53.33306, -6.24889], "timezone": "Europe/Dublin", "local_datetime": "2026-10-25T01:30:00", "fold": 1, "expected_utc": "2026-10-25T01:30:00Z", "precision": "EXACT", "status": "TIMEZONE_VALIDATED"},
+    {"id": "bucharest-historical", "gate_case": false, "geoname_id": 683506, "place": "Bucharest", "country_code": "RO", "coordinates": [44.43225, 26.10626], "timezone": "Europe/Bucharest", "local_datetime": "1930-07-01T12:00:00", "precision": "EXACT", "status": "CATALOGUED_FOR_HISTORICAL_TZ_REVIEW"},
+    {"id": "dublin-unknown-time", "gate_case": true, "geoname_id": 2964574, "place": "Dublin", "country_code": "IE", "coordinates": [53.33306, -6.24889], "timezone": "Europe/Dublin", "local_date": "1990-06-15", "precision": "UNKNOWN", "expected_omissions": ["angles", "houses", "house_placements"], "status": "BEHAVIOR_CONTRACT_VALIDATED"}
+  ]
+}

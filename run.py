@@ -22,10 +22,20 @@ SCOPE = [
     ]
 
 # Define constant variables - also borrowed from "Love Sandwiches" project
-CREDS = Credentials.from_service_account_file('creds.json')
-SCOPED_CREDS = CREDS.with_scopes(SCOPE)
-GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open('astrology_app')
+from pathlib import Path
+
+# Temporary audit infrastructure: keep local runs usable without credentials.
+SHEET = None
+
+credentials_path = Path("creds.json")
+
+if credentials_path.exists():
+    CREDS = Credentials.from_service_account_file(credentials_path)
+    SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+    GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+    SHEET = GSPREAD_CLIENT.open("astrology_app")
+else:
+    print("Google Sheets disabled: creds.json not found.")
 
 # Using gzip and pandas to open the compressed dataset and read the data
 with gzip.open('assets/datasets/compressed-cities-df.csv.gz', 'rb') as file:
@@ -654,7 +664,8 @@ def update_worksheet(data, worksheet):
         data (obj): Data provided from the user.
         worksheet (obj): Where the data gets stored.
     """
-    worksheet.append_row(data)
+    if worksheet is not None:
+        worksheet.append_row(data)
 
 
 def main_program():
@@ -662,10 +673,14 @@ def main_program():
     Initiates the entire program
     """
 
-    # Define the sheet variables using gspread's methods
-    horoscope_sheet = SHEET.worksheet('horoscope')
-    birth_chart_sheet = SHEET.worksheet('birth_chart')
-    compatibility_sheet = SHEET.worksheet('compatibility')
+    # Keep persistence optional for local audit runs.
+    if SHEET is None:
+        horoscope_sheet = birth_chart_sheet = compatibility_sheet = None
+    else:
+        # Preserve the existing worksheet behaviour when credentials are valid.
+        horoscope_sheet = SHEET.worksheet('horoscope')
+        birth_chart_sheet = SHEET.worksheet('birth_chart')
+        compatibility_sheet = SHEET.worksheet('compatibility')
 
     option, data = start_app('Welcome to AstrologyApp!')
     try:

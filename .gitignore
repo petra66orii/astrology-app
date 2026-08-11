@@ -5,5 +5,35 @@ env.py
 __pycache__/
 *.py[cod]
 node_modules/
-.github/
 creds.json
+.venv/
+venv/
+env/
+
+# Local configuration and credentials. Commit example templates only.
+.env
+.env.*
+!.env.example
+!.env.*.example
+.secrets/
+credentials*.json
+service-account*.json
+cloudinary_python.txt
+*.pem
+*.key
+
+# Local logs, caches, coverage and generated artifacts.
+*.log
+logs/
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.next/
+build/
+dist/
+artifacts/
+.artifacts/
+generated/
