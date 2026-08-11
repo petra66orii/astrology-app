@@ -43,4 +43,4 @@ Keep live unknown-time charts disabled until they are numerically certified. If 
 
 Investigate a cheaper positions-only source, returned planetary speeds, or a licensed local ephemeris for stability detection before allowing adaptive subdivision. Do not interpolate houses or angles for unknown-time output; they remain omitted.
 
-The proposed staged live-certification ceiling is 5,000 credits: five exact fixtures (2,500) plus one five-sample unknown-time experiment (2,500). The first approval should still authorize only one 500-credit Dublin exact request.
+The proposed staged live-certification ceiling is 4,500 credits: four exact fixtures (2,000) plus one five-sample unknown-time experiment (2,500). The first approval should still authorize only one 500-credit Dublin exact request.
