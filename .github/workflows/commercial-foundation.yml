@@ -2,7 +2,7 @@ name: Commercial foundation
 
 on:
   push:
-    branches: [commercial-mvp/foundation]
+    branches: [commercial-mvp/foundation, commercial-mvp/correctness-certification]
   pull_request:
     paths:
       - "backend/**"
