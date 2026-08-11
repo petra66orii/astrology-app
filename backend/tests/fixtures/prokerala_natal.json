@@ -1,0 +1,21 @@
+{
+  "status": "ok",
+  "data": {
+    "houses": [
+      {"id": 1, "number": 1, "start_cusp": {"longitude": 101.25}, "end_cusp": {"longitude": 126.0}},
+      {"id": 2, "number": 2, "start_cusp": {"longitude": 126.0}, "end_cusp": {"longitude": 153.0}}
+    ],
+    "planet_positions": [
+      {"id": 1, "name": "Sun", "longitude": 280.46, "is_retrograde": false, "degree": 10.46, "house_number": 7, "zodiac": {"id": 10, "name": "Capricorn"}},
+      {"id": 2, "name": "Moon", "longitude": 223.32, "is_retrograde": false, "degree": 13.32, "house_number": 5, "zodiac": {"id": 8, "name": "Scorpio"}}
+    ],
+    "angles": [
+      {"id": 101, "name": "Ascendant", "longitude": 101.25},
+      {"id": 102, "name": "Midheaven", "longitude": 12.5}
+    ],
+    "aspects": [
+      {"planet_one": {"id": 1, "name": "Sun"}, "planet_two": {"id": 2, "name": "Moon"}, "aspect": {"id": 4, "name": "Sextile"}, "orb": 2.86}
+    ],
+    "declinations": []
+  }
+}

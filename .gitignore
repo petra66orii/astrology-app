@@ -37,3 +37,6 @@ dist/
 artifacts/
 .artifacts/
 generated/
+db.sqlite3
+staticfiles/
+*.tsbuildinfo
