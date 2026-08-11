@@ -15,6 +15,9 @@ class GeoNamesDataset(models.Model):
     source_modified_at = models.DateTimeField(null=True, blank=True)
     imported_at = models.DateTimeField(auto_now_add=True)
     row_count = models.PositiveIntegerField(default=0)
+    alternate_name_count = models.PositiveIntegerField(default=0)
+    import_duration_ms = models.PositiveIntegerField(default=0)
+    source_manifest = models.JSONField(default=dict, blank=True)
 
     def __str__(self) -> str:
         return self.version

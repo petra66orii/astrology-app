@@ -26,6 +26,7 @@ cloudinary_python.txt
 *.log
 logs/
 .pytest_cache/
+pytest-cache-files-*/
 .coverage
 coverage.xml
 htmlcov/
@@ -37,6 +38,7 @@ dist/
 artifacts/
 .artifacts/
 generated/
+.certification/
 db.sqlite3
 staticfiles/
 *.tsbuildinfo

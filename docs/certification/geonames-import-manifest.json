@@ -1,0 +1,25 @@
+{
+  "dataset_version": "geonames-cities500-2026-08-11",
+  "retrieved_at": "2026-08-11",
+  "license": "CC BY 4.0",
+  "sources": [
+    {"url": "https://download.geonames.org/export/dump/cities500.zip", "sha256": "aac5e336c3cc10129dc5b6864e6b6638a3d0d488147d460135e5509e39710abb", "bytes": 13517718},
+    {"url": "https://download.geonames.org/export/dump/alternateNamesV2.zip", "sha256": "d8e3459776ea426017fb801cb5966e9e63246d2a85953c1f0695bbd1ee041545", "bytes": 202516267},
+    {"url": "https://download.geonames.org/export/dump/countryInfo.txt", "sha256": "93bafc525813f22e4711ff9ed6d626343094ce48c26388dc7c49189b3d7d5512", "bytes": 31678},
+    {"url": "https://download.geonames.org/export/dump/admin1CodesASCII.txt", "sha256": "34784457b76b988a669dff7c3e4b104e4902c0875643cff019281ac79dfa2992", "bytes": 151572},
+    {"url": "https://download.geonames.org/export/dump/admin2Codes.txt", "sha256": "d006ec5ea5233c7fc3d3bb26a733983e89e7daacba5fa8acdd359ad481cc2fa0", "bytes": 2370309},
+    {"url": "https://download.geonames.org/export/dump/featureCodes_en.txt", "sha256": "d44f129c1cffdeabf759c99fe7ea5b84f615c7f3e7366fb76ccf990f408f6af7", "bytes": 58642}
+  ],
+  "import": {
+    "database": "isolated PostgreSQL 18.3 certification cluster",
+    "input_location_rows": 235215,
+    "active_location_rows": 235215,
+    "selected_alternate_name_rows": 476883,
+    "alternate_language_policy": ["unspecified", "en", "de", "es", "fr", "pt", "ro"],
+    "duration_seconds": 42.167,
+    "database_size_bytes_pretty": "147 MB after VACUUM FULL ANALYZE",
+    "loaded_at_startup": false,
+    "pandas_used": false
+  },
+  "validated_geonames_ids": [2964574, 683506, 2950159, 5128581, 2147714, 4250542, 4951788, 675810, 3448439]
+}

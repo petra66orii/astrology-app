@@ -1,0 +1,22 @@
+{
+  "source": "https://download.geonames.org/export/dump/cities500.zip",
+  "retrieved_on": "2026-08-11",
+  "cities500_sha256": "aac5e336c3cc10129dc5b6864e6b6638a3d0d488147d460135e5509e39710abb",
+  "dataset_version": "geonames-cities500-2026-08-11",
+  "locations": [
+    {"geonames_id": 2964574, "canonical_name": "Dublin", "ascii_name": "Dublin", "country_code": "IE", "country_name": "Ireland", "admin1_code": "L", "admin1_name": "Leinster", "admin2_code": "D", "admin2_name": "Dublin City", "latitude": "53.333060", "longitude": "-6.248890", "population": 1024027, "feature_code": "PPLC", "timezone_id": "Europe/Dublin", "source_modified_on": "2022-03-09"},
+    {"geonames_id": 683506, "canonical_name": "Bucharest", "ascii_name": "Bucharest", "country_code": "RO", "country_name": "Romania", "admin1_code": "B", "admin1_name": "Bucharest", "admin2_code": "179132", "admin2_name": "Municipiul Bucureşti", "latitude": "44.432250", "longitude": "26.106260", "population": 1877155, "feature_code": "PPLC", "timezone_id": "Europe/Bucharest", "source_modified_on": "2026-01-09"},
+    {"geonames_id": 2950159, "canonical_name": "Berlin", "ascii_name": "Berlin", "country_code": "DE", "country_name": "Germany", "admin1_code": "16", "admin1_name": "State of Berlin", "admin2_code": "", "admin2_name": "", "latitude": "52.524370", "longitude": "13.410530", "population": 3426354, "feature_code": "PPLC", "timezone_id": "Europe/Berlin", "source_modified_on": "2025-07-22"},
+    {"geonames_id": 5128581, "canonical_name": "New York City", "ascii_name": "New York City", "country_code": "US", "country_name": "United States", "admin1_code": "NY", "admin1_name": "New York", "admin2_code": "", "admin2_name": "", "latitude": "40.714270", "longitude": "-74.005970", "population": 8804190, "feature_code": "PPLA2", "timezone_id": "America/New_York", "source_modified_on": "2026-03-07"},
+    {"geonames_id": 2147714, "canonical_name": "Sydney", "ascii_name": "Sydney", "country_code": "AU", "country_name": "Australia", "admin1_code": "02", "admin1_name": "New South Wales", "admin2_code": "", "admin2_name": "", "latitude": "-33.867850", "longitude": "151.207320", "population": 5638830, "feature_code": "PPLA", "timezone_id": "Australia/Sydney", "source_modified_on": "2026-06-24"},
+    {"geonames_id": 4250542, "canonical_name": "Springfield", "ascii_name": "Springfield", "country_code": "US", "country_name": "United States", "admin1_code": "IL", "admin1_name": "Illinois", "admin2_code": "167", "admin2_name": "Sangamon County", "latitude": "39.801720", "longitude": "-89.643710", "population": 114394, "feature_code": "PPLA2", "timezone_id": "America/Chicago", "source_modified_on": "2026-04-14"},
+    {"geonames_id": 4951788, "canonical_name": "Springfield", "ascii_name": "Springfield", "country_code": "US", "country_name": "United States", "admin1_code": "MA", "admin1_name": "Massachusetts", "admin2_code": "013", "admin2_name": "Hampden County", "latitude": "42.101480", "longitude": "-72.589810", "population": 154341, "feature_code": "PPLA2", "timezone_id": "America/New_York", "source_modified_on": "2017-05-23"},
+    {"geonames_id": 675810, "canonical_name": "Iaşi", "ascii_name": "Iasi", "country_code": "RO", "country_name": "Romania", "admin1_code": "23", "admin1_name": "Iași County", "admin2_code": "95060", "admin2_name": "Municipiul Iaşi", "latitude": "47.166670", "longitude": "27.600000", "population": 378954, "feature_code": "PPLA", "timezone_id": "Europe/Bucharest", "source_modified_on": "2026-04-14"},
+    {"geonames_id": 3448439, "canonical_name": "São Paulo", "ascii_name": "Sao Paulo", "country_code": "BR", "country_name": "Brazil", "admin1_code": "27", "admin1_name": "São Paulo", "admin2_code": "", "admin2_name": "", "latitude": "-23.547500", "longitude": "-46.636110", "population": 12400232, "feature_code": "PPLA", "timezone_id": "America/Sao_Paulo", "source_modified_on": "2026-04-13"}
+  ],
+  "alternate_names": [
+    {"alternate_name_id": 1604570, "location_id": 675810, "iso_language": "en", "name": "Iasi", "is_preferred": false},
+    {"alternate_name_id": 19916763, "location_id": 675810, "iso_language": "en", "name": "Iași", "is_preferred": true},
+    {"alternate_name_id": 7635176, "location_id": 3448439, "iso_language": "en", "name": "São Paulo", "is_preferred": true}
+  ]
+}

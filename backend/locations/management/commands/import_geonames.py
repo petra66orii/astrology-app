@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import csv
-from datetime import date
+import hashlib
+import time
+from datetime import UTC, date, datetime
 from pathlib import Path
 
 from django.core.management.base import BaseCommand, CommandError
@@ -14,6 +16,14 @@ from locations.search import normalize_search_text
 
 class Command(BaseCommand):
     help = "Import an explicitly downloaded GeoNames cities500 TSV and useful alternate names."
+    official_base_url = "https://download.geonames.org/export/dump"
+    official_filenames = {
+        "cities500": "cities500.zip",
+        "alternateNamesV2": "alternateNamesV2.zip",
+        "countryInfo": "countryInfo.txt",
+        "admin1CodesASCII": "admin1CodesASCII.txt",
+        "admin2Codes": "admin2Codes.txt",
+    }
 
     def add_arguments(self, parser):
         parser.add_argument("cities_file", type=Path)
@@ -27,6 +37,7 @@ class Command(BaseCommand):
 
     @transaction.atomic
     def handle(self, *args, **options):
+        started = time.monotonic()
         cities_file: Path = options["cities_file"]
         if not cities_file.is_file():
             raise CommandError(f"Cities file does not exist: {cities_file}")
@@ -90,13 +101,55 @@ class Command(BaseCommand):
             row_count += len(batch)
 
         alternates_file = options.get("alternate_names")
+        alternate_name_count = 0
         if alternates_file:
             self._import_alternates(alternates_file, imported_ids, batch_size)
+            alternate_name_count = GeoNameAlternateName.objects.filter(
+                location__dataset=dataset, location__retired_at__isnull=True
+            ).count()
         dataset.row_count = row_count
-        dataset.save(update_fields=["row_count"])
-        self.stdout.write(
-            self.style.SUCCESS(f"Imported {row_count} GeoNames locations as {dataset.version}")
+        dataset.alternate_name_count = alternate_name_count
+        dataset.import_duration_ms = round((time.monotonic() - started) * 1000)
+        dataset.source_modified_at = datetime.fromtimestamp(cities_file.stat().st_mtime, UTC)
+        dataset.source_manifest = self._source_manifest(options)
+        dataset.save(
+            update_fields=[
+                "row_count",
+                "alternate_name_count",
+                "import_duration_ms",
+                "source_modified_at",
+                "source_manifest",
+            ]
         )
+        self.stdout.write(
+            self.style.SUCCESS(
+                f"Imported {row_count} GeoNames locations and {alternate_name_count} alternate names as {dataset.version}"
+            )
+        )
+
+    def _source_manifest(self, options) -> dict:
+        files = {
+            "cities500": options.get("cities_file"),
+            "alternateNamesV2": options.get("alternate_names"),
+            "countryInfo": options.get("country_info"),
+            "admin1CodesASCII": options.get("admin1_codes"),
+            "admin2Codes": options.get("admin2_codes"),
+        }
+        manifest = {}
+        for label, path in files.items():
+            if not path:
+                continue
+            digest = hashlib.sha256()
+            with path.open("rb") as source:
+                for block in iter(lambda: source.read(1024 * 1024), b""):
+                    digest.update(block)
+            manifest[label] = {
+                "filename": path.name,
+                "sha256": digest.hexdigest(),
+                "bytes": path.stat().st_size,
+                "source_url": f"{self.official_base_url}/{self.official_filenames[label]}",
+            }
+        return manifest
 
     @staticmethod
     def _upsert_locations(batch):
