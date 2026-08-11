@@ -84,3 +84,31 @@ class NatalChart(ImmutableModel):
     class Meta:
         ordering = ("-created_at",)
         indexes = [models.Index(fields=["owner", "-created_at"], name="chart_owner_created")]
+
+
+class ProviderCreditEvent(models.Model):
+    """Privacy-minimal operational record for a potentially billable provider call."""
+
+    class Flow(models.TextChoices):
+        EXACT = "EXACT", "Exact"
+        UNKNOWN = "UNKNOWN", "Unknown time"
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    provider = models.CharField(max_length=32)
+    endpoint = models.CharField(max_length=120)
+    estimated_credits = models.PositiveIntegerField()
+    chart_id = models.UUIDField(db_index=True)
+    flow = models.CharField(max_length=16, choices=Flow.choices)
+    sample_number = models.PositiveSmallIntegerField(null=True, blank=True)
+    succeeded = models.BooleanField(default=False)
+    failure_code = models.CharField(max_length=64, blank=True)
+    response_http_status = models.PositiveSmallIntegerField(null=True, blank=True)
+    latency_ms = models.PositiveIntegerField(null=True, blank=True)
+    occurred_at = models.DateTimeField(auto_now_add=True, db_index=True)
+
+    class Meta:
+        ordering = ("-occurred_at",)
+        indexes = [
+            models.Index(fields=["provider", "-occurred_at"], name="credit_provider_date"),
+            models.Index(fields=["flow", "-occurred_at"], name="credit_flow_date"),
+        ]

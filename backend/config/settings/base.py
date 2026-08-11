@@ -14,6 +14,14 @@ def env_list(name: str, default: str = "") -> list[str]:
     return [item.strip() for item in os.getenv(name, default).split(",") if item.strip()]
 
 
+def env_int(name: str, default: int, *, minimum: int = 0, maximum: int | None = None) -> int:
+    value = int(os.getenv(name, str(default)))
+    if value < minimum or (maximum is not None and value > maximum):
+        limits = f">= {minimum}" if maximum is None else f"between {minimum} and {maximum}"
+        raise RuntimeError(f"{name} must be {limits}")
+    return value
+
+
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "")
 if not SECRET_KEY:
     raise RuntimeError("DJANGO_SECRET_KEY must be configured")
@@ -116,5 +124,8 @@ ENABLE_LIVE_UNKNOWN_TIME = env_bool("ENABLE_LIVE_UNKNOWN_TIME")
 ASTROLOGY_ENGINE = os.getenv("ASTROLOGY_ENGINE", "prokerala")
 APP_GIT_SHA = os.getenv("APP_GIT_SHA", "")
 GEONAMES_DATASET_VERSION = os.getenv("GEONAMES_DATASET_VERSION", "unconfigured")
-UNKNOWN_TIME_MAX_SAMPLES = 17
+UNKNOWN_TIME_MAX_SAMPLES = env_int("UNKNOWN_TIME_MAX_SAMPLES", 5, minimum=5, maximum=17)
 UNKNOWN_TIME_PROVIDER_CREDITS_PER_SAMPLE = 500
+PROKERALA_LIVE_CREDIT_BUDGET = env_int("PROKERALA_LIVE_CREDIT_BUDGET", 0)
+PROVIDER_DAILY_CREDIT_WARNING_THRESHOLD = env_int("PROVIDER_DAILY_CREDIT_WARNING_THRESHOLD", 50_000)
+USER_DAILY_CHART_CREATION_LIMIT = env_int("USER_DAILY_CHART_CREATION_LIMIT", 10, minimum=1)

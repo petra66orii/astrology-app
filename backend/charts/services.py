@@ -4,9 +4,11 @@ import hashlib
 import json
 from datetime import datetime
 from importlib.metadata import PackageNotFoundError, version
+from uuid import uuid4
 
 from django.conf import settings
 from django.db import transaction
+from django.utils import timezone
 
 from locations.timezones import LocalTimeError, require_utc
 
@@ -28,7 +30,12 @@ def get_chart_engine():
         from .engines.mock import MockAstrologyEngine
 
         return MockAstrologyEngine()
-    return ProkeralaEngine(settings.PROKERALA_CLIENT_ID, settings.PROKERALA_CLIENT_SECRET)
+    budget = settings.PROKERALA_LIVE_CREDIT_BUDGET or None
+    return ProkeralaEngine(
+        settings.PROKERALA_CLIENT_ID,
+        settings.PROKERALA_CLIENT_SECRET,
+        credit_budget=budget,
+    )
 
 
 class ChartCreationError(RuntimeError):
@@ -70,8 +77,17 @@ def _input_snapshot(profile: BirthProfile, fold: int | None) -> dict:
     }
 
 
-@transaction.atomic
 def create_natal_chart(*, profile: BirthProfile, fold: int | None = None) -> NatalChart:
+    today = timezone.localdate()
+    if NatalChart.objects.filter(owner=profile.owner, created_at__date=today).count() >= (
+        settings.USER_DAILY_CHART_CREATION_LIMIT
+    ):
+        raise ChartCreationError(
+            "daily_chart_limit_reached",
+            "The daily chart-creation limit has been reached.",
+            status_code=429,
+        )
+    chart_id = uuid4()
     location = profile.resolved_location
     snapshot = _input_snapshot(profile, fold)
     fingerprint = hashlib.sha256(
@@ -106,6 +122,7 @@ def create_natal_chart(*, profile: BirthProfile, fold: int | None = None) -> Nat
                 utc_datetime=utc_datetime,
                 latitude=float(location.latitude),
                 longitude=float(location.longitude),
+                chart_id=chart_id,
             )
             snapshot["utc_datetime"] = utc_datetime.isoformat().replace("+00:00", "Z")
         else:
@@ -114,6 +131,7 @@ def create_natal_chart(*, profile: BirthProfile, fold: int | None = None) -> Nat
                 timezone_id=location.timezone_id,
                 latitude=float(location.latitude),
                 longitude=float(location.longitude),
+                chart_id=chart_id,
             )
     except ChartCreationError:
         raise
@@ -125,27 +143,29 @@ def create_natal_chart(*, profile: BirthProfile, fold: int | None = None) -> Nat
         ) from exc
 
     metadata = result.metadata
-    calculation_version = ChartCalculationVersion.objects.create(
-        contract_version=metadata.contract_version,
-        adapter_version=metadata.adapter_version,
-        provider=metadata.provider,
-        provider_api_version=metadata.provider_api_version,
-        timezone_data_version=package_version("tzdata"),
-        geonames_dataset_version=location.source_data_version,
-        zodiac_system=metadata.zodiac_system,
-        house_system=metadata.house_system,
-        aspect_profile_version=metadata.aspect_profile,
-        application_git_sha=settings.APP_GIT_SHA,
-    )
-    return NatalChart.objects.create(
-        owner=profile.owner,
-        birth_profile=profile,
-        resolved_location=location,
-        calculation_version=calculation_version,
-        input_snapshot=snapshot,
-        input_fingerprint=fingerprint,
-        normalized_result=result.as_dict(),
-        status=NatalChart.Status.SUCCEEDED,
-        provider_response_hash=metadata.source_response_sha256,
-        calculated_at=metadata.calculated_at,
-    )
+    with transaction.atomic():
+        calculation_version = ChartCalculationVersion.objects.create(
+            contract_version=metadata.contract_version,
+            adapter_version=metadata.adapter_version,
+            provider=metadata.provider,
+            provider_api_version=metadata.provider_api_version,
+            timezone_data_version=package_version("tzdata"),
+            geonames_dataset_version=location.source_data_version,
+            zodiac_system=metadata.zodiac_system,
+            house_system=metadata.house_system,
+            aspect_profile_version=metadata.aspect_profile,
+            application_git_sha=settings.APP_GIT_SHA,
+        )
+        return NatalChart.objects.create(
+            id=chart_id,
+            owner=profile.owner,
+            birth_profile=profile,
+            resolved_location=location,
+            calculation_version=calculation_version,
+            input_snapshot=snapshot,
+            input_fingerprint=fingerprint,
+            normalized_result=result.as_dict(),
+            status=NatalChart.Status.SUCCEEDED,
+            provider_response_hash=metadata.source_response_sha256,
+            calculated_at=metadata.calculated_at,
+        )

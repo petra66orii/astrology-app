@@ -4,6 +4,7 @@ import json
 from datetime import UTC, date, datetime, time
 from pathlib import Path
 from unittest.mock import patch
+from uuid import uuid4
 
 import pytest
 from django.core.exceptions import ValidationError
@@ -22,7 +23,7 @@ from charts.domain import (
 )
 from charts.engines.base import ProviderError
 from charts.engines.prokerala import ProkeralaEngine
-from charts.models import BirthProfile, NatalChart
+from charts.models import BirthProfile, NatalChart, ProviderCreditEvent
 from charts.services import ChartCreationError, create_natal_chart
 
 FIXTURE = Path(__file__).parent / "fixtures" / "prokerala_natal.json"
@@ -146,18 +147,77 @@ def test_exact_prokerala_normalization_and_error_translation(settings):
     engine = ProkeralaEngine("id", "secret")
     payload = json.loads(FIXTURE.read_text(encoding="utf-8"))
     result = engine._normalize_exact(payload)
-    assert result.planets[0].zodiac_sign == "Capricorn"
-    assert result.angles.ascendant == 101.25
+    assert len(result.planets) == 10
+    assert result.planets[0].zodiac_sign == "Aquarius"
+    assert result.angles.ascendant == 107.59484306764475
+    assert result.angles.midheaven == 348.9410905249469
+    assert len(result.houses) == 12
     with pytest.raises(ProviderError) as caught:
         engine._normalize_exact({"status": "ok", "data": {}})
     assert caught.value.code == "provider_schema_mismatch"
+
+
+@pytest.mark.django_db
+def test_documented_provider_response_is_observed_normalized_and_budgeted(settings):
+    settings.RUN_LIVE_PROKERALA_TESTS = True
+    payload = json.loads(FIXTURE.read_text(encoding="utf-8"))
+    engine = ProkeralaEngine("id", "secret", credit_budget=500)
+    with (
+        patch.object(engine, "_access_token", return_value="redacted-test-token"),
+        patch.object(engine, "_read_json", return_value=payload),
+    ):
+        result = engine.calculate_exact_chart(
+            utc_datetime=datetime(1990, 6, 20, 13, 30, tzinfo=UTC),
+            latitude=53.33306,
+            longitude=-6.24889,
+            chart_id=uuid4(),
+        )
+    event = ProviderCreditEvent.objects.get()
+    assert event.estimated_credits == 500
+    assert event.succeeded is True and event.response_http_status == 200
+    assert event.endpoint == "/astrology/natal-planet-position"
+    assert (
+        result.metadata.source_response_sha256
+        == engine._normalize_exact(payload).metadata.source_response_sha256
+    )
+    assert engine.last_response_observation["top_level_keys"] == ["data", "status"]
+    with pytest.raises(ProviderError, match="credit budget"):
+        engine.calculate_exact_chart(
+            utc_datetime=datetime(1990, 6, 20, 13, 30, tzinfo=UTC),
+            latitude=53.33306,
+            longitude=-6.24889,
+        )
+
+
+@pytest.mark.django_db
+def test_provider_failure_is_recorded_without_retry(settings):
+    settings.RUN_LIVE_PROKERALA_TESTS = True
+    engine = ProkeralaEngine("id", "secret", credit_budget=500)
+    failure = ProviderError(
+        "provider_http_503", "The provider was unavailable.", True, http_status=503
+    )
+    with (
+        patch.object(engine, "_access_token", return_value="redacted-test-token"),
+        patch.object(engine, "_read_json", side_effect=failure) as request,
+        pytest.raises(ProviderError, match="unavailable"),
+    ):
+        engine.calculate_exact_chart(
+            utc_datetime=datetime(1990, 6, 20, 13, 30, tzinfo=UTC),
+            latitude=53.33306,
+            longitude=-6.24889,
+        )
+    event = ProviderCreditEvent.objects.get()
+    assert request.call_count == 1
+    assert event.succeeded is False
+    assert event.failure_code == "provider_http_503"
+    assert event.response_http_status == 503
 
 
 def test_unknown_sampler_never_exposes_time_dependent_fields(settings):
     settings.ENABLE_LIVE_UNKNOWN_TIME = True
 
     class SamplingEngine(ProkeralaEngine):
-        def calculate_exact_chart(self, *, utc_datetime, latitude, longitude):
+        def calculate_exact_chart(self, *, utc_datetime, latitude, longitude, **kwargs):
             hours = utc_datetime.hour + utc_datetime.minute / 60
             return NormalizedNatalChart(
                 BirthTimePrecision.EXACT,

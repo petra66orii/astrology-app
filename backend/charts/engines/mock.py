@@ -2,6 +2,7 @@
 
 import hashlib
 from datetime import UTC, datetime
+from uuid import UUID
 
 from charts.domain import (
     Aspect,
@@ -66,7 +67,13 @@ class MockAstrologyEngine(ProkeralaEngine):
         )
 
     def calculate_exact_chart(
-        self, *, utc_datetime: datetime, latitude: float, longitude: float
+        self,
+        *,
+        utc_datetime: datetime,
+        latitude: float,
+        longitude: float,
+        chart_id: UUID | None = None,
+        **kwargs,
     ) -> NormalizedNatalChart:
         epoch_hours = utc_datetime.timestamp() / 3600
         positions = []

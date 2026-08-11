@@ -1,0 +1,8 @@
+{
+  "classification": "official_documented_example_not_live_response",
+  "source": "https://api.prokerala.com/spec/astrology.v2.yaml",
+  "source_sha256": "b015dc1d8744b3571497f83abb1d8b0e849af6029a4c7694a451f7b1a9ef357e",
+  "retrieved_on": "2026-08-11",
+  "openapi_path": "/astrology/natal-planet-position",
+  "live_schema_verification": "BLOCKED_BY_CREDENTIALS"
+}
